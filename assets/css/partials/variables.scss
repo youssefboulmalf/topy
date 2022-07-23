@@ -1,0 +1,53 @@
+:root {
+  // fonts
+  --main-font: 'Poppins';
+  --font-title: 'Archivo';
+
+  // colors
+  --color-white: white;
+  --color-brown-light: #795f40;
+  --color-black: #333333;
+  --color-text: black;
+  --color-white: #FFFFFF;
+  --color-gray: #706c61;
+  --color-red: #af3629;
+  --color-mud: #6d413c;
+}
+
+@mixin inputPlaceholder() {
+  $selector: '';
+  $prefixes: (
+      moz: "::-moz",
+      webkit: "::-webkit",
+      ie: ":-ms"
+  );
+  @each $prop, $value in $prefixes {
+      @if $prop != "moz" {
+          $selector: #{$value}-input-placeholder;
+      } @else {
+          $selector: #{$value}-placeholder;
+      }
+      @if & {
+          &#{$selector} {
+              @content;
+          }
+      } @else {
+          #{$selector} {
+              @content;
+          }
+      }
+  }
+  &::placeholder {
+    @content;
+  }
+}
+
+
+@keyframes skeleton {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}

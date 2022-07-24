@@ -1,22 +1,23 @@
-import useSwr from 'swr';
+
 import ProductItem from '../../product-item';
 import ProductsLoading from './loading';
 import { ProductTypeList } from 'types';
+import { useDispatch, useSelector } from 'react-redux';
 
 const ProductsContent = () => {
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error } = useSwr('/api/products', fetcher);
 
-  if (error) return <div>Failed to load users</div>;
+  const { filteredProducts } = useSelector((state: any) => state.productPage);
+
+
   return (
     <>
-      {!data && 
+      {!filteredProducts && 
         <ProductsLoading />
       }
 
-      {data &&
+      {filteredProducts &&
         <section className="products-list">
-          {data.map((item: ProductTypeList)  => (
+          {filteredProducts.map((item: ProductTypeList)  => (
             <ProductItem 
               id={item.id} 
               name={item.name}

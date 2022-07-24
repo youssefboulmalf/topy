@@ -1,18 +1,30 @@
 import { useState } from 'react';
 import Checkbox from './form-builder/checkbox';
-import CheckboxColor from './form-builder/checkbox-color';
 import Slider from 'rc-slider';
 
 // data
 import productsTypes from './../../utils/data/products-types';
-import productsColors from './../../utils/data/products-colors';
-import productsSizes from './../../utils/data/products-sizes';
+import productsMonths from '../../utils/data/products-moths';
+import { useDispatch } from 'react-redux';
+import { addFilter, removeFilter } from 'store/reducers/productPage';
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
 const ProductsFilter = () => {
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const dispatch = useDispatch();
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>, filter: any) =>{
+
+
+  if(e.target.checked){
+    dispatch(addFilter(filter))
+  }
+  else{
+    dispatch(removeFilter(filter))
+  }
+}
 
   const addQueryParams = () => {
     // query params changes
@@ -34,7 +46,9 @@ const ProductsFilter = () => {
               <Checkbox 
                 key={type.id} 
                 name="product-type" 
-                label={type.name} 
+                label={type.name}
+                onChange={handleChange}
+                filter={type.location}
               />
             ))}
           </div>
@@ -50,7 +64,7 @@ const ProductsFilter = () => {
         <div className="products-filter__block">
           <button type="button">Month</button>
           <div className="products-filter__block__content checkbox-square-wrapper">
-            {productsSizes.map(type => (
+            {productsMonths.map(type => (
               <Checkbox 
                 type="square" 
                 key={type.id} 

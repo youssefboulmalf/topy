@@ -20,24 +20,19 @@ const Footer = () => {
           <div className="site-footer__links">
             <ul>
               <li>Shopping online</li>
-              <li><a href="#">Order Status</a></li>
-              <li><a href="#">Shipping and Delivery</a></li>
-              <li><a href="#">Returns</a></li>
               <li><a href="#">Payment options</a></li>
               <li><a href="#">Contact Us</a></li>
             </ul>
             <ul>
               <li>Information</li>
-              <li><a href="#">Gift Cards</a></li>
-              <li><a href="#">Find a store</a></li>
               <li><a href="#">Newsletter</a></li>
-              <li><a href="#">Bacome a member</a></li>
+              <li><a href="#">Blogr</a></li>
               <li><a href="#">Site feedback</a></li>
             </ul>
             <ul>
               <li>Contact</li>
-              <li><a href="#">store@uikit.com</a></li>
-              <li><a href="#">Hotline: +1 131 138 138</a></li>
+              <li><a href="#">topytours@gmail.com</a></li>
+              <li><a href="#">telphone: +255 131 138 138</a></li>
             </ul>
           </div>
         </div>

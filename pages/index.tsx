@@ -1,5 +1,6 @@
 import Layout from '../layouts/Main';
 import PageIntro from '../components/page-intro';
+import GoogleReviews from '../components/google-reviews'
 import ProductsFeatured from '../components/products-featured';
 import Footer from '../components/footer';
 import Subscribe from '../components/subscribe';
@@ -8,7 +9,16 @@ import { BiBadgeCheck } from 'react-icons/bi';
 import { BsStopwatch } from 'react-icons/bs';
 import { FaTripadvisor } from 'react-icons/fa';
 
-const IndexPage = () => {
+
+export async function getServerSideProps() {
+  const res = await fetch('https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key=AIzaSyAGVwlJ3u6yZ3KAbIBo-PMX_Z8dmS6PQP0');
+  const data = await res.text();;
+  return {
+    props: {data},
+  }
+}
+
+const IndexPage = ({data} : {data: React.ReactNode}) => {
   return (
     <Layout>
       <PageIntro />
@@ -89,6 +99,7 @@ const IndexPage = () => {
       </section>
 
       <ProductsFeatured />
+      <GoogleReviews data={data}/>
       <Subscribe />
       <Footer />
     </Layout>

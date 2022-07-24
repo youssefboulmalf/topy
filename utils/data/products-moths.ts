@@ -1,4 +1,4 @@
-export const productsSizes = [
+export const productsMonths = [
     {
       id: '1',
       label: 'Jan',
@@ -49,4 +49,4 @@ export const productsSizes = [
     },
   ];
   
-  export default productsSizes;
+  export default productsMonths;

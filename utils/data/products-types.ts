@@ -2,33 +2,34 @@ export const productsTypes = [
   {
     id: '1',
     name: 'Serengeti national park',
-    count: '172',
+    location: 'serengeti'
   },
   {
     id: '2',
     name: 'Tarangiri national park',
-    count: '131',
+    location: 'tarangiri'
   },
   {
     id: '3',
     name: 'Ngorongoro conservation Area',
-    count: '131',
+    location: 'ngorongoro'
   },
   {
     id: '4',
     name: 'Moshi',
-    count: '56',
+    location: 'moshi'
   },
   {
     id: '5',
     name: 'Mount Kilimanjaro',
-    count: '8',
+    location: 'kilimanjaro'
   },
   {
     id: '6',
     name: 'Mount Meru',
-    count: '8',
+    location: 'meru'
   },
 ];
+
 
 export default productsTypes;

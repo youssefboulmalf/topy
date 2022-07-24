@@ -1,7 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import productsColors from './../../../utils/data/products-colors';
-import productsSizes from './../../../utils/data/products-sizes';
-import CheckboxColor from './../../products-filter/form-builder/checkbox-color';
+import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux';
 import { some } from 'lodash';
 import { addProduct } from 'store/reducers/cart';
@@ -13,16 +11,18 @@ type ProductContent = {
   product: ProductType;
 }
 
+
 const Content = ({ product }: ProductContent) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState<number>(1);
   const [date, setDate] = useState<string>('none');
-
+  
   const onDateSet = (e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value);
-
+  
   const { favProducts } = useSelector((state: RootState) => state.user);
   const isFavourite = some(favProducts, productId => productId === product.id);
-
+  const router = useRouter()
+  
   const toggleFav = () => {
     dispatch(toggleFavProduct(
       { 
@@ -47,6 +47,7 @@ const Content = ({ product }: ProductContent) => {
     }
 
     dispatch(addProduct(productStore));
+    router.push('/cart')
   }
 
   return (

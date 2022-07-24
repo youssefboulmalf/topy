@@ -662,6 +662,7 @@ h5 {
     position: absolute;
     display: none;
     background-color: rgba(255, 255, 255, .12);
+    color: transparent;
 
     @include breakpoint(phone) {
       width: 52px;
@@ -719,8 +720,6 @@ h5 {
       content: '\e811';
     }
   }
-
-  .swiper-pagination-progressbar {}
 
   .shop-data {
     bottom: 0;
@@ -2943,8 +2942,8 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FFF;
-    background-color: var(--color-white);
+    color: black;
+    background-color: var(--color-red);
     border-radius: 100%;
     position: absolute;
     z-index: 100;
@@ -3463,3 +3462,212 @@ h5 {
     }
   }
 }
+
+.greviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 150px;
+
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include breakpoint(phone) {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include breakpoint(tablet-lg) {
+    max-width: 980px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include breakpoint(desktop-lg) {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    align-self: flex-start;
+    font-size: 29px;
+    margin-bottom: 60px;
+    font-weight: 300;
+    color: var(--color-black);
+  }
+
+  .greviews-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .greviews-box__head {
+      display: flex;
+      flex-direction: row;
+      background-color: rgba(17, 17, 17, 0.05);
+      padding: 25px 30px;
+      width: 100%;
+      border-radius: 8px;
+      padding: 18px 24px 24px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+
+      .greviews-box__head-intro {
+        display: flex;
+        flex-direction: column;
+
+        .greviews-box__head-intro-text {
+          display: flex;
+          flex-direction: row;
+          font-size: 20px;
+          align-items: center;
+
+          .googleLogo {
+            font-size: 50px;
+            margin-right: 18px;
+          }
+
+          .starLogo {
+            display: flex;
+            flex-direction: row;
+            margin: 8px;
+            font-size: 20px;
+
+            .stars-filled {
+              fill: gold;
+            }
+
+            .stars-notFilled {
+              fill: grey;
+            }
+          }
+
+          h3 {
+            color: white;
+          }
+
+          p {
+            font-size: 12px;
+          }
+        }
+
+        .greviews-box__head-intro-logo {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly
+        }
+      }
+
+      .greviews-box__head-button {
+        border-radius: 4px;
+        border-color: rgba(0, 0, 0, 0);
+        color: rgb(255, 255, 255);
+        font-family: inherit;
+        font-style: normal;
+        background-color: rgb(25, 123, 255);
+        padding: 8px 20px;
+      }
+    }
+
+    .greviews-box__body {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-around;
+
+      .swiper-button-next:after {
+        font-family: swiper-icons;
+        font-size: var(--swiper-navigation-size);
+        text-transform: none !important;
+        letter-spacing: 0;
+        font-variant: initial;
+        line-height: 1;
+        color: black;
+      }
+      
+      .swiper-button-prev:after {
+        font-family: swiper-icons;
+        font-size: var(--swiper-navigation-size);
+        text-transform: none !important;
+        letter-spacing: 0;
+        font-variant: initial;
+        line-height: 1;
+        color: black;
+      }
+      
+
+      .review-box {
+        display: flex;
+        background-color: rgba(17, 17, 17, 0.05);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 305px;
+        min-height: 380px;
+        border-radius: 8px;
+        margin: 15px;
+        padding: 18px 26px;
+
+        .review-box__intro {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .review-box__avatar {
+            margin-right: 18px;
+            width: 45px;
+          }
+
+          .review-name {
+            color: black;
+            font-size: 12px;
+          }
+
+          .review-box__rating {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 12px;
+
+            .starLogos {
+              display: flex;
+              flex-direction: row;
+              margin-right: 8px;
+              font-size: 16px;
+
+              .stars-filled {
+                fill: gold;
+              }
+
+              .stars-notFilled {
+                fill: grey;
+              }
+            }
+
+            p {
+              font-size: 7px;
+              color: black;
+            }
+          }
+        }
+
+        .review-box__text {
+          margin-top: 20px;
+          font-size: 12px;
+          color: black;
+          font-weight: 500;
+          line-height: 1.5em;
+        }
+
+      }
+    }
+  }
+}
+

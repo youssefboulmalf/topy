@@ -2,12 +2,12 @@ import React, { ReactNode } from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import Stars from './stars'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useState, useEffect } from 'react';
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Pagination } from "swiper";
 
 
 
@@ -21,12 +21,12 @@ if (process.browser) {
   if (window.innerWidth > 768) {
     slidesPerView = 2;
     spaceBetween = 65;
-    centeredSlides = false;
+    centeredSlides = true;
   }
   if (window.innerWidth > 1024) {
     slidesPerView = 3;
     spaceBetween = 65;
-    centeredSlides = false;
+    centeredSlides = true;
   }
 }
 
@@ -41,6 +41,13 @@ type Review = {
   time: number
 }
 export default function GoogleReviews({ data }: { data: any }) {
+
+  const [domLoaded, setDomLoaded] = useState(false);
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
+
   const dataObject = JSON.parse(data)
 
   const { rating, reviews } = dataObject.result;
@@ -65,6 +72,7 @@ export default function GoogleReviews({ data }: { data: any }) {
           <button className='greviews-box__head-button' onClick={()=>window.location.replace("https://www.google.com/search?q=topy+tours&sxsrf=ALiCzsbAejZ-eSit0BY8rJQMTkeTohZfzw%3A1658668777332&ei=6UbdYozzE8m6kgWBlabwAQ&oq=topy+tours&gs_lcp=Cgdnd3Mtd2l6EAEYADIECCMQJzILCC4QxwEQrwEQywEyBQgAEMsBOg0ILhDHARCvARCwAxANOgcIABCwAxANOgkIABAeELADEA1KBAhBGAFKBAhGGABQowFYowFgoAxoAXAAeACAAWKIAWKSAQExmAEAoAEByAEKwAEB&sclient=gws-wiz")}>Write a review</button>
         </div>
         <div className='greviews-box__body'>
+        {domLoaded && (
           <Swiper
             spaceBetween={spaceBetween}
             loop={true}
@@ -98,7 +106,7 @@ export default function GoogleReviews({ data }: { data: any }) {
               )
             })
             }
-          </Swiper>
+          </Swiper>)}
         </div>
       </div>
     </div>

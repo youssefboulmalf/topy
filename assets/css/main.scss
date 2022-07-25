@@ -3590,7 +3590,7 @@ h5 {
         letter-spacing: 0;
         font-variant: initial;
         line-height: 1;
-        color: black;
+        color: rgba(255, 255, 255, .32);
       }
       
       .swiper-button-prev:after {
@@ -3600,7 +3600,8 @@ h5 {
         letter-spacing: 0;
         font-variant: initial;
         line-height: 1;
-        color: black;
+        color: rgba(255, 255, 255, .32);;
+        padding-right: 12px;
       }
       
 

@@ -7,12 +7,12 @@ export default function Stars({ rating, className }: { rating: number, className
     return (
         <div className={className}>
             {Array.from(Array(rating)).map((c, index) => {
-                return <AiFillStar className='stars-filled' />
+                return <AiFillStar key={index} className='stars-filled' />
             })
             }
             {nonFilled != 0 ?
                 Array.from(Array(rating)).map((c, index) => {
-                    return <AiFillStar className='stars-notFilled' />
+                    return <AiFillStar key={index} className='stars-notFilled' />
                 }) : null
             }
         </div>

@@ -3,13 +3,20 @@ import SwiperCore, { EffectFade, Navigation } from 'swiper';
 import { BsStopwatch } from 'react-icons/bs';
 import { FaTripadvisor, FaArrowLeft } from 'react-icons/fa';
 import { BiBadgeCheck } from 'react-icons/bi';
+import { useState, useEffect } from 'react';
 
 SwiperCore.use([EffectFade, Navigation]);
 
 const PageIntro = () => {
 
+  const [domLoaded, setDomLoaded] = useState(false);
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+
   return (
     <section className="page-intro">
+      {domLoaded && (
       <Swiper navigation effect="fade"  className="swiper-wrapper">
         <SwiperSlide>
           <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.jpg')" }}>
@@ -32,7 +39,7 @@ const PageIntro = () => {
             </div>
           </div>
         </SwiperSlide>
-      </Swiper>
+      </Swiper>)}
 
       <div className="shop-data">
         <div className="container">

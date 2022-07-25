@@ -1,8 +1,10 @@
 import ProductItem from './../../product-item';
 import { ProductTypeList } from 'types';
+import { useState, useEffect } from 'react';
 
 // import Swiper core and required components
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 let slidesPerView = 1.3;
 let centeredSlides = true;
@@ -27,8 +29,16 @@ type ProductsCarouselType = {
 const ProductsCarousel = ({ products }: ProductsCarouselType) => {
   if (!products) return <div>Loading</div>;
 
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
+  
+
   return (
     <div className="products-carousel">
+      {domLoaded && (
       <Swiper 
       spaceBetween={spaceBetween} 
       loop={true} 
@@ -50,7 +60,7 @@ const ProductsCarousel = ({ products }: ProductsCarouselType) => {
             />
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper>)}
     </div>
   )
 }

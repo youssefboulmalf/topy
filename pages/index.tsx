@@ -10,8 +10,11 @@ import { BsStopwatch } from 'react-icons/bs';
 import { FaTripadvisor } from 'react-icons/fa';
 
 
+const key = process.env.GOOGLE_MAPS_API_KEY
+
+
 export async function getServerSideProps() {
-  const res = await fetch('https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key=AIzaSyAGVwlJ3u6yZ3KAbIBo-PMX_Z8dmS6PQP0');
+  const res = await fetch('https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key='+key);
   const data = await res.text();;
   return {
     props: {data},

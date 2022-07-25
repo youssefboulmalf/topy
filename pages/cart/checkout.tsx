@@ -29,7 +29,7 @@ const CheckoutPage = () => {
       <section className="cart">
         <div className="container">
           <div className="cart__intro">
-            <h3 className="cart__title">Shipping and Payment</h3>
+            <h3 className="cart__title">confirmation and Payment</h3>
             <CheckoutStatus step="checkout" />
           </div>
 

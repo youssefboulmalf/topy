@@ -2,7 +2,7 @@
 import ProductItem from '../../product-item';
 import ProductsLoading from './loading';
 import { ProductTypeList } from 'types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const ProductsContent = () => {
 

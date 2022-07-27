@@ -46,6 +46,10 @@ const cartSlice = createSlice({
       // find index of product
       state.cartItems.splice(indexSameProduct(state, action.payload), 1);
     },
+    removeAllProduct(state) {
+      // find index of product
+      state.cartItems = [];
+    },
     setCount(state, action: PayloadAction<AddProductType>) {
       // find index and add new count on product count
       const indexItem = indexSameProduct(state, action.payload.product);
@@ -55,5 +59,5 @@ const cartSlice = createSlice({
 })
 
 
-export const { addProduct, removeProduct, setCount } = cartSlice.actions
+export const { addProduct, removeProduct, setCount, removeAllProduct } = cartSlice.actions
 export default cartSlice.reducer

@@ -1,5 +1,5 @@
 {
-  "name": "next-ecommerce",
+  "name": "next-topy",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,19 +11,23 @@
   "keywords": [
     "react",
     "reactjs",
-    "ecommerce",
+    "safari",
     "nextjs",
     "next"
   ],
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
+    "bcrypt": "^5.0.1",
+    "cookie": "^0.5.0",
+    "final-form": "^4.20.7",
     "firebase": "^9.9.1",
     "lodash": "^4.17.21",
-    "next": "^12.1.0",
+    "next": "^12.2.0",
     "next-redux-wrapper": "^6.0.2",
     "rc-slider": "^9.3.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-final-form": "^6.5.9",
     "react-hook-form": "^6.8.2",
     "react-icons": "^4.4.0",
     "react-rater": "^5.1.1",

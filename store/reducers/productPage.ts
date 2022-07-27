@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, current } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { remove } from "lodash";
 
 type ToggleFilter = {
@@ -67,8 +67,8 @@ const productPageSlice = createSlice({
               }
             }
           }
+          return false
         });
-        console.log(filterdArray);
         state.filters.locations = [...oldFilters, action.payload];
         state.filteredProducts = filterdArray;
         return;
@@ -98,6 +98,7 @@ const productPageSlice = createSlice({
             product.price < state.filters.priceFilter[1]
           );
         }
+        return false
       });
       state.filteredProducts = filterdArray;
       return;
@@ -106,10 +107,8 @@ const productPageSlice = createSlice({
       const filter = action.payload;
       const oldFilters = state.filters.locations;
       const newFilters = remove(oldFilters, (stateFilter) => {
-        console.log(stateFilter);
         return stateFilter != filter;
       });
-      console.log(filter, newFilters);
 
       const oldProducts = state.products;
       const filterdArray = oldProducts.filter((product: any) => {
@@ -123,6 +122,7 @@ const productPageSlice = createSlice({
             ) {
               return true;
             }
+            return false
           }
         } else {
           return (
@@ -130,6 +130,7 @@ const productPageSlice = createSlice({
             product.price < state.filters.priceFilter[1]
           );
         }
+        return false
       });
       state.filters.locations = newFilters;
       state.filteredProducts = filterdArray;

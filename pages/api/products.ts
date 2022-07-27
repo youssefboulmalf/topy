@@ -4,7 +4,7 @@ import { productsCol } from '../../utils/firebase'
 
 
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (_req: NextApiRequest, res: NextApiResponse) => {
 
   const snapshot = await getDocs(productsCol);
   const products = snapshot.docs.map(doc => doc.data());

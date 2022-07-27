@@ -21,7 +21,8 @@ const createCollection = <T = DocumentData>(collectionName: string) => {
   }
 
 // Import all your model types
-import { products } from './data/types/products'
+import { Products, Order } from '../types/index'
 
 // export all your collections
-export const productsCol = createCollection<products>('products')
+export const productsCol = createCollection<Products>('products')
+export const ordersCol = createCollection<Order>('orders')

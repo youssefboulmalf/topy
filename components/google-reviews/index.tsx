@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { FcGoogle } from 'react-icons/fc'
 import Stars from './stars'
 import { Swiper, SwiperSlide } from 'swiper/react';

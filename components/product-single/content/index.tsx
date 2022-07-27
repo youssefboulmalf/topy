@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux';
 import { some } from 'lodash';
@@ -16,6 +16,7 @@ const Content = ({ product }: ProductContent) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState<number>(1);
   const [date, setDate] = useState<string>('none');
+  const [dateError, setdateError] = useState<boolean>(false);
   
   const onDateSet = (e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value);
   
@@ -32,6 +33,12 @@ const Content = ({ product }: ProductContent) => {
   }
 
   const addToCart = () => {
+
+    if(date == 'none'){
+      setdateError(true);
+      return
+    }
+
     const productToSave: ProductStoreType = { 
       id: product.id,
       name: product.name,
@@ -46,8 +53,9 @@ const Content = ({ product }: ProductContent) => {
       product: productToSave
     }
 
+    setdateError(false);
     dispatch(addProduct(productStore));
-    router.push('/cart')
+    router.push('/cart');
   }
 
   return (
@@ -68,6 +76,7 @@ const Content = ({ product }: ProductContent) => {
       <div className="product-content__filters">
         <div className="product-filter-item">
           <input className='product-filter-item-date' onChange={(event) => onDateSet(event)} type={"date"} />
+          {dateError?<p className='errorMessage'>You have to select a date</p>:null}
         </div>
         <div className="product-filter-item">
           <h5>Group size:</h5>

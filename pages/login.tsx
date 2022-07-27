@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useForm } from "react-hook-form";
 import { server } from '../utils/server'; 
 import { postData } from '../utils/services'; 
+import { useState } from 'react';
 
 type LoginMail = {
   email: string;
@@ -12,13 +13,19 @@ type LoginMail = {
 const LoginPage = () => {
   const { register, handleSubmit, errors } = useForm();
 
+  const [authenticationFail, setAuthenticationFail] = useState(false)
+
   const onSubmit = async (data: LoginMail) => {
-    const res = await postData(`${server}/api/login`, {
+    postData(`${server}/api/login`, {
       email: data.email,
       password: data.password
-    });
-
-    console.log(res);
+    }).then(r=>{
+      console.log(register, r)
+      window.location.replace("/")
+    }).catch(e=>{
+      console.log('e', e)
+      setAuthenticationFail(true)
+    })
   };
 
   return (
@@ -32,20 +39,20 @@ const LoginPage = () => {
           </div>
 
           <div className="form-block">
-            <h2 className="form-block__title">Log in</h2>
-            <p className="form-block__description">Lorem Ipsum is simply dummy text of the printing and typesetting 
-            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+            <h2 className="form-block__title">Admin log in</h2>
+            {/* <p className="form-block__description">Lorem Ipsum is simply dummy text of the printing and typesetting 
+            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p> */}
             
             <form className="form" onSubmit={handleSubmit(onSubmit)}>
               <div className="form__input-row">
                 <input 
                   className="form__input" 
-                  placeholder="email" 
+                  placeholder="Username" 
                   type="text" 
                   name="email"
                   ref={register({
                     required: true,
-                    pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+
                   })}
                 />
 
@@ -69,32 +76,12 @@ const LoginPage = () => {
                 {errors.password && errors.password.type === 'required' && 
                   <p className="message message--error">This field is required</p>
                 }
+                {authenticationFail? <p className="message message--error">Invalid credentials</p> : null}
               </div>
 
-              <div className="form__info">
-                <div className="checkbox-wrapper">
-                  <label htmlFor="check-signed-in" className={`checkbox checkbox--sm`}>
-                    <input 
-                      type="checkbox" 
-                      name="keepSigned" 
-                      id="check-signed-in" 
-                      ref={register({ required: false })}
-                    />
-                    <span className="checkbox__check"></span>
-                    <p>Keep me signed in</p>
-                  </label>
-                </div>
-                <a href="/forgot-password" className="form__info__forgot-password">Forgot password?</a>
-              </div>
-
-              <div className="form__btns">
-                <button type="button" className="btn-social fb-btn"><i className="icon-facebook"></i>Facebook</button>
-                <button type="button" className="btn-social google-btn"><img src="/images/icons/gmail.svg" alt="gmail" /> Gmail</button>
-              </div>
 
               <button type="submit" className="btn btn--rounded btn--yellow btn-submit">Sign in</button>
 
-              <p className="form__signup-link">Not a member yet? <a href="/register">Sign up</a></p>
             </form>
           </div>
 

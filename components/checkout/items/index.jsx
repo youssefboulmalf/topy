@@ -5,8 +5,8 @@ const CheckoutItems = () => {
 
   return (
     <ul className="checkout-items">
-      {cartItems.map(item => (
-        <li className="checkout-item">
+      {cartItems.map((index,item) => (
+        <li key={index} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">
               <img src={item.thumb} />

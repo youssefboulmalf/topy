@@ -4,7 +4,6 @@ import Slider from 'rc-slider';
 
 // data
 import productsTypes from './../../utils/data/products-types';
-import productsMonths from '../../utils/data/products-moths';
 import { useDispatch } from 'react-redux';
 import { addFilter, removeFilter, addPriceFilter } from 'store/reducers/productPage';
 

@@ -4,7 +4,6 @@ import useSwr from 'swr';
 const ProductsFeatured = () => {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data } = useSwr('/api/products', fetcher);
-  console.log(data)
 
   return (
     <section className="section section-products-featured">

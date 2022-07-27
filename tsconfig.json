@@ -55,6 +55,5 @@
   },
   "exclude": [],
   "include": [
-    "pages"
-  ]
+    "pages"  ]
 }

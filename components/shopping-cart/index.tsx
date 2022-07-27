@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import CheckoutStatus from '../../components/checkout-status';
 import Item from './item';
 import { RootState } from 'store';
 
@@ -42,10 +41,9 @@ const ShoppingCart = () => {
                     id={item.id}
                     thumb={item.thumb}
                     name={item.name}
-                    color={item.color}
                     price={item.price}
-                    size={item.size}
                     count={item.count}
+                    date={item.date}
                   />
                 ))}
               </tbody>
@@ -63,7 +61,7 @@ const ShoppingCart = () => {
 
           <div className="cart-actions__items-wrapper">
             <p className="cart-actions__total">Total cost <strong>${priceTotal().toFixed(2)}</strong></p>
-            <a href="/cart/checkout" className="btn btn--rounded btn--yellow">Checkout</a>
+            {cartItems.length > 0?<a href="/cart/checkout" className="btn btn--rounded btn--yellow">Checkout</a>:null}
           </div>
         </div>
       </div>

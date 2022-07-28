@@ -1,15 +1,15 @@
 html,
 body {
-  overflow-x: hidden !important
+  overflow-x: hidden !important;
 }
 
 // imports styles
-@import './partials/variables.scss';
-@import './partials/breakpoints.scss';
-@import './partials/reset.css';
+@import "./partials/variables.scss";
+@import "./partials/breakpoints.scss";
+@import "./partials/reset.css";
 
 // google fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
 @mixin placeholder {
   &::-webkit-input-placeholder {
@@ -163,7 +163,7 @@ button {
   cursor: pointer;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
   /* Firefox */
 }
@@ -230,8 +230,8 @@ h5 {
 
 .block {
   .block__title {
-    font-size: 14px;
-    margin-bottom: 23px;
+    font-size: 25px;
+    margin-bottom: 40px;
   }
 }
 
@@ -257,7 +257,7 @@ h5 {
   &:before,
   &:after,
   span {
-    content: '';
+    content: "";
     display: block;
     width: 20px;
     height: 2px;
@@ -267,7 +267,7 @@ h5 {
     position: absolute;
     left: 50%;
     margin-left: -10px;
-    transition: none .3s ease .3s;
+    transition: none 0.3s ease 0.3s;
     transition-property: transform, top, bottom, right, opacity;
   }
 
@@ -306,6 +306,11 @@ h5 {
     padding: 11px 20px;
     font-weight: 500;
     text-transform: uppercase;
+
+    &:hover {
+      transform: scale(1.015);
+      filter: brightness(95%);
+    }
 
     @include breakpoint(phone) {
       font-size: 13px;
@@ -367,7 +372,7 @@ h5 {
         margin-left: 10px;
 
         &:before {
-          content: '/ ';
+          content: "/ ";
           margin-right: 3px;
         }
       }
@@ -382,20 +387,19 @@ h5 {
   left: 0;
   z-index: 999;
   height: 65px;
-  color: #FFF;
+  color: #fff;
   box-shadow: none;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   @include breakpoint(phone) {
     height: 100px;
   }
 
   .btn-hamburger {
-
     &:before,
     &:after,
     span {
-      background-color: #FFF;
+      background-color: #fff;
     }
   }
 
@@ -406,7 +410,7 @@ h5 {
   }
 
   .site-logo {
-    color: #FFF;
+    color: #fff;
   }
 
   .site-header__btn-avatar {
@@ -441,9 +445,9 @@ h5 {
     }
 
     i {
-      color: #FFF;
+      color: #fff;
       z-index: 10;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       position: relative;
       font-size: 18px;
     }
@@ -458,9 +462,9 @@ h5 {
     margin-left: auto;
     margin-right: auto;
     position: fixed;
-    background-color: #FFF;
-    transition: all .3s ease;
-    border-left: 1px solid #E5E5E5;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    border-left: 1px solid #e5e5e5;
 
     @include breakpoint(tablet-lg) {
       position: relative;
@@ -499,7 +503,7 @@ h5 {
       @include breakpoint(tablet-lg) {
         width: auto;
         padding: 0;
-        color: #FFF;
+        color: #fff;
         margin-right: 76px;
         display: inline-block;
         font-size: 14px;
@@ -512,7 +516,6 @@ h5 {
     background-color: #431f07;
 
     .btn-hamburger {
-
       &:before,
       &:after,
       span {
@@ -549,7 +552,7 @@ h5 {
 
         input {
           @include breakpoint(tablet-lg) {
-            border: 1px solid #ABABAB;
+            border: 1px solid #ababab;
           }
         }
       }
@@ -568,8 +571,8 @@ h5 {
     left: 0;
     height: 100vh;
     right: 0;
-    transition: all .3s ease;
-    background-color: #FFF;
+    transition: all 0.3s ease;
+    background-color: #fff;
 
     @include breakpoint(tablet-lg) {
       position: static;
@@ -599,7 +602,7 @@ h5 {
       left: 50%;
       transform: translate(-50%, -50%);
       border-bottom: 1px solid black;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       background-color: transparent;
 
       @include inputPlaceholder {
@@ -625,7 +628,7 @@ h5 {
       width: 80%;
       text-align: center;
       padding-right: 40px;
-      background-color: #FFF;
+      background-color: #fff;
 
       @include breakpoint(tablet-lg) {
         width: 300px;
@@ -661,7 +664,7 @@ h5 {
     align-items: center;
     position: absolute;
     display: none;
-    background-color: rgba(255, 255, 255, .12);
+    background-color: rgba(255, 255, 255, 0.12);
     color: transparent;
 
     @include breakpoint(phone) {
@@ -681,13 +684,13 @@ h5 {
     }
 
     &:before {
-      color: #FFF;
-      content: '\e80b';
-      font-family: 'icons';
+      color: #fff;
+      content: "\e80b";
+      font-family: "icons";
     }
 
     &:hover {
-      background: #FFF;
+      background: #fff;
 
       &:before {
         color: #000;
@@ -717,7 +720,7 @@ h5 {
     }
 
     &:before {
-      content: '\e811';
+      content: "\e811";
     }
   }
 
@@ -736,7 +739,7 @@ h5 {
 
     &:before {
       background: #d9c5a2;
-      content: '';
+      content: "";
       left: 0;
       bottom: 0;
       top: 0;
@@ -811,14 +814,14 @@ h5 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
 
     @include breakpoint(phone) {
       height: 90vh;
     }
 
     &:before {
-      content: '';
+      content: "";
       left: 0;
       z-index: 5;
       width: 100%;
@@ -846,7 +849,7 @@ h5 {
 
       h2 {
         font-size: 36px;
-        color: #FFF;
+        color: #fff;
         font-weight: 600;
         line-height: 120%;
         margin-bottom: 45px;
@@ -955,7 +958,7 @@ h5 {
     }
 
     &:before {
-      content: '';
+      content: "";
       top: 0;
       left: 0;
       width: 100%;
@@ -988,17 +991,13 @@ h5 {
 
 .product-item {
   &.product-item--loading {
-
     .product__image,
     .product__description h3,
     .product__price h4 {
       &:before {
-        content: '';
+        content: "";
         background-color: #eee;
-        background-image: linear-gradient(90deg,
-            #eee,
-            #f5f5f5,
-            #eee);
+        background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
         animation-name: skeleton;
         animation-duration: 1.2s;
         animation-timing-function: ease-in-out;
@@ -1047,7 +1046,7 @@ h5 {
 
   .product__image {
     height: 200px;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     margin-bottom: 20px;
     position: relative;
 
@@ -1056,7 +1055,7 @@ h5 {
       margin-bottom: 30px;
     }
 
-    >a {
+    > a {
       height: 100%;
       width: 100%;
       display: block;
@@ -1075,7 +1074,7 @@ h5 {
       font-size: 12px;
       border: none;
       height: 32px;
-      background-color: #FFF;
+      background-color: #fff;
       position: absolute;
       box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.16);
 
@@ -1089,7 +1088,7 @@ h5 {
 
       &:hover,
       &.btn-heart--active {
-        color: #FFF;
+        color: #fff;
         background-color: var(--color-white);
       }
     }
@@ -1106,7 +1105,7 @@ h5 {
     }
 
     .product__discount {
-      color: #FFF;
+      color: #fff;
       padding: 5px 9px;
       border-radius: 40px;
       font-weight: 500;
@@ -1191,7 +1190,7 @@ h5 {
 .subscribe {
   .subscribe__content {
     padding: 35px 20px;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -1208,7 +1207,7 @@ h5 {
     }
 
     &:before {
-      content: '';
+      content: "";
       width: 100%;
       left: 0;
       top: 0;
@@ -1226,7 +1225,7 @@ h5 {
 
     h4 {
       font-size: 18px;
-      color: #FFF;
+      color: #fff;
       margin-bottom: 20px;
       line-height: 130%;
       margin-right: auto;
@@ -1430,7 +1429,7 @@ h5 {
 
   .site-footer__bottom {
     padding: 20px 0;
-    border-top: 1px solid #EBEBEB;
+    border-top: 1px solid #ebebeb;
 
     @include breakpoint(phone) {
       padding: 33px 0;
@@ -1472,7 +1471,7 @@ h5 {
       color: white;
       background: #4f5233;
       border-radius: 10px;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
       justify-content: center;
       align-items: center;
       margin-bottom: 28px;
@@ -1511,7 +1510,7 @@ h5 {
   position: relative;
 
   .checkbox-color {
-    width: calc(100%/6);
+    width: calc(100% / 6);
   }
 }
 
@@ -1554,7 +1553,7 @@ h5 {
     overflow: hidden;
   }
 
-  input:checked+.checkbox__check {
+  input:checked + .checkbox__check {
     background-color: #dbdbdb;
   }
 }
@@ -1592,7 +1591,7 @@ h5 {
       z-index: 99;
       padding: 20px 20px;
       background-color: #d9c5a2;
-      transition: all .4s ease;
+      transition: all 0.4s ease;
 
       @include breakpoint(phone) {
         top: 134px;
@@ -1628,8 +1627,8 @@ h5 {
       padding: 8px 16px;
       z-index: 100;
       font-size: 12px;
-      background-color: #FFF;
-      border-bottom: 1px solid #E6E6E6;
+      background-color: #fff;
+      border-bottom: 1px solid #e6e6e6;
 
       @include breakpoint(phone) {
         top: 100px;
@@ -1641,7 +1640,7 @@ h5 {
 
       i {
         display: inline-block;
-        transition: all .3s ease;
+        transition: all 0.3s ease;
         transform: rotate(270deg);
       }
 
@@ -1661,7 +1660,7 @@ h5 {
         padding: 24px 31px;
       }
 
-      >button {
+      > button {
         font-size: 12px;
         display: flex;
         align-items: center;
@@ -1677,7 +1676,6 @@ h5 {
     }
 
     .rc-slider {
-
       .rc-slider-handle {
         height: 20px;
         width: 20px;
@@ -1743,7 +1741,7 @@ h5 {
         right: 0;
         display: none;
         z-index: 50;
-        border: 1px solid #E5E5E5;
+        border: 1px solid #e5e5e5;
         background-color: #d9c5a2;
 
         &.products-order-open {
@@ -1813,7 +1811,6 @@ h5 {
   }
 }
 
-
 .checkbox {
   font-weight: 300;
   font-size: 14px;
@@ -1833,7 +1830,7 @@ h5 {
 
     &:before {
       display: block;
-      content: '';
+      content: "";
       position: absolute;
       top: 4px;
       left: 9px;
@@ -1843,14 +1840,14 @@ h5 {
       transform: scale(1) rotate(45deg);
       z-index: 100;
       border: 1px solid black;
-      -webkit-transition: all .2s linear;
-      -o-transition: all .2s linear;
-      transition: all .2s linear;
+      -webkit-transition: all 0.2s linear;
+      -o-transition: all 0.2s linear;
+      transition: all 0.2s linear;
       border-width: 0 2px 2px 0;
     }
   }
 
-  input:checked+.checkbox__check {
+  input:checked + .checkbox__check {
     &:before {
       opacity: 1;
     }
@@ -1858,9 +1855,9 @@ h5 {
 
   &.checkbox--square {
     position: relative;
-    width: calc(100%/6);
+    width: calc(100% / 6);
 
-    input:checked+.checkbox__check {
+    input:checked + .checkbox__check {
       background-color: var(--color-mud);
       border-color: #000;
 
@@ -1869,7 +1866,7 @@ h5 {
       }
     }
 
-    input:checked~p {
+    input:checked ~ p {
       color: #fff;
     }
 
@@ -1916,17 +1913,18 @@ h5 {
       }
     }
   }
-
 }
 
 .checkbox-square-wrapper {
   display: flex;
   flex-wrap: wrap;
 
-  .checkbox {}
+  .checkbox {
+  }
 }
 
-.checkbox-wrapper {}
+.checkbox-wrapper {
+}
 
 .products-list {
   display: flex;
@@ -1942,20 +1940,20 @@ h5 {
   }
 
   .product-item {
-    width: calc(100%/2 - 15px);
+    width: calc(100% / 2 - 15px);
     margin-bottom: 50px;
     margin-right: 15px;
 
     @include breakpoint(phone) {
       margin-right: 33px;
       margin-bottom: 55px;
-      width: calc(100%/3 - 33px);
+      width: calc(100% / 3 - 33px);
     }
 
     @include breakpoint(tablet-lg) {
       margin-right: 63px;
       margin-bottom: 85px;
-      width: calc(100%/3 - 63px);
+      width: calc(100% / 3 - 63px);
     }
   }
 }
@@ -1965,10 +1963,10 @@ h5 {
 
   &:before {
     right: 15px;
-    font-family: 'icons';
+    font-family: "icons";
     display: block;
     position: absolute;
-    content: '\e801';
+    content: "\e801";
     top: 50%;
     color: black;
     font-size: 16px;
@@ -2039,7 +2037,7 @@ h5 {
 
   &:hover,
   &.btn-heart--active {
-    color: #FFF;
+    color: #fff;
     background-color: var(--color-white);
   }
 }
@@ -2138,7 +2136,7 @@ h5 {
 
     .product-gallery__thumb {
       @include breakpoint(phone) {
-        height: calc(100%/5 - 15px);
+        height: calc(100% / 5 - 15px);
       }
     }
   }
@@ -2209,7 +2207,7 @@ h5 {
     &:last-of-type {
       margin-bottom: 0;
     }
-    .errorMessage{
+    .errorMessage {
       color: red;
       font-size: 13px;
       margin-top: 10px;
@@ -2233,7 +2231,6 @@ h5 {
       color-scheme: dark;
       margin-top: 20px;
     }
-
 
     .checkbox-color-wrapper {
       .checkbox-color {
@@ -2299,7 +2296,7 @@ h5 {
     right: 0;
     text-align: right;
     line-height: 146%;
-    color: #CECECE;
+    color: #cecece;
     font-size: 12px;
     position: absolute;
   }
@@ -2317,7 +2314,7 @@ h5 {
 
   .product-on-sale {
     background-color: var(--color-red);
-    color: #FFF;
+    color: #fff;
     font-size: 11px;
     font-weight: 500;
     padding: 5px 9px;
@@ -2536,7 +2533,7 @@ h5 {
       }
     }
 
-    >span {
+    > span {
       font-size: 12px;
       color: #000;
       margin: 0 auto;
@@ -2548,7 +2545,7 @@ h5 {
       margin-left: auto;
       border-radius: 40px;
       position: relative;
-      background-color: #DBDBDB;
+      background-color: #dbdbdb;
 
       .punctuation-item__bar__current {
         position: absolute;
@@ -2577,7 +2574,7 @@ h5 {
 
     &.active {
       i {
-        color: #FFF;
+        color: #fff;
         background: var(--color-white);
       }
     }
@@ -2594,9 +2591,9 @@ h5 {
       right: 15px;
       height: 1px;
       left: 45px;
-      content: '';
+      content: "";
       display: block;
-      background: #EEEEEE;
+      background: #eeeeee;
       margin-top: -1px;
       position: absolute;
     }
@@ -2637,6 +2634,42 @@ h5 {
 
     @include breakpoint(phone) {
       margin-bottom: 66px;
+    }
+  }
+
+
+
+    .checkout__submit-button {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-green);
+      margin-top: 20px;
+      svg{
+        margin-left: 8px;
+        font-size: 20px;
+        stroke: white;
+      }
+    }
+
+  .checkout__order-message {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      margin: 10px 0px 65px 0px;
+      font-size: 28px;
+    }
+    h2 {
+      margin: 0px 0px 22px 0px;
+    }
+    h3 {
+      margin: 8px 0px;
     }
   }
 
@@ -2830,7 +2863,7 @@ h5 {
         &:before {
           font-weight: 600;
           margin-right: 15px;
-          content: attr(data-label)': ';
+          content: attr(data-label) ": ";
 
           @include breakpoint(phone) {
             display: none;
@@ -2896,7 +2929,7 @@ h5 {
   .cart-product__img {
     height: 70px;
     width: 70px;
-    background: #FAFAFA;
+    background: #fafafa;
     border-radius: 100%;
     margin-right: 25px;
 
@@ -3018,15 +3051,25 @@ h5 {
     &.form__input-row--two {
       display: flex;
       justify-content: space-between;
+      margin-bottom: 40px;
 
       .form__col {
         width: 49%;
+        position: relative;
+        p{
+          position: absolute;
+          color: red;
+          font-size: 13px;
+          top: 119%;
+          left: 10%;
+        }
       }
     }
   }
 
   h2 {
-    margin: 18px 0px;
+    margin: 40px 0px;
+    color: grey;
   }
 
   .form__input {
@@ -3050,7 +3093,7 @@ h5 {
   }
 
   .select-wrapper {
-    height: 100%;
+    height: 50px;
 
     &:before {
       right: 25px;
@@ -3162,13 +3205,13 @@ h5 {
 }
 
 .fb-btn {
-  color: #FFF;
+  color: #fff;
   font-weight: 600;
   border-radius: 40px;
   padding: 12px 30px;
   display: flex;
   align-items: center;
-  background-color: #3B5998;
+  background-color: #3b5998;
 
   @include breakpoint(phone) {
     padding: 14px 58px;
@@ -3186,7 +3229,7 @@ h5 {
   align-items: center;
   font-weight: 600;
   border-radius: 40px;
-  border: 1px solid #F1584D;
+  border: 1px solid #f1584d;
   padding: 12px 30px;
 
   @include breakpoint(phone) {
@@ -3201,7 +3244,7 @@ h5 {
 .tooltip {
   z-index: 10;
   width: auto;
-  background: #FF0000;
+  background: #ff0000;
   color: white;
   border-radius: 6px;
   padding: 10px 15px;
@@ -3210,7 +3253,7 @@ h5 {
   &:before {
     width: 0;
     height: 0;
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     margin-left: -3px;
@@ -3265,6 +3308,40 @@ h5 {
     &:last-of-type {
       margin-bottom: 0;
     }
+    .how-list{
+      list-style-type: none;
+    }
+    .list-item{
+      font-size: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 20px;
+      line-height: 1.2rem;
+      &:marker{
+        color: var(--color-green);
+      }
+      .logo-wrapper{
+        width: 35px;
+        margin-right: 15px;
+
+      }
+      .logo-pencil{
+        font-size: 25px;
+      }
+      .logo-send{
+        font-size: 32px;
+      }
+      .logo-whatsapp{
+        font-size: 30px;
+      }
+      .logo-payment{
+        font-size: 32px;
+      }
+      .logo-vacation{
+        font-size: 30px;
+      }
+    }
   }
 
   .checkout__btns {
@@ -3282,6 +3359,11 @@ h5 {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    .btn {
+      width: 174px;
+      height: 47px;
+      font-size: 10px;
+    }
   }
 
   .checkout__col-6 {
@@ -3334,7 +3416,7 @@ h5 {
 
     .round-item {
       margin-right: 6px;
-      width: calc(100%/3 - 6px);
+      width: calc(100% / 3 - 6px);
     }
   }
 
@@ -3343,7 +3425,7 @@ h5 {
 
     .round-item {
       margin-right: 6px;
-      width: calc(100%/2 - 6px);
+      width: calc(100% / 2 - 6px);
     }
   }
 
@@ -3399,7 +3481,7 @@ h5 {
         }
 
         span {
-          color: #C4C4C4;
+          color: grey;
           font-size: 12px;
         }
       }
@@ -3451,7 +3533,7 @@ h5 {
   margin-left: 20px;
 
   &:before {
-    content: '';
+    content: "";
     height: 4px;
     width: 4px;
     border-radius: 100%;
@@ -3567,7 +3649,7 @@ h5 {
         .greviews-box__head-intro-logo {
           display: flex;
           flex-direction: row;
-          justify-content: space-evenly
+          justify-content: space-evenly;
         }
       }
 
@@ -3595,9 +3677,9 @@ h5 {
         letter-spacing: 0;
         font-variant: initial;
         line-height: 1;
-        color: rgba(255, 255, 255, .32);
+        color: rgba(255, 255, 255, 0.32);
       }
-      
+
       .swiper-button-prev:after {
         font-family: swiper-icons;
         font-size: var(--swiper-navigation-size);
@@ -3605,10 +3687,9 @@ h5 {
         letter-spacing: 0;
         font-variant: initial;
         line-height: 1;
-        color: rgba(255, 255, 255, .32);;
+        color: rgba(255, 255, 255, 0.32);
         padding-right: 12px;
       }
-      
 
       .review-box {
         display: flex;
@@ -3671,9 +3752,10 @@ h5 {
           font-weight: 500;
           line-height: 1.5em;
         }
-
       }
     }
   }
+  .hidden {
+    visibility: hidden;
+  }
 }
-

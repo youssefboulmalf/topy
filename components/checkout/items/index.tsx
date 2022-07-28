@@ -1,11 +1,13 @@
 import { useSelector } from 'react-redux';
+import { ProductStoreType } from 'types';
+import { RootState } from "store";
 
 const CheckoutItems = () => {
-  const { cartItems } = useSelector(state => state.cart);
+  const { cartItems } = useSelector((state: RootState) => state.cart);
 
   return (
     <ul className="checkout-items">
-      {cartItems.map((index,item) => (
+      {cartItems.map((item: ProductStoreType, index:number) => (
         <li key={index} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">

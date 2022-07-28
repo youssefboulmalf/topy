@@ -4,6 +4,7 @@ import { BsStopwatch } from 'react-icons/bs';
 import { FaTripadvisor, FaArrowLeft } from 'react-icons/fa';
 import { BiBadgeCheck } from 'react-icons/bi';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 SwiperCore.use([EffectFade, Navigation]);
 
@@ -19,22 +20,22 @@ const PageIntro = () => {
       {domLoaded && (
       <Swiper navigation effect="fade"  className="swiper-wrapper">
         <SwiperSlide>
-          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.jpg')" }}>
+          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.jpg')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
                 <h2>Your journey begins</h2>
-                <a href="#" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Shop now</a>
+                <Link href={'/products'}><a href="#" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Shop now</a></Link>
               </div>
             </div>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.jpg')" }}>
+          <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.jpg')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
                 <h2>Make your house into a home</h2>
-                <a href="products" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Shop now</a>
+                <Link href={'/products'}><a href="products" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Shop now</a></Link>
               </div>
             </div>
           </div>

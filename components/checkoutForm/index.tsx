@@ -17,7 +17,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
     <Form
       onSubmit={onSubmit}
       render={({ handleSubmit }) => (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form" id="checkoutForm" onSubmit={handleSubmit}>
           <h2>Group meber 1</h2>
           <div className="form__input-row form__input-row--two">
             <div className="form__col">
@@ -34,7 +34,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                       placeholder="Email"
                       className="form__input form__input--sm"
                     />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                    {meta.error && meta.touched && <p>{meta.error}</p>}
                   </div>
                 )}
               </Field>
@@ -56,7 +56,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                       placeholder="Phone number"
                       className="form__input form__input--sm"
                     />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                    {meta.error && meta.touched && <p>{meta.error}</p>}
                   </div>
                 )}
               </Field>
@@ -80,7 +80,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                       placeholder="First name"
                       className="form__input form__input--sm"
                     />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                    {meta.error && meta.touched && <p>{meta.error}</p>}
                   </div>
                 )}
               </Field>
@@ -102,7 +102,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                       placeholder="Last name"
                       className="form__input form__input--sm"
                     />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                    {meta.error && meta.touched && <p>{meta.error}</p>}
                   </div>
                 )}
               </Field>
@@ -126,7 +126,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                       placeholder="Age"
                       className="form__input form__input--sm"
                     />
-                    {meta.error && meta.touched && <span>{meta.error}</span>}
+                    {meta.error && meta.touched && <p>{meta.error}</p>}
                   </div>
                 )}
               </Field>
@@ -142,7 +142,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
             </div>
           </div>
 
-          {Array.from(Array(groupCounter - 1)).map((_c, index) => {
+          {groupCounter > 0? Array.from(Array(groupCounter - 1)).map((_c, index) => {
             return (
               <div key={index}>
                 <h2>Group meber {index + 2}</h2>
@@ -164,7 +164,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                             className="form__input form__input--sm"
                           />
                           {meta.error && meta.touched && (
-                            <span>{meta.error}</span>
+                            <p>{meta.error}</p>
                           )}
                         </div>
                       )}
@@ -188,7 +188,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                             className="form__input form__input--sm"
                           />
                           {meta.error && meta.touched && (
-                            <span>{meta.error}</span>
+                            <p>{meta.error}</p>
                           )}
                         </div>
                       )}
@@ -213,7 +213,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                             className="form__input form__input--sm"
                           />
                           {meta.error && meta.touched && (
-                            <span>{meta.error}</span>
+                            <p>{meta.error}</p>
                           )}
                         </div>
                       )}
@@ -231,7 +231,7 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
                 </div>
               </div>
             );
-          })}
+          }):null}
           <div className="checkout__count-buttons">
             <button
               type="button"
@@ -260,9 +260,10 @@ const CheckoutForm = ({onSubmit, groupCounter, setGroupCounter}: any) => {
               Remove group member
             </button>
           </div>
-          <button className="btn btn--rounded btn--border" type="submit">
-            Make enquiry
-          </button>
+          <div className="checkout__submit-buttons">
+          <input value="" className="hidden" id='submit-form' type="submit">
+          </input>
+          </div>
         </form>
       )}
     />

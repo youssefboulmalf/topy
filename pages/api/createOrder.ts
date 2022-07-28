@@ -1,13 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ordersCol } from "../../utils/firebase";
-import { doc, setDoc } from "@firebase/firestore";
+import { doc, setDoc, getDocs} from "@firebase/firestore";
 import { CheckoutOrder, Order } from "../../types";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const orderData: CheckoutOrder = req.body;
-  console.log(req.body)
-  //todo fetch up to date id data
-  const id = "2";
+  const snapshot = await getDocs(ordersCol);
+  const count = snapshot.size + 1
+  const id : string = count.toString();
   const order = {
     id: id,
     creationDate: Date.now(),
@@ -19,7 +19,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const orderRef = doc(ordersCol, id);
   setDoc(orderRef, order)
     .then(() => {
-      console.log('somthing')
       res.status(200).send('good')
     })
     .catch((e) => {

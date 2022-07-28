@@ -4,7 +4,7 @@ import { doc, setDoc } from "@firebase/firestore";
 import { CheckoutOrder, Order } from "../../types";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const orderData: CheckoutOrder = JSON.parse(req.body);
+  const orderData: CheckoutOrder = req.body;
   console.log(req.body)
   //todo fetch up to date id data
   const id = "2";
@@ -18,9 +18,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } as Order
   const orderRef = doc(ordersCol, id);
   setDoc(orderRef, order)
-    .then(() => res.status(200))
+    .then(() => {
+      console.log('somthing')
+      res.status(200).send('good')
+    })
     .catch((e) => {
       console.log(e);
-      res.status(400)
+      res.status(400).send(e)
     });
 };

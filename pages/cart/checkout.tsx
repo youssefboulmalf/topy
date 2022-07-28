@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CheckoutStatus from "../../components/checkout-status";
 import CheckoutItems from "../../components/checkout/items";
-import { Form, Field } from "react-final-form";
 import { GroupMemberObject, GroupMember, ProductStoreType } from "types";
 import { RootState } from "store";
-import { createOrder } from "store/reducers/checkoutPage";
+import { createOrder, createOrderFailed, createOrderSucces } from "store/reducers/checkoutPage";
 import { removeAllProduct } from "store/reducers/cart";
+import CheckoutForm from '../../components/checkoutForm'
 const CheckoutPage = () => {
   const dispatch = useDispatch();
   let cartItems: ProductStoreType[];
 
-  const orderState =  useSelector((state: RootState) => state.checkoutPage.orderPlaced)
+  const orderState =  useSelector((state: RootState) => state.checkoutPage)
 
 
   const priceTotal = useSelector((state: RootState) => {
@@ -46,25 +46,22 @@ const CheckoutPage = () => {
       totalPrice: priceTotal,
       groupTotal: groupCounter,
     };
-    dispatch(createOrder(payload));
+    try{
+    dispatch(createOrder(payload))
+    dispatch(createOrderSucces('succes'))
     dispatch(removeAllProduct());
+  }
+  catch(error){
+    dispatch(createOrderFailed(error))
+  }
   };
 
-  const required = (value: any) => (value ? undefined : "Required");
-  const mustBeNumber = (value: any) =>
-    isNaN(value) ? "Must be a number" : undefined;
-  const composeValidators =
-    (...validators) =>
-    (value) =>
-      validators.reduce(
-        (error, validator) => error || validator(value),
-        undefined
-      );
+
 
   return (
     <Layout>
       <section className="cart">
-          {!orderState?(
+          {!orderState.orderPlaced && !orderState.orderFailed?(
         <div className="container">
           <div className="cart__intro">
             <h3 className="cart__title">confirmation and Payment</h3>
@@ -75,271 +72,7 @@ const CheckoutPage = () => {
             <div className="checkout__col-6">
               <div className="block">
                 <h3 className="block__title">Group information</h3>
-                <Form
-                  onSubmit={onSubmit}
-                  render={({ handleSubmit }) => (
-                    <form className="form" onSubmit={handleSubmit}>
-                      <h2>Group meber 1</h2>
-                      <div className="form__input-row form__input-row--two">
-                        <div className="form__col">
-                          <Field
-                            component="input"
-                            type="text"
-                            name="GroupMember1.email"
-                            validate={required}
-                          >
-                            {({ input, meta }) => (
-                              <div>
-                                <input
-                                  {...input}
-                                  placeholder="Email"
-                                  className="form__input form__input--sm"
-                                />
-                                {meta.error && meta.touched && (
-                                  <span>{meta.error}</span>
-                                )}
-                              </div>
-                            )}
-                          </Field>
-                        </div>
-
-                        <div className="form__col">
-                          <Field
-                            component="input"
-                            className="form__input form__input--sm"
-                            type="text"
-                            placeholder="Phone number"
-                            name="GroupMember1.phone"
-                            validate={composeValidators(required, mustBeNumber)}
-                          >
-                            {({ input, meta }) => (
-                              <div>
-                                <input
-                                  {...input}
-                                  placeholder="Phone number"
-                                  className="form__input form__input--sm"
-                                />
-                                {meta.error && meta.touched && (
-                                  <span>{meta.error}</span>
-                                )}
-                              </div>
-                            )}
-                          </Field>
-                        </div>
-                      </div>
-
-                      <div className="form__input-row form__input-row--two">
-                        <div className="form__col">
-                          <Field
-                            component="input"
-                            className="form__input form__input--sm"
-                            type="text"
-                            placeholder="First name"
-                            name="GroupMember1.firstName"
-                            validate={required}
-                          >
-                            {({ input, meta }) => (
-                              <div>
-                                <input
-                                  {...input}
-                                  placeholder="First name"
-                                  className="form__input form__input--sm"
-                                />
-                                {meta.error && meta.touched && (
-                                  <span>{meta.error}</span>
-                                )}
-                              </div>
-                            )}
-                          </Field>
-                        </div>
-
-                        <div className="form__col">
-                          <Field
-                            component="input"
-                            className="form__input form__input--sm"
-                            type="text"
-                            placeholder="Last name"
-                            name="GroupMember1.lastName"
-                            validate={required}
-                          >
-                            {({ input, meta }) => (
-                              <div>
-                                <input
-                                  {...input}
-                                  placeholder="Last name"
-                                  className="form__input form__input--sm"
-                                />
-                                {meta.error && meta.touched && (
-                                  <span>{meta.error}</span>
-                                )}
-                              </div>
-                            )}
-                          </Field>
-                        </div>
-                      </div>
-
-                      <div className="form__input-row form__input-row--two">
-                        <div className="form__col">
-                          <Field
-                            component="input"
-                            className="form__input form__input--sm"
-                            type="text"
-                            placeholder="Age"
-                            name="GroupMember1.age"
-                            validate={composeValidators(required, mustBeNumber)}
-                          >
-                            {({ input, meta }) => (
-                              <div>
-                                <input
-                                  {...input}
-                                  placeholder="Age"
-                                  className="form__input form__input--sm"
-                                />
-                                {meta.error && meta.touched && (
-                                  <span>{meta.error}</span>
-                                )}
-                              </div>
-                            )}
-                          </Field>
-                        </div>
-
-                        <div className="form__col">
-                          <div className="select-wrapper select-form">
-                            <select>
-                              <option>Nationality</option>
-                              <option value="Argentina">Argentina</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-
-                      {Array.from(Array(groupCounter - 1)).map((_c, index) => {
-                        return (
-                          <div key={index}>
-                            <h2>Group meber {index + 2}</h2>
-                            <div className="form__input-row form__input-row--two">
-                              <div className="form__col">
-                                <Field
-                                  component="input"
-                                  className="form__input form__input--sm"
-                                  type="text"
-                                  placeholder="First name"
-                                  name={`GroupMember${index + 2}.firstName`}
-                                  validate={required}
-                                >
-                                  {({ input, meta }) => (
-                                    <div>
-                                      <input
-                                        {...input}
-                                        placeholder="First name"
-                                        className="form__input form__input--sm"
-                                      />
-                                      {meta.error && meta.touched && (
-                                        <span>{meta.error}</span>
-                                      )}
-                                    </div>
-                                  )}
-                                </Field>
-                              </div>
-
-                              <div className="form__col">
-                                <Field
-                                  component="input"
-                                  className="form__input form__input--sm"
-                                  type="text"
-                                  placeholder="Last name"
-                                  name={`GroupMember${index + 2}.lastName`}
-                                  validate={required}
-                                >
-                                  {({ input, meta }) => (
-                                    <div>
-                                      <input
-                                        {...input}
-                                        placeholder="Last name"
-                                        className="form__input form__input--sm"
-                                      />
-                                      {meta.error && meta.touched && (
-                                        <span>{meta.error}</span>
-                                      )}
-                                    </div>
-                                  )}
-                                </Field>
-                              </div>
-                            </div>
-
-                            <div className="form__input-row form__input-row--two">
-                              <div className="form__col">
-                                <Field
-                                  component="input"
-                                  className="form__input form__input--sm"
-                                  type="text"
-                                  placeholder="Age"
-                                  name={`GroupMember${index + 2}.age`}
-                                >
-                                  {({ input, meta }) => (
-                                    <div>
-                                      <input
-                                        {...input}
-                                        placeholder="Age"
-                                        className="form__input form__input--sm"
-                                      />
-                                      {meta.error && meta.touched && (
-                                        <span>{meta.error}</span>
-                                      )}
-                                    </div>
-                                  )}
-                                </Field>
-                              </div>
-
-                              <div className="form__col">
-                                <div className="select-wrapper select-form">
-                                  <select>
-                                    <option>Nationality</option>
-                                    <option value="Argentina">Argentina</option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                      <div className="checkout__count-buttons">
-                        <button
-                          type="button"
-                          className="btn btn--rounded btn--border"
-                          onClick={() => {
-                            if (groupCounter < 22) {
-                              setGroupCounter(groupCounter + 1);
-                            } else {
-                              null;
-                            }
-                          }}
-                        >
-                          Add group member
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn--rounded btn--border"
-                          onClick={() => {
-                            if (groupCounter > 0) {
-                              setGroupCounter(groupCounter - 1);
-                            } else {
-                              null;
-                            }
-                          }}
-                        >
-                          Remove group member
-                        </button>
-                      </div>
-                      <button
-                        className="btn btn--rounded btn--border"
-                        type="submit"
-                      >
-                        Make enquiry
-                      </button>
-                    </form>
-                  )}
-                />
+                <CheckoutForm onSubmit={onSubmit} groupCounter={groupCounter} setGroupCounter={setGroupCounter}/>
               </div>
             </div>
 
@@ -392,7 +125,7 @@ const CheckoutPage = () => {
               </button>
             </div>
         </div>
-          </div>):<p>Order has been placed</p>}
+          </div>): orderState.orderFailed?<p>oeps somthing whent wrong</p>:<p>Order has been placed</p>}
       </section>
     </Layout>
   );

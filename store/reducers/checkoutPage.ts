@@ -1,40 +1,49 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Order, CheckoutOrder } from "../../types/index";
+import { postData } from "utils/services";
+import { CheckoutOrder } from "../../types/index";
 
 const initialState = {
-  order: {} as Order,
   orderPlaced: false,
-  error: false,
+  orderFailed: false,
+  error: {} as any,
 };
 
 const checkoutPageSlice = createSlice({
   name: "checkoutPage",
   initialState,
   reducers: {
-    createOrder(state, action: PayloadAction<CheckoutOrder>) {
-      let succes = false;
-      fetch("/api/createOrder", {
-        method: "POST",
-        body: JSON.stringify(action.payload),
-      })
+    createOrder(_state, action: PayloadAction<CheckoutOrder>) {
+      const orderDetails = action.payload.orderDetails;
+      const payloadWithoutDispatch = {
+        orderDetails,
+        totalPrice: action.payload.totalPrice,
+        groupTotal: action.payload.groupTotal,
+      };
+
+      postData("/api/createOrder", payloadWithoutDispatch)
         .then((_res) => {
-          succes = true;
-          return;
+          return
         })
-        .catch((_e) => {
-          return;
+        .catch((e) => {
+          throw e;
         });
-      if (succes) {
-        state.orderPlaced = true;
-        state.error = false;
-      } else {
-        state.orderPlaced = false;
-        state.error = true;
-      }
+      return;
+    },
+    createOrderSucces(state, _action: PayloadAction<any>) {
+      state.orderPlaced = true;
+      state.error = {};
+      state.orderFailed = false;
+      return;
+    },
+    createOrderFailed(state, action: PayloadAction<any>) {
+      state.orderPlaced = false;
+      state.orderFailed = true;
+      state.error = action.payload;
       return;
     },
   },
 });
 
-export const { createOrder } = checkoutPageSlice.actions;
+export const { createOrder, createOrderFailed, createOrderSucces } =
+  checkoutPageSlice.actions;
 export default checkoutPageSlice.reducer;

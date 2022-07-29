@@ -1,34 +1,25 @@
-export type VotesType = {
-  count: number;
-  value: number;
-};
-
-export type PunctuationType = {
-  countOpinions: number;
-  punctuation: number;
-  votes: VotesType[];
-};
-
-export type ReviewType = {
+export type descriptionType = {
   name: string;
-  avatar: string;
-  description: string;
-  punctuation: number;
+  text: string;
 };
+
 
 export type ProductType = {
   id: string;
   name: string;
   thumb: string;
-  price: string;
+  price: number;
   count: number;
   date: string;
   images: string[];
   discount?: string;
   currentPrice: number;
-  punctuation: PunctuationType;
-  reviews: ReviewType[];
+  smallDescription: string;
+  description: descriptionType[];
+  duration: number;
 };
+
+
 export interface Products {
   id: string;
   name: string;
@@ -37,9 +28,10 @@ export interface Products {
   category: string;
   currentPrice: number;
   locations: [];
-  images: [];
-  punctuation: {};
-  reviews: [];
+  images: string[];
+  smallDescription: string;
+  description: descriptionType[];
+  duration: number;
 }
 export type CheckoutOrder = {
   orderDetails: {
@@ -78,7 +70,7 @@ export type ProductStoreType = {
   thumb: string;
   price: number;
   count: number;
-  date: string;
+  date: Date;
 };
 
 export type GtagEventType = {

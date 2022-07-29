@@ -29,7 +29,7 @@ const ShoppingCart = () => {
               <tbody>
                 <tr>
                   <th style={{textAlign: 'left'}}>Product</th>
-                  <th>date</th>
+                  <th>start-date</th>
                   <th>Group size</th>
                   <th>Price</th>
                   <th></th>

@@ -22,7 +22,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(200).send('good')
     })
     .catch((e) => {
-      console.log(e);
       res.status(400).send(e)
     });
 };

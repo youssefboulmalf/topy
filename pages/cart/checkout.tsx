@@ -36,14 +36,12 @@ const CheckoutPage = () => {
   const [groupCounter, setGroupCounter] = useState(1);
 
   const onSubmit = (value: GroupMemberObject) => {
-    console.log(value);
     const groupInfo: GroupMember[] = [];
     if (groupCounter > 0) {
       for (let i = 0; i < groupCounter; i++) {
         groupInfo.push(Object.values(value)[i]);
       }
     }
-    console.log(groupCounter);
     const orderDetails = {
       items: cartItems,
       groupInfo: groupInfo,

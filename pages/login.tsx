@@ -20,10 +20,8 @@ const LoginPage = () => {
       email: data.email,
       password: data.password
     }).then(r=>{
-      console.log(register, r)
-      window.location.replace("/")
+      window.location.replace("/admin")
     }).catch(e=>{
-      console.log('e', e)
       setAuthenticationFail(true)
     })
   };

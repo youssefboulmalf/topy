@@ -61,20 +61,6 @@ const handleChange = (e: any , filter: any) =>{
             <Range onAfterChange={(e)=>handleChange(e,'price')} min={0} max={3500} defaultValue={[0, 3500]} tipFormatter={value => `${value}$`} />
           </div>
         </div>
-        
-        {/* <div className="products-filter__block">
-          <button type="button">Month</button>
-          <div className="products-filter__block__content checkbox-square-wrapper">
-            {productsMonths.map(type => (
-              <Checkbox 
-                type="square" 
-                key={type.id} 
-                name="product-size" 
-                label={type.label} />
-            ))}
-          </div>
-        </div> */}
-
         <button type="submit" className="btn btn-submit btn--rounded btn--yellow">Apply</button>
       </div>
     </form>

@@ -1,3 +1,4 @@
+import dayjs from 'dayjs';
 import { useDispatch } from 'react-redux';
 import { removeProduct, setCount } from 'store/reducers/cart';
 import { ProductStoreType } from 'types';
@@ -52,7 +53,7 @@ const ShoppingCart = ({ thumb, name, id, count, price, date }: ProductStoreType)
           </div>
         </div>
       </td>
-      <td className="cart-item-before" data-label="Size">{date}</td>
+      <td className="cart-item-before" data-label="date">{dayjs(date).format('DD/MM/YYYY')}</td>
       <td>
         <div className="quantity-button">
           <button type="button" onClick={() => setProductCount(count - 1)} className="quantity-button__btn">

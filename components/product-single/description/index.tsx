@@ -1,27 +1,25 @@
-type ProductDescriptionType = {
-  show: boolean;
+import { descriptionType } from "types";
+
+type descriptionMakeType = {
+  description: descriptionType[]
 }
 
-const Description = ({ show }: ProductDescriptionType) => {
-  const style = {
-    display: show ? 'flex' : 'none',
-  }
-
+const Description = ( {description} : descriptionMakeType) => {
   return (
-    <section style={style} className="product-single__description">
-      <div className="product-description-block">
-        <i className="icon-cart"></i>
-        <h4>Details and product description</h4>
-        <p>White Summer Vibes T-shirt in the uiKit line with a colorful print. <br></br>Made of jersey cotton. T-shirt fits perfectly with jeans, pants or shorts.</p>
-      </div>
-      <div className="product-description-block">
-        <i className="icon-cart"></i>
-        <h4>Details and product description</h4>
-        <p>White Summer Vibes T-shirt in the uiKit line with a colorful print. <br></br>Made of jersey cotton. T-shirt fits perfectly with jeans, pants or shorts.</p>
-      </div>
+    <section className="product-single__description">
+      {description.map((day: descriptionType, index: number) => {
+        return (
+          <div className="product-description-block">
+            <div className="product-description-head">
+            <div className="product-description-number-block">{index + 1}</div>
+            <div className="product-description-name">{day.name}</div>
+            </div>
+            <p>{day.text}</p>
+          </div>
+        );
+      })}
     </section>
   );
 };
-  
+
 export default Description;
-    

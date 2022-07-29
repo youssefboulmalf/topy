@@ -1,11 +1,15 @@
 import Layout from "../layouts/Main";
-import ProductsFeatured from "../components/products-featured";
 import React from "react";
+import AdminPanel from "../components/admin-panel";
+
 
 const AdminPage = () => {
+
+
+
   return (
     <Layout>
-      <ProductsFeatured />
+      <AdminPanel />
     </Layout>
   );
 };

@@ -22,5 +22,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/admin', '/api/getOrders', '/api/deleteOrder'],
+  matcher: ['/admin', '/api/getOrders', '/api/deleteOrder', '/api/changeStatus'],
 }

@@ -1920,7 +1920,6 @@ h5 {
   flex-wrap: wrap;
 }
 
-
 .products-list {
   display: flex;
   flex-wrap: wrap;
@@ -2072,13 +2071,13 @@ h5 {
         margin-bottom: 90px;
       }
 
-      .product-description-head{
+      .product-description-head {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-bottom: 30px;
         min-width: 300px;
-        .product-description-number-block{
+        .product-description-number-block {
           font-family: Tahoma, "Trebuchet MS", sans-serif;
           min-width: 50px;
           height: 50px;
@@ -2093,7 +2092,7 @@ h5 {
           color: white;
           border: solid 1px #4a4d30;
         }
-        .product-description-name{
+        .product-description-name {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -2155,7 +2154,7 @@ h5 {
     flex-direction: column;
     align-items: center;
 
-    .toggle-button{
+    .toggle-button {
       width: 320px;
       height: 50px;
       margin-bottom: 100px;
@@ -2165,10 +2164,9 @@ h5 {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      &:hover{
+      &:hover {
         transform: scale(1);
-        filter: brightness(95%)
-
+        filter: brightness(95%);
       }
     }
   }
@@ -2197,7 +2195,7 @@ h5 {
     margin-bottom: 38px;
     position: relative;
 
-    .btn{
+    .btn {
       background-color: var(--color-green);
     }
 
@@ -2211,18 +2209,18 @@ h5 {
       font-size: 13px;
       margin-top: 10px;
     }
-    .date-picker{
+    .date-picker {
       margin-bottom: 50px;
-      label{
+      label {
         font-size: 22px;
         margin-bottom: 10px;
       }
-      input{
+      input {
         background-color: var(--color-brown-light);
         width: 50%;
         border: 1px solid var(--color-black);
         color: white;
-        &::placeholder{
+        &::placeholder {
           color: white;
         }
       }
@@ -2395,7 +2393,7 @@ h5 {
   }
 }
 
-.product-small__description{
+.product-small__description {
   color: #000;
   font-size: 15px;
   line-height: 160%;
@@ -2546,21 +2544,19 @@ h5 {
     }
   }
 
-
-
-    .checkout__submit-button {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--color-green);
-      margin-top: 20px;
-      svg{
-        margin-left: 8px;
-        font-size: 20px;
-        stroke: white;
-      }
+  .checkout__submit-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-green);
+    margin-top: 20px;
+    svg {
+      margin-left: 8px;
+      font-size: 20px;
+      stroke: white;
     }
+  }
 
   .checkout__order-message {
     width: 100vw;
@@ -2859,7 +2855,7 @@ h5 {
     text-align: left;
     line-height: 160%;
     width: 80%;
-    
+
     @include breakpoint(phone) {
       padding-right: 0px;
     }
@@ -2966,7 +2962,7 @@ h5 {
       .form__col {
         width: 49%;
         position: relative;
-        p{
+        p {
           position: absolute;
           color: red;
           font-size: 13px;
@@ -3218,37 +3214,36 @@ h5 {
     &:last-of-type {
       margin-bottom: 0;
     }
-    .how-list{
+    .how-list {
       list-style-type: none;
     }
-    .list-item{
+    .list-item {
       font-size: 15px;
       display: flex;
       flex-direction: row;
       align-items: center;
       margin-top: 20px;
       line-height: 1.2rem;
-      &:marker{
+      &:marker {
         color: var(--color-green);
       }
-      .logo-wrapper{
+      .logo-wrapper {
         width: 35px;
         margin-right: 15px;
-
       }
-      .logo-pencil{
+      .logo-pencil {
         font-size: 25px;
       }
-      .logo-send{
+      .logo-send {
         font-size: 32px;
       }
-      .logo-whatsapp{
+      .logo-whatsapp {
         font-size: 30px;
       }
-      .logo-payment{
+      .logo-payment {
         font-size: 32px;
       }
-      .logo-vacation{
+      .logo-vacation {
         font-size: 30px;
       }
     }
@@ -3669,50 +3664,57 @@ h5 {
     visibility: hidden;
   }
 }
-.admin-panel{
+.admin-panel {
   margin-top: 70px;
-  .admin-panel__order-section{
-
-    
-    .order-section_table{
-
-      .order-table{
-          width: 100%;
-          height: 80px;
-        th{
-  
+  .admin-panel__order-section {
+    .checkout-items{
+      padding: 0px 10px;
+      background-color: #75beff;
+    }
+    .order-section_table {
+      .order-table {
+        width: 100%;
+        height: 80px;
+        th {
           padding-left: 25px;
           text-align: left;
         }
-        td{
+        td {
           font-size: 22px;
           text-align: left;
           padding-left: 25px;
           width: 150px;
         }
       }
+      .group-member-info{
+        margin-bottom: 50px;
+      }
 
-    .group-table{
+      .group-table {
         width: 100%;
         height: 80px;
-      th{
+        th {
+          padding-left: 25px;
+          text-align: left;
+        }
+        td {
+          font-size: 14px;
+          text-align: left;
+          padding-left: 25px;
+          width: 150px;
+          padding-top: 12px;
+          color: black;
+          font-size: 15px;
 
-        padding-left: 25px;
-        text-align: left;
+        }
+        tbody{
+          margin-bottom: 20px;
+        }
       }
-      td{
-        font-size: 14px;
-        text-align: left;
-        padding-left: 25px;
-        width: 150px;
-      }
-
-    }
-      .orderDetail-head{
+      .orderDetail-head {
         font-size: 18px;
         margin: 20px 0px;
       }
-  }
-
+    }
   }
 }

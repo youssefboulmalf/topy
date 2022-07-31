@@ -1,39 +1,37 @@
 import React from "react";
 import { ProductStoreType } from "../../../types";
-import AccordionControl from '../accordion-control'
-import { Accordion } from '@mantine/core';
+import AccordionControl from "../accordion-control";
+import { Accordion } from "@mantine/core";
 import dayjs from "dayjs";
 import { GroupMember, Order } from "../../../types";
-import useSWR from 'swr'
+import useSWR from "swr";
 
 const accordionStyle = {
-    item: {
-      padding: '10px 20px',
-      backgroundColor: 'rgba(255, 255, 255, 0.12)',
-      border: '1px solid #ededed',
-      '&[data-active]': {
-        backgroundColor: '#ccc',
-      },
+  item: {
+    padding: "10px 20px",
+    backgroundColor: "rgba(255, 255, 255, 0.12)",
+    border: "1px solid #ededed",
+    "&[data-active]": {
+      backgroundColor: "#ccc",
     },
-  
-    chevron: {
-      '&[data-rotate]': {
-        transform: 'rotate(-90deg)',
-      },
-    },
-  }
+  },
 
-  const fetcher = (url:string) => fetch(url).then((res) => res.json())
+  chevron: {
+    "&[data-rotate]": {
+      transform: "rotate(-90deg)",
+    },
+  },
+};
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const OrderTab = () => {
+  const { data, error } = useSWR("/api/getOrders", fetcher);
 
-    const { data, error } = useSWR('/api/getOrders', fetcher)
+  const orders: Order[] = data;
 
-    const orders : Order[] = data
-    
-    if (error) return <div>Failed to load</div>
-    if (!orders) return <div>Loading...</div>
-
+  if (error) return <div>Failed to load</div>;
+  if (!orders) return <div>Loading...</div>;
 
   return (
     <div className="admin-panel__order-section">
@@ -132,4 +130,4 @@ const OrderTab = () => {
   );
 };
 
-export default OrderTab
+export default OrderTab;

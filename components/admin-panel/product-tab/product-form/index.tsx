@@ -7,7 +7,8 @@ import {
   Box,
   Text,
   Button,
-  Code,
+  NumberInput,
+  Textarea
 } from "@mantine/core";
 import { Products } from "types";
 import { useForm } from "@mantine/form";
@@ -15,9 +16,10 @@ import { BsTrashFill } from "react-icons/bs";
 
 type Prop = {
   item: Products;
+  index: number
 };
 
-const ProductForm = ({ item }: Prop) => {
+const ProductForm = ({ item, index }: Prop) => {
   const form = useForm({
     initialValues: {
       name: item.name,
@@ -30,20 +32,28 @@ const ProductForm = ({ item }: Prop) => {
       smallDescription: item.smallDescription,
       description: item.description,
       duration: item.duration,
-      locations: item.locations
+      locations: item.locations,
     },
   });
 
-  const locationsFields = item.locations.map((location: any, index) => (
-    <Group key={location.key} mt="xs">
+  const onSubmit = (values:any) =>{
+    console.log(values)
+    console.log(index)
+
+    if (index = 9999){
+      // create new product
+    }
+
+    // update product
+
+  }
+
+  const locationsFields = form.values.locations.map((location: any, index) => (
+    <Group key={`location${index}`} mt="xs">
       <TextInput
         placeholder="John Doe"
         required
         sx={{ flex: 1 }}
-        {...form.getInputProps(`locations.${index}`)}
-      />
-      <Switch
-        label="Active"
         {...form.getInputProps(`locations.${index}`)}
       />
       <ActionIcon
@@ -55,8 +65,8 @@ const ProductForm = ({ item }: Prop) => {
     </Group>
   ));
 
-  const imagesFields = item.images.map((images: any, index) => (
-    <Group key={images.key} mt="xs">
+  const imagesFields = form.values.images.map((images: any, index) => (
+    <Group key={`images${index}`} mt="xs">
       <TextInput
         placeholder="John Doe"
         required
@@ -72,126 +82,135 @@ const ProductForm = ({ item }: Prop) => {
     </Group>
   ));
 
-  const descriptionFields = item.description.map((descriptions: any, index) => (
-    <Group key={descriptions.key} mt="xs">
-      <label>name</label>
-      <TextInput
-        placeholder="John Doe"
-        required
-        sx={{ flex: 1 }}
-        {...form.getInputProps(`description.${index}.name`)}
-      />
-            <label>text</label>
-            <TextInput
-        placeholder="John Doe"
-        required
-        sx={{ flex: 1 }}
-        {...form.getInputProps(`description.${index}.text`)}
-      />
-      <ActionIcon
-        color="red"
-        onClick={() => form.removeListItem("description", index)}
-      >
-        <BsTrashFill size={16} />
-      </ActionIcon>
-    </Group>
-  ));
+  const descriptionFields = form.values.description.map(
+    (descriptions: any, index) => (
+      <Group key={`descriptions${index}`} mt="xs">
+        <label>Day {index}</label>
+        <TextInput
+          placeholder="John Doe"
+          required
+          sx={{ width: "150px" }}
+          {...form.getInputProps(`description.${index}.name`)}
+        />
+        <label>text</label>
+            <Textarea
+            autosize
+            minRows={5}
+            maxRows={5}
+      size="md"
+      required
+      {...form.getInputProps(`description.${index}.text`)}
+    />
+        <ActionIcon
+          color="red"
+          onClick={() => form.removeListItem("description", index)}
+        >
+          <BsTrashFill size={16} />
+        </ActionIcon>
+      </Group>
+    )
+  );
 
   return (
     <>
-      <div>
-        <TextInput label="Id" placeholder="Id" {...form.getInputProps("id")} />
-      </div>
-      <div>
-        <TextInput
-          label="Name"
-          placeholder="Name"
-          {...form.getInputProps("name")}
-        />
-      </div>
-      <div>
-        <TextInput
-          label="Price"
-          placeholder="Price"
-          {...form.getInputProps("price")}
-        />
-      </div>
-      <div>
-        <TextInput
-          label="Discount"
-          placeholder="Discount"
-          {...form.getInputProps("discount")}
-        />
-      </div>
-      <div>
-        <TextInput
-          label="Category"
-          placeholder="Category"
-          {...form.getInputProps("category")}
-        />
-      </div>
-      <div>
-        <TextInput
-          label="CurrentPrice"
-          placeholder="CurrentPrice"
-          {...form.getInputProps("currentPrice")}
-        />
-      </div>
-      <div>
-        <label>locations</label>
-        {locationsFields}
-        <Group position="center" mt="md">
-        <Button
-          onClick={() =>
-            form.insertListItem('locations', '')
-          }
-        >
-          Add locations
-        </Button>
-      </Group>
-      </div>
-      <div>
-        <label>images</label>
-        {imagesFields}
-        <Group position="center" mt="md">
-        <Button
-          onClick={() =>
-            form.insertListItem('images', 'somt')
-          }
-        >
-          Add images
-        </Button>
-      </Group>
-      </div>
-      <div>
-        <TextInput
-          mt="md"
-          label="Small description"
-          placeholder="Small Description"
-          {...form.getInputProps("smallDescription")}
-        />
-      </div>
-      <div>
-        <label>description</label>
-        {descriptionFields}
-        <Group position="center" mt="md">
-        <Button
-          onClick={() =>
-            form.insertListItem('description', { name: '', text: ''})
-          }
-        >
-          Add description
-        </Button>
-      </Group>
-      </div>
-      <div>
-        <TextInput
-          mt="md"
-          label="Duration"
-          placeholder="Duration"
-          {...form.getInputProps("duration")}
-        />
-      </div>
+      <form className="productForm" onSubmit={form.onSubmit(onSubmit)}>
+        <div className="form-fields">
+          <NumberInput
+            label="Id"
+            placeholder="Id"
+            {...form.getInputProps("id")}
+          />
+        </div>
+        <div className="form-fields">
+          <TextInput
+            label="Name"
+            placeholder="Name"
+            {...form.getInputProps("name")}
+          />
+        </div>
+        <div className="form-fields">
+          <NumberInput
+            label="Price"
+            placeholder="Price"
+            {...form.getInputProps("price")}
+          />
+        </div>
+        <div className="form-fields">
+          <NumberInput
+            label="Discount"
+            placeholder="Discount"
+            {...form.getInputProps("discount")}
+          />
+        </div>
+        <div className="form-fields">
+          <TextInput
+            label="Category"
+            placeholder="Category"
+            {...form.getInputProps("category")}
+          />
+        </div>
+        <div className="form-fields">
+          <NumberInput
+            label="CurrentPrice"
+            placeholder="CurrentPrice"
+            {...form.getInputProps("currentPrice")}
+          />
+        </div>
+        <div className="form-fields">
+          <label>locations</label>
+          {locationsFields}
+          <Group position="center" mt="md">
+            <Button onClick={() => form.insertListItem("locations", "")}>
+              Add locations
+            </Button>
+          </Group>
+        </div>
+        <div className="form-fields">
+          <label>images</label>
+          {imagesFields}
+          <Group position="center" mt="md">
+            <Button onClick={() => form.insertListItem("images", "")}>
+              Add images
+            </Button>
+          </Group>
+        </div>
+        <div className="form-fields">
+          <Textarea
+            mt="md"
+            autosize
+            minRows={5}
+            maxRows={5}
+            label="Small description"
+            placeholder="Small Description"
+            {...form.getInputProps("smallDescription")}
+            />
+        </div>
+        <div className="form-fields">
+          <label>description</label>
+          {descriptionFields}
+          <Group position="center" mt="md">
+            <Button
+              onClick={() => {
+                console.log("ss");
+                form.insertListItem("description", { name: "", text: "" });
+              }}
+            >
+              Add description
+            </Button>
+          </Group>
+        </div>
+        <div className="form-fields">
+          <NumberInput
+            mt="md"
+            label="Duration"
+            placeholder="Duration"
+            {...form.getInputProps("duration")}
+          />
+        </div>
+        <Group position="right" mt="md">
+          <Button type="submit">Submit</Button>
+        </Group>
+      </form>
     </>
   );
 };

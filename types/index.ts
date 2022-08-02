@@ -27,7 +27,7 @@ export interface Products {
   discount: number;
   category: string;
   currentPrice: number;
-  locations: [];
+  locations: string[];
   images: string[];
   smallDescription: string;
   description: descriptionType[];

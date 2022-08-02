@@ -16,7 +16,7 @@ export function middleware(request: NextRequest) {
     
   }
   console.log(isAuth)
-  const loginUrl = new URL('/', request.url)
+  const loginUrl = new URL('/login', request.url)
   loginUrl.searchParams.set('from', request.nextUrl.pathname)
   return NextResponse.redirect(loginUrl)
 }

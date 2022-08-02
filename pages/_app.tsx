@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import Router from 'next/router';
 import {wrapper} from '../store';
+import { MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+
 
 // types
 import type { AppProps } from 'next/app';
@@ -24,8 +27,13 @@ if(isProduction) {
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
+  
   <Fragment>
+        <MantineProvider>
+      <ModalsProvider>
     <Component {...pageProps} />
+    </ModalsProvider>
+      </MantineProvider>
   </Fragment>
 );
 

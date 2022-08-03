@@ -2,7 +2,7 @@ import React from "react";
 import ProductForm from "./product-form";
 import useSWR from "swr";
 import { Products, descriptionType } from "types";
-import { Modal, Text, Button, Group } from "@mantine/core";
+import { Button } from "@mantine/core";
 import { openModal } from "@mantine/modals";
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -10,13 +10,13 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const ProductTab = () => {
   const { data, error } = useSWR("/api/products", fetcher);
 
-  console.log("data", data);
   const products: Products[] = data;
 
   if (!data) return <div>Loading...</div>;
+  if (error) return <div>Somthing went wrong...</div>;
 
   const newProduct = {
-    id: "",
+    id: (products.length+1).toString(),
     name: "",
     price: 0,
     discount: 0,
@@ -37,8 +37,9 @@ const ProductTab = () => {
             className="product-button"
             onClick={() => {
               openModal({
-                title: "Subscribe to newsletter",
+                title: "Change product details",
                 size: "60%",
+                centered:true,
                 children: (
                   <>
                     <ProductForm key={index} index={index} item={item} />
@@ -67,7 +68,6 @@ const ProductTab = () => {
       >
         Add product
       </Button>
-      ;
     </div>
   );
 };

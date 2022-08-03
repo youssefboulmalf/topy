@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, CollectionReference, collection, DocumentData } from 'firebase/firestore'
+import { getStorage } from "firebase/storage";
 
 
 // Init the firebase app
@@ -15,6 +16,7 @@ export const firebaseApp = initializeApp({
 
 // const analytics = getAnalytics(app);
 export const firestore = getFirestore()
+export const storage = getStorage();
 
 const createCollection = <T = DocumentData>(collectionName: string) => {
     return collection(firestore, collectionName) as CollectionReference<T>

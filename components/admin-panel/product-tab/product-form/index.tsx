@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   TextInput,
-  Switch,
   Group,
   ActionIcon,
-  Box,
-  Text,
   Button,
   NumberInput,
-  Textarea
+  Textarea,
+  Image,
 } from "@mantine/core";
 import { Products } from "types";
 import { useForm } from "@mantine/form";
-import { BsTrashFill } from "react-icons/bs";
+import { BsTrashFill, BsFillCloudUploadFill } from "react-icons/bs";
+import { postData, postImages } from "utils/services";
+import { closeAllModals } from "@mantine/modals";
+import { FileInput } from "@mantine/core";
 
 type Prop = {
   item: Products;
-  index: number
+  index: number;
 };
 
 const ProductForm = ({ item, index }: Prop) => {
@@ -36,19 +37,54 @@ const ProductForm = ({ item, index }: Prop) => {
     },
   });
 
-  const onSubmit = (values:any) =>{
-    console.log(values)
-    console.log(index)
+  const [imgValue, setImgValue] = useState<File[]>([]);
 
-    if (index = 9999){
-      // create new product
+  const onSubmit = (values: any) => {
+    if (imgValue.length > 0) {
+      let data = new FormData();
+
+      data.append("id", `${values.id}`);
+
+      imgValue.forEach(function (image) {
+        data.append("file", image);
+      });
+
+      if (index == 9999) {
+        postImages("/api/uploadImage/", data).then((r) => {
+          r.json().then((data) => {
+            postData("/api/createNewProduct", {
+              values: values,
+              imgPath: data.imageArray,
+            });
+          });
+        });
+        closeAllModals();
+      } else {
+        console.log("update");
+        postImages("/api/uploadImage/", data).then((r) => {
+          r.json().then((data) => {
+            postData("/api/updateProduct", {
+              values: values,
+              imgPath: data.imageArray,
+            });
+          });
+        });
+        closeAllModals();
+      }
+    } else {
+      if (index == 9999) {
+        // postData("/api/createNewProduct", { values: values });
+        // closeAllModals();
+      } else {
+        // console.log("update");
+        // postData("/api/updateProduct", { values: values });
+        // closeAllModals();
+        console.log("no imagex  ");
+      }
     }
+  };
 
-    // update product
-
-  }
-
-  const locationsFields = form.values.locations.map((location: any, index) => (
+  const locationsFields = form.values.locations.map((_location: any, index) => (
     <Group key={`location${index}`} mt="xs">
       <TextInput
         placeholder="John Doe"
@@ -65,14 +101,9 @@ const ProductForm = ({ item, index }: Prop) => {
     </Group>
   ));
 
-  const imagesFields = form.values.images.map((images: any, index) => (
+  const imagesFields = form.values.images.map((image: any, index) => (
     <Group key={`images${index}`} mt="xs">
-      <TextInput
-        placeholder="John Doe"
-        required
-        sx={{ flex: 1 }}
-        {...form.getInputProps(`images.${index}`)}
-      />
+      <Image src={image} width={"70px"} height={"70px"} />
       <ActionIcon
         color="red"
         onClick={() => form.removeListItem("images", index)}
@@ -83,7 +114,7 @@ const ProductForm = ({ item, index }: Prop) => {
   ));
 
   const descriptionFields = form.values.description.map(
-    (descriptions: any, index) => (
+    (_descriptions: any, index) => (
       <Group key={`descriptions${index}`} mt="xs">
         <label>Day {index}</label>
         <TextInput
@@ -93,14 +124,14 @@ const ProductForm = ({ item, index }: Prop) => {
           {...form.getInputProps(`description.${index}.name`)}
         />
         <label>text</label>
-            <Textarea
-            autosize
-            minRows={5}
-            maxRows={5}
-      size="md"
-      required
-      {...form.getInputProps(`description.${index}.text`)}
-    />
+        <Textarea
+          autosize
+          minRows={5}
+          maxRows={5}
+          size="md"
+          required
+          {...form.getInputProps(`description.${index}.text`)}
+        />
         <ActionIcon
           color="red"
           onClick={() => form.removeListItem("description", index)}
@@ -113,9 +144,23 @@ const ProductForm = ({ item, index }: Prop) => {
 
   return (
     <>
+      <div className="form-fields">
+        <label>images</label>
+        {imagesFields}
+        <FileInput
+          placeholder="Choose images"
+          label="Product images"
+          multiple
+          value={imgValue}
+          onChange={setImgValue}
+          accept="image/png,image/jpeg"
+          icon={<BsFillCloudUploadFill size={14} />}
+        />
+      </div>
       <form className="productForm" onSubmit={form.onSubmit(onSubmit)}>
         <div className="form-fields">
-          <NumberInput
+          <TextInput
+            disabled={true}
             label="Id"
             placeholder="Id"
             {...form.getInputProps("id")}
@@ -166,15 +211,6 @@ const ProductForm = ({ item, index }: Prop) => {
           </Group>
         </div>
         <div className="form-fields">
-          <label>images</label>
-          {imagesFields}
-          <Group position="center" mt="md">
-            <Button onClick={() => form.insertListItem("images", "")}>
-              Add images
-            </Button>
-          </Group>
-        </div>
-        <div className="form-fields">
           <Textarea
             mt="md"
             autosize
@@ -183,7 +219,7 @@ const ProductForm = ({ item, index }: Prop) => {
             label="Small description"
             placeholder="Small Description"
             {...form.getInputProps("smallDescription")}
-            />
+          />
         </div>
         <div className="form-fields">
           <label>description</label>
@@ -191,7 +227,6 @@ const ProductForm = ({ item, index }: Prop) => {
           <Group position="center" mt="md">
             <Button
               onClick={() => {
-                console.log("ss");
                 form.insertListItem("description", { name: "", text: "" });
               }}
             >

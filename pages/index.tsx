@@ -15,7 +15,7 @@ const key = process.env.GOOGLE_MAPS_API_KEY
 
 export async function getServerSideProps() {
   const res = await fetch('https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key='+key);
-  const data = await res.text();;
+  const data = await res.text();
   return {
     props: {data},
   }

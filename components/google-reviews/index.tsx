@@ -52,6 +52,7 @@ export default function GoogleReviews({ data }: { data: any }) {
 
   const { rating, reviews } = dataObject.result;
   return (
+    <div className='container'>
     <div className='greviews'>
       <h1>
         What our customers say
@@ -109,6 +110,7 @@ export default function GoogleReviews({ data }: { data: any }) {
           </Swiper>)}
         </div>
       </div>
+    </div>
     </div>
   );
 }

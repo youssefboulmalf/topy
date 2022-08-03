@@ -214,7 +214,7 @@ h5 {
   }
 
   @include breakpoint(desktop-lg) {
-    max-width: 1280px;
+    max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -385,7 +385,7 @@ h5 {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 100;
   height: 65px;
   color: #fff;
   box-shadow: none;
@@ -817,7 +817,7 @@ h5 {
     background-color: #fafafa;
 
     @include breakpoint(phone) {
-      height: 90vh;
+      height: 110vh;
     }
 
     &:before {

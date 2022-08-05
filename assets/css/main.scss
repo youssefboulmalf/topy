@@ -817,7 +817,7 @@ h5 {
     background-color: #fafafa;
 
     @include breakpoint(phone) {
-      height: 110vh;
+      height: 100vh;
     }
 
     &:before {

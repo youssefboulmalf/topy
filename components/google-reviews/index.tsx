@@ -88,7 +88,7 @@ export default function GoogleReviews({ data }: { data: any }) {
                 <SwiperSlide key={index}>
                   <div className='review-box'>
                     <div className='review-box__intro'>
-                      <img className='review-box__avatar' src={review.profile_photo_url} />
+                      <img className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
                       <div className='review-box__info'>
                         <a className='review-name' href={review.author_url}>
                           {review.author_name}

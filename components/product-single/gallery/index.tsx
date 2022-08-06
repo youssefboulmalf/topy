@@ -10,13 +10,13 @@ const Gallery = ({ images }: GalleryProductType) => {
       <div className="product-gallery__thumbs">
         {images.map(image => (
           <div key={image} className="product-gallery__thumb">
-            <img src={image} alt="" />
+            <img referrerPolicy="no-referrer" src={image} alt="" />
           </div>
         ))}
       </div>
 
       <div className="product-gallery__image">
-        <img src={featImage} alt="" />
+        <img referrerPolicy="no-referrer" src={featImage} alt="" />
       </div>
     </section>
   );

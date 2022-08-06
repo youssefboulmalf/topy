@@ -44,7 +44,7 @@ const ShoppingCart = ({ thumb, name, id, count, price, date }: ProductStoreType)
       <td>
         <div className="cart-product">
           <div className="cart-product__img">
-            <img src={thumb} alt="" />
+            <img referrerPolicy="no-referrer" src={thumb} alt="" />
           </div>
 
           <div className="cart-product__content">

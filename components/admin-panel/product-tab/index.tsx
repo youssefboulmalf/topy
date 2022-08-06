@@ -38,7 +38,7 @@ const ProductTab = () => {
             onClick={() => {
               openModal({
                 title: "Change product details",
-                size: "60%",
+                size: "90%",
                 centered:true,
                 children: (
                   <>
@@ -48,7 +48,7 @@ const ProductTab = () => {
               });
             }}
           >
-            <img className="product-image" src={item.images[0]} />
+            <img className="product-image" referrerPolicy="no-referrer" src={item.images[0]} />
             {item.name}
           </div>
         </div>
@@ -57,7 +57,7 @@ const ProductTab = () => {
         onClick={() => {
           openModal({
             title: "Subscribe to newsletter",
-            size: "60%",
+            size: "90%",
             children: (
               <>
                 <ProductForm key={9999} index={9999} item={newProduct} />

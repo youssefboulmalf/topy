@@ -32,6 +32,13 @@ function AccordionControl(props: AccordionControlProps) {
     }).then((_r) => location.reload());
   };
 
+  const onSendPayment = (orderId: string) =>{
+    postData('/api/createPaymentLink',{orderId: orderId}).then((_r)=>{
+      onChangeStatus(orderId, 'contacted');
+    })
+
+  }
+
   const payButtonStyle =
     order.orderStatus == "contacted"
       ? { paddingLeft: "10px", paddingRight: "10px" }
@@ -58,7 +65,7 @@ function AccordionControl(props: AccordionControlProps) {
           </Button>
         </div>
         <div style={payButtonStyle}>
-          <Button onClick={() => onDelete(order.id)} color={"green"}>
+          <Button onClick={() => onSendPayment(order.id)} color={"green"}>
             Send PaymentLink
           </Button>
         </div>

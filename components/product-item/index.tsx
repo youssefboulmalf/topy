@@ -9,7 +9,7 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice }: Produc
 
         <Link href={`/product/${id}`}>
           <a>
-            <img src={images ? images[0] : ''} alt="product" />
+            <img referrerPolicy="no-referrer" src={images ? images[0] : ''} alt="product" />
             {discount && 
               <span className="product__discount">{discount}%</span>
             }
@@ -22,8 +22,8 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice }: Produc
         <div className={"product__price " + (discount ?'product__price--discount' : '')} >
           <h4>${ currentPrice }</h4>
 
-          {discount &&  
-            <span>${ price }</span>
+          {Number(discount) > 0 ?  
+            <span>${ price }</span> : null
           }
         </div>
       </div>

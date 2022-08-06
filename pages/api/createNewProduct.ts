@@ -1,12 +1,28 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { productsCol } from "../../utils/firebase";
-import { doc, setDoc, getDocs} from "@firebase/firestore";
-import {  Products } from "../../types";
+import { doc, setDoc} from "@firebase/firestore";
+import {  Products, StripeProducts } from "../../types";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
+  const stripe = require('stripe')(process.env.STRIPE_SK)
+
   const data = req.body.values;
   const imgPath = req.body.imgPath ?  req.body.imgPath : false
+  const currentPrice = req.body.currentPrice
+
+  console.log(data.currentPrice, data)
+
+
+  const stripeProductData =  {
+    id: data.id,
+    name: data.name,
+    default_price_data : {currency: 'usd', unit_amount_decimal: currentPrice * 100},
+    images: imgPath? imgPath : data.images,
+    description: data.smallDescription,
+  } as StripeProducts
+
+  const stripeProduct = await stripe.products.create(stripeProductData);
 
 
   
@@ -16,13 +32,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     price: data.price,
     discount: data.discount,
     category: data.category,
-    currentPrice: data.currentPrice,
+    currentPrice: currentPrice,
     locations: data.locations,
-    images: imgPath? imgPath : data.images,
+    images: imgPath ? imgPath : data.images,
     smallDescription: data.smallDescription,
     description: data.description,
     duration: data.duration
-
   } as Products
 
 

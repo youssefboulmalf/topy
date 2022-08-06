@@ -11,7 +11,7 @@ const CheckoutItems = () => {
         <li key={index} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">
-              <img src={item.thumb} />
+              <img referrerPolicy="no-referrer" src={item.thumb} />
             </div>
 
             <div className="checkout-item__data">

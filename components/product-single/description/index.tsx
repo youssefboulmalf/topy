@@ -9,7 +9,7 @@ const Description = ( {description} : descriptionMakeType) => {
     <section className="product-single__description">
       {description.map((day: descriptionType, index: number) => {
         return (
-          <div className="product-description-block">
+          <div key={index} className="product-description-block">
             <div className="product-description-head">
             <div className="product-description-number-block">{index + 1}</div>
             <div className="product-description-name">{day.name}</div>

@@ -3,7 +3,6 @@ export type descriptionType = {
   text: string;
 };
 
-
 export type ProductType = {
   id: string;
   name: string;
@@ -19,7 +18,6 @@ export type ProductType = {
   duration: number;
 };
 
-
 export interface Products {
   id: string;
   name: string;
@@ -32,6 +30,21 @@ export interface Products {
   smallDescription: string;
   description: descriptionType[];
   duration: number;
+  stripePrice?: string;
+}
+
+interface stripPrice {
+  currency: string;
+  unit_amount_decimal: number;
+}
+
+export interface StripeProducts {
+  id: string;
+  name: string;
+  default_price_data?: stripPrice;
+  default_price?: stripPrice;
+  images: string[];
+  description: string;
 }
 export type CheckoutOrder = {
   orderDetails: {

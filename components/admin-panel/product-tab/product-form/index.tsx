@@ -6,19 +6,30 @@ import {
   Button,
   NumberInput,
   Textarea,
-  Image,
+  MultiSelect,
 } from "@mantine/core";
 import { Products } from "types";
 import { useForm } from "@mantine/form";
 import { BsTrashFill, BsFillCloudUploadFill } from "react-icons/bs";
 import { postData, postImages } from "utils/services";
 import { closeAllModals } from "@mantine/modals";
-import { FileInput } from "@mantine/core";
-
+import { FileInput, Loader } from "@mantine/core";
+import Locations from "../../../../utils/data/products-locations";
 type Prop = {
   item: Products;
   index: number;
 };
+
+//TODO: connect to database
+const locationOptions = [
+  { value: "serengeti", label: "serengeti" },
+  { value: "tarangiri", label: "tarangiri" },
+  { value: "ngorongoro", label: "ngorongoro" },
+  { value: "arusha", label: "arusha" },
+  { value: "meru", label: "meru" },
+  { value: "moshi", label: "moshi" },
+  { value: "kilimanjaro", label: "kilimanjaro" },
+];
 
 const ProductForm = ({ item, index }: Prop) => {
   const form = useForm({
@@ -38,11 +49,15 @@ const ProductForm = ({ item, index }: Prop) => {
   });
 
   const [imgValue, setImgValue] = useState<File[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = (values: any) => {
+    setLoading(true);
+    const currentPrice =
+      form.values.price - (form.values.price / 100) * form.values.discount;
+
     if (imgValue.length > 0) {
       let data = new FormData();
-
       data.append("id", `${values.id}`);
 
       imgValue.forEach(function (image) {
@@ -54,64 +69,71 @@ const ProductForm = ({ item, index }: Prop) => {
           r.json().then((data) => {
             postData("/api/createNewProduct", {
               values: values,
+              currentPrice: currentPrice,
               imgPath: data.imageArray,
             });
           });
         });
-        closeAllModals();
       } else {
         console.log("update");
         postImages("/api/uploadImage/", data).then((r) => {
           r.json().then((data) => {
             postData("/api/updateProduct", {
               values: values,
+              currentPrice: currentPrice,
               imgPath: data.imageArray,
             });
           });
         });
-        closeAllModals();
       }
     } else {
       if (index == 9999) {
-        // postData("/api/createNewProduct", { values: values });
-        // closeAllModals();
+        postData("/api/createNewProduct", {
+          values: values,
+          currentPrice: currentPrice,
+        });
       } else {
-        // console.log("update");
-        // postData("/api/updateProduct", { values: values });
-        // closeAllModals();
-        console.log("no imagex  ");
+        postData("/api/updateProduct", {
+          values: values,
+          currentPrice: currentPrice,
+        });
       }
     }
+    setLoading(false);
+    closeAllModals();
   };
 
-  const locationsFields = form.values.locations.map((_location: any, index) => (
-    <Group key={`location${index}`} mt="xs">
-      <TextInput
-        placeholder="John Doe"
-        required
-        sx={{ flex: 1 }}
-        {...form.getInputProps(`locations.${index}`)}
-      />
-      <ActionIcon
-        color="red"
-        onClick={() => form.removeListItem("locations", index)}
-      >
-        <BsTrashFill size={16} />
-      </ActionIcon>
-    </Group>
-  ));
+  const onDelete = (image: string, index: number) => {
+    const imageArray = form.getInputProps("images");
+    setLoading(true);
+    postData("/api/deleteImage", {
+      url: image,
+      imageArray: imageArray,
+      index: index,
+    }).then((r) => {
+      r.json().then((newImageArray) => {
+        console.log(newImageArray);
+        // form.setFieldValue("images", newImageArray);
+      });
+      setLoading(false);
+    });
+  };
 
-  const imagesFields = form.values.images.map((image: any, index) => (
-    <Group key={`images${index}`} mt="xs">
-      <Image src={image} width={"70px"} height={"70px"} />
-      <ActionIcon
-        color="red"
-        onClick={() => form.removeListItem("images", index)}
-      >
-        <BsTrashFill size={16} />
-      </ActionIcon>
-    </Group>
-  ));
+  const imagesFields =
+    form.values.images && form.values.images.length > 0
+      ? form.values.images.map((image: any, index) => (
+          <Group key={`images${index}`} mt="xs">
+            <img
+              src={image}
+              referrerPolicy="no-referrer"
+              style={{ width: "70px", height: "70px" }}
+            />
+            <ActionIcon color="red" onClick={() => onDelete(image, index)}>
+              <BsTrashFill size={16} />
+            </ActionIcon>
+          </Group>
+        ))
+      : null;
 
   const descriptionFields = form.values.description.map(
     (_descriptions: any, index) => (
@@ -142,111 +164,138 @@ const ProductForm = ({ item, index }: Prop) => {
     )
   );
 
+  const loadOverlay = loading ? (
+    <div className="load-overlay">
+      <Loader />;
+    </div>
+  ) : null;
+
   return (
-    <>
-      <div className="form-fields">
-        <label>images</label>
-        {imagesFields}
-        <FileInput
-          placeholder="Choose images"
-          label="Product images"
-          multiple
-          value={imgValue}
-          onChange={setImgValue}
-          accept="image/png,image/jpeg"
-          icon={<BsFillCloudUploadFill size={14} />}
-        />
-      </div>
-      <form className="productForm" onSubmit={form.onSubmit(onSubmit)}>
-        <div className="form-fields">
-          <TextInput
-            disabled={true}
-            label="Id"
-            placeholder="Id"
-            {...form.getInputProps("id")}
-          />
-        </div>
-        <div className="form-fields">
-          <TextInput
-            label="Name"
-            placeholder="Name"
-            {...form.getInputProps("name")}
-          />
-        </div>
-        <div className="form-fields">
-          <NumberInput
-            label="Price"
-            placeholder="Price"
-            {...form.getInputProps("price")}
-          />
-        </div>
-        <div className="form-fields">
-          <NumberInput
-            label="Discount"
-            placeholder="Discount"
-            {...form.getInputProps("discount")}
-          />
-        </div>
-        <div className="form-fields">
-          <TextInput
-            label="Category"
-            placeholder="Category"
-            {...form.getInputProps("category")}
-          />
-        </div>
-        <div className="form-fields">
-          <NumberInput
-            label="CurrentPrice"
-            placeholder="CurrentPrice"
-            {...form.getInputProps("currentPrice")}
-          />
-        </div>
-        <div className="form-fields">
-          <label>locations</label>
-          {locationsFields}
-          <Group position="center" mt="md">
-            <Button onClick={() => form.insertListItem("locations", "")}>
-              Add locations
-            </Button>
+    <div className="product-form-root">
+      {loadOverlay}
+      <label>images</label>
+      <div className="image-fields">{imagesFields}</div>
+      <FileInput
+        placeholder="Choose images"
+        label="Product images"
+        multiple
+        value={imgValue}
+        onChange={setImgValue}
+        accept="image/png,image/jpeg"
+        icon={<BsFillCloudUploadFill size={14} />}
+      />
+      <form onSubmit={form.onSubmit(onSubmit)} className="productForm">
+        <section>
+          <div className="form-fields">
+            <TextInput
+              disabled={true}
+              label="Id"
+              placeholder="Id"
+              {...form.getInputProps("id")}
+            />
+          </div>
+          <div className="form-fields">
+            <TextInput
+              label="Name"
+              required
+              placeholder="Name"
+              {...form.getInputProps("name")}
+            />
+          </div>
+          <div className="form-fields">
+            <NumberInput
+              label="Price"
+              required
+              placeholder="Price"
+              {...form.getInputProps("price")}
+            />
+          </div>
+          <div className="form-fields">
+            <NumberInput
+              label="Discount"
+              placeholder="Discount"
+              required
+              {...form.getInputProps("discount")}
+            />
+          </div>
+        </section>
+        <section>
+          <div className="form-fields">
+            <TextInput
+              label="Category"
+              required
+              placeholder="Category"
+              {...form.getInputProps("category")}
+            />
+          </div>
+          <div className="form-fields">
+            <NumberInput
+              label="CurrentPrice"
+              placeholder="CurrentPrice"
+              required
+              disabled
+              value={
+                form.values.price -
+                (form.values.price / 100) * form.values.discount
+              }
+            />
+          </div>
+          <div className="form-fields">
+            <label>locations</label>
+            <MultiSelect
+              data={Locations}
+              style={{ maxWidth: "240px" }}
+              label="Pick the locations"
+              searchable
+              clearable
+              required
+              {...form.getInputProps("locations")}
+            />
+          </div>
+          <div className="form-fields">
+            <Textarea
+              mt="md"
+              autosize
+              minRows={5}
+              maxRows={5}
+              required={true}
+              label="Small description"
+              placeholder="Small Description"
+              {...form.getInputProps("smallDescription")}
+            />
+          </div>
+        </section>
+        <section>
+          <div className="form-fields">
+            <label>description</label>
+            <div style={{ maxHeight: "50vh", overflowY: "scroll" }}>
+              {descriptionFields}
+              <Group position="center" mt="md">
+                <Button
+                  onClick={() => {
+                    form.insertListItem("description", { name: "", text: "" });
+                  }}
+                >
+                  Add description
+                </Button>
+              </Group>
+            </div>
+          </div>
+          <div className="form-fields">
+            <NumberInput
+              mt="md"
+              label="Duration"
+              required={true}
+              placeholder="Duration"
+              {...form.getInputProps("duration")}
+            />
+          </div>
+          <Group position="right" mt="md">
+            <Button type="submit">Submit</Button>
           </Group>
-        </div>
-        <div className="form-fields">
-          <Textarea
-            mt="md"
-            autosize
-            minRows={5}
-            maxRows={5}
-            label="Small description"
-            placeholder="Small Description"
-            {...form.getInputProps("smallDescription")}
-          />
-        </div>
-        <div className="form-fields">
-          <label>description</label>
-          {descriptionFields}
-          <Group position="center" mt="md">
-            <Button
-              onClick={() => {
-                form.insertListItem("description", { name: "", text: "" });
-              }}
-            >
-              Add description
-            </Button>
-          </Group>
-        </div>
-        <div className="form-fields">
-          <NumberInput
-            mt="md"
-            label="Duration"
-            placeholder="Duration"
-            {...form.getInputProps("duration")}
-          />
-        </div>
-        <Group position="right" mt="md">
-          <Button type="submit">Submit</Button>
-        </Group>
+        </section>
       </form>
-    </>
+    </div>
   );
 };
 

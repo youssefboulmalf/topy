@@ -57,7 +57,7 @@ const OrderTab = () => {
                     <tbody>
                       <tr>
                         <td>{order.id}</td>
-                        <td>{order.totalPrice} $</td>
+                        <td>${order.totalPrice}</td>
                         <td>{order.orderStatus}</td>
                       </tr>
                     </tbody>

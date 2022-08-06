@@ -65,6 +65,8 @@ export type Order = {
     items: ProductStoreType[];
     groupInfo: GroupMember[];
   };
+  paymentLink: string;
+  paymentStatus: string;
 };
 
 export type ProductTypeList = {

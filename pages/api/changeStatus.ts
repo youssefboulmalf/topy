@@ -14,5 +14,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await updateDoc(orderDocRef, {
     orderStatus: orderStates[newStatus],
   });
-  res.status(200);
+  res.status(200).send({message: 'status change was succesfull'});
 };

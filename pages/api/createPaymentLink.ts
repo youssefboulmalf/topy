@@ -1,7 +1,8 @@
 import { doc } from "@firebase/firestore";
 import  config  from '../../assets/config';
-import { getDoc } from '@firebase/firestore'
+import { getDoc, updateDoc } from '@firebase/firestore'
 import { ordersCol } from "../../utils/firebase";
+import { NextApiRequest, NextApiResponse } from "next";
 
 type LineItem = {
         price: number
@@ -21,9 +22,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     
     const line_items : LineItem[] = []
-    for (let i; i < order?.orderDetails?.items?.length; i++){
+    for (let i= 0; i < order?.orderDetails?.items?.length; i++){
         const product = await stripe.products.retrieve(
-            `${orderId}`
+            `${order?.orderDetails?.items[i].id}`
           );
         const lineItem : LineItem = {
             price: product.default_price,
@@ -32,12 +33,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         line_items.push(lineItem)
     }
     
-      const session = await stripe.checkout.sessions.create({
+      const paymentLink = await  stripe.paymentLinks.create({
         line_items: line_items,
-        mode: 'payment',
-        success_url: `${config.baseUrl}/`,
-        cancel_url: `${config.baseUrl}/`,
+        after_completion: {type: 'hosted_confirmation', hosted_confirmation: {custom_message: 'Thank you for choosing topy tours'}}
       });
-    
-      console.log(session.url)
+
+
+      await updateDoc(orderDocRef, {
+        paymentLink: paymentLink,
+        paymentStatus: 'waiting for payment'
+      });
+      //TODO: Send paymentLink email
+      res.status(200).send({message: 'succesfully send payment link'});
 };

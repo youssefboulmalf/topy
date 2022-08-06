@@ -15,10 +15,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     totalPrice: orderData.totalPrice,
     orderStatus: "enquiry",
     orderDetails: orderData.orderDetails,
+    paymentLink: '',
+    paymentStatus: 'Not payed'
   } as Order
   const orderRef = doc(ordersCol, id);
   setDoc(orderRef, order)
     .then(() => {
+      //TODO: Send conformation email
       res.status(200).send('good')
     })
     .catch((e) => {

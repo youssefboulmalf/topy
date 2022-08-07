@@ -644,6 +644,62 @@ h5 {
   }
 }
 
+.tripadvisor-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 120px;
+  .tripAdvisorButton {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 110px;
+    background-color: rgba(17, 17, 17, 0.1);
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 6px 12px;
+    padding: 12px 16px;
+    &:hover{
+      transform: scale(1.03);
+      transition: ease-in 0.2s;
+    }
+
+    .tripAdvisorLogo{
+      width: 30px;
+      height: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      background-color: #34e0a1;
+      border-radius: 100px;
+    }
+    .button-head{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+    .starLogo {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 6px;
+      margin: 10px 0px 0px 10px;
+      font-size: 20px;
+
+      .stars-filled {
+        fill: gold;
+      }
+
+      .stars-notFilled {
+        fill: grey;
+      }
+    }
+  }
+}
 .page-intro {
   position: relative;
 
@@ -3667,7 +3723,7 @@ h5 {
 .admin-panel {
   margin-top: 70px;
   .admin-panel__order-section {
-    .checkout-items{
+    .checkout-items {
       padding: 0px 10px;
       background-color: #75beff;
     }
@@ -3686,7 +3742,7 @@ h5 {
           width: 150px;
         }
       }
-      .group-member-info{
+      .group-member-info {
         margin-bottom: 50px;
       }
 
@@ -3705,9 +3761,8 @@ h5 {
           padding-top: 12px;
           color: black;
           font-size: 15px;
-
         }
-        tbody{
+        tbody {
           margin-bottom: 20px;
         }
       }
@@ -3719,11 +3774,11 @@ h5 {
   }
 }
 
-.products-tab{
-  .product-image{
+.products-tab {
+  .product-image {
     width: 80px;
   }
-  .product-button{
+  .product-button {
     background-color: rgba(0, 0, 0, 0.2);
     padding: 10px;
     border-radius: 10px;
@@ -3734,18 +3789,18 @@ h5 {
     align-items: center;
     width: 320px;
     font-size: 18px;
-    &:hover{
+    &:hover {
       cursor: pointer;
     }
   }
 }
 
-.product-form-root{
-  .image-fields{
+.product-form-root {
+  .image-fields {
     display: flex;
     flex-direction: row;
   }
-  .load-overlay{
+  .load-overlay {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -3759,36 +3814,34 @@ h5 {
     background-color: rgba(255, 255, 255, 0.32);
   }
 
-.productForm{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-wrap: nowrap;
-
-
-  
-  @include breakpoint(desktop-lg) {
-    flex-wrap: wrap;
-    max-height: 95vh;
-  }
-  button{
-    margin: 10px, 0px
-  }
-  label{
-    font-size: 22px;
-    margin-bottom: 10px;
-    text-align: left;
-    color: black;
-  }
-  .form-fields{
-    position: relative;
-    margin-top: 40px;
+  .productForm {
     display: flex;
     flex-direction: column;
     align-items: center;
-    textarea{
-      width: 300px;
+    flex-wrap: nowrap;
+
+    @include breakpoint(desktop-lg) {
+      flex-wrap: wrap;
+      max-height: 95vh;
+    }
+    button {
+      margin: 10px, 0px;
+    }
+    label {
+      font-size: 22px;
+      margin-bottom: 10px;
+      text-align: left;
+      color: black;
+    }
+    .form-fields {
+      position: relative;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      textarea {
+        width: 300px;
+      }
     }
   }
-}
 }

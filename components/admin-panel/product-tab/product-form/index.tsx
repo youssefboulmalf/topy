@@ -6,6 +6,7 @@ import {
   Button,
   NumberInput,
   Textarea,
+  Select,
   MultiSelect,
 } from "@mantine/core";
 import { Products } from "types";
@@ -15,21 +16,12 @@ import { postData, postImages } from "utils/services";
 import { closeAllModals } from "@mantine/modals";
 import { FileInput, Loader } from "@mantine/core";
 import Locations from "../../../../utils/data/products-locations";
+import productsCategories from "utils/data/products-types";
 type Prop = {
   item: Products;
   index: number;
 };
 
-//TODO: connect to database
-const locationOptions = [
-  { value: "serengeti", label: "serengeti" },
-  { value: "tarangiri", label: "tarangiri" },
-  { value: "ngorongoro", label: "ngorongoro" },
-  { value: "arusha", label: "arusha" },
-  { value: "meru", label: "meru" },
-  { value: "moshi", label: "moshi" },
-  { value: "kilimanjaro", label: "kilimanjaro" },
-];
 
 const ProductForm = ({ item, index }: Prop) => {
   const form = useForm({
@@ -220,11 +212,15 @@ const ProductForm = ({ item, index }: Prop) => {
           </div>
         </section>
         <section>
-          <div className="form-fields">
-            <TextInput
-              label="Category"
+        <div className="form-fields">
+            <label>locations</label>
+            <Select
+              data={productsCategories}
+              style={{ maxWidth: "240px" }}
+              label="Pick the category"
+              searchable
+              clearable
               required
-              placeholder="Category"
               {...form.getInputProps("category")}
             />
           </div>

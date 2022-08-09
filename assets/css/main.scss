@@ -226,6 +226,16 @@ h5 {
   @include breakpoint(phone) {
     padding-top: 100px;
   }
+  .aboutPage{
+    margin-top: 120px;
+    .block{
+      display: flex;
+      flex-direction: column;
+      @include breakpoint(phone) {
+        flex-direction: row;
+      }
+    }
+  }
 }
 
 .block {
@@ -649,7 +659,6 @@ h5 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 120px;
   .tripAdvisorButton {
     margin-top: 50px;
     display: flex;
@@ -3822,7 +3831,7 @@ h5 {
 
     @include breakpoint(desktop-lg) {
       flex-wrap: wrap;
-      max-height: 95vh;
+      max-height: 120vh;
     }
     button {
       margin: 10px, 0px;
@@ -3845,3 +3854,4 @@ h5 {
     }
   }
 }
+

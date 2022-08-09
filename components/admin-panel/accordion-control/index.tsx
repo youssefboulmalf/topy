@@ -32,28 +32,20 @@ function AccordionControl(props: AccordionControlProps) {
     }).then((_r) => location.reload());
   };
 
-  const onSendPayment = (orderId: string) =>{
-    postData('/api/createPaymentLink',{orderId: orderId}).then((_r)=>{
-      onChangeStatus(orderId, 'contacted');
-    })
+  // const onSendPayment = (orderId: string) =>{
+  //   postData('/api/createPaymentLink',{orderId: orderId}).then((_r)=>{
+  //     onChangeStatus(orderId, 'contacted');
+  //   })
 
-  }
+  // }
 
-  const payButtonStyle =
-    order.orderStatus == "contacted"
-      ? { paddingLeft: "10px", paddingRight: "10px" }
-      : { paddingLeft: "10px", paddingRight: "10px", visibility: "hidden" };
-  const stateButtonStyle =
-    order.orderStatus != "contacted"
-      ? { paddingLeft: "10px", paddingRight: "10px" }
-      : { paddingLeft: "10px", paddingRight: "10px", visibility: "hidden" };
 
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "center" }}>
         <Accordion.Control {...props} />
         {order.orderStatus != "completed" ? (
-          <div style={stateButtonStyle}>
+          <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
             <Button onClick={() => onChangeStatus(order.id, order.orderStatus)}>
               Change status
             </Button>
@@ -62,11 +54,6 @@ function AccordionControl(props: AccordionControlProps) {
         <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>
           <Button onClick={() => setOpened(true)} color={"red"}>
             Delete order
-          </Button>
-        </div>
-        <div style={payButtonStyle}>
-          <Button onClick={() => onSendPayment(order.id)} color={"green"}>
-            Send PaymentLink
           </Button>
         </div>
       </Box>

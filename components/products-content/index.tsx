@@ -10,7 +10,7 @@ const ProductsContent = () => {
       <div className="products-content__intro">
         <h2>Our tours <span>(133)</span></h2>
         <button type="button" onClick={() => setOrderProductsOpen(!orderProductsOpen)} className="products-filter-btn"><i className="icon-filters"></i></button>
-        <form className={`products-content__filter ${orderProductsOpen ? 'products-order-open' : ''}`}>
+        {/* <form className={`products-content__filter ${orderProductsOpen ? 'products-order-open' : ''}`}>
           <div className="products__filter__select">
             <h4>Show products: </h4>
             <div className="select-wrapper">
@@ -27,7 +27,7 @@ const ProductsContent = () => {
               </select>
             </div>
           </div>
-        </form>
+        </form> */}
       </div>
 
       <List/>

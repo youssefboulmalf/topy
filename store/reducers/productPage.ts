@@ -23,7 +23,7 @@ const initialState = {
   products: [],
   filters: {
     locations: [],
-    priceFilter: [0, 3500],
+    priceFilter: [0, 8000],
   },
   filteredProducts: [],
 } as productPageSliceTypes;

@@ -3,6 +3,7 @@ import { FcGoogle } from 'react-icons/fc'
 import Stars from './stars'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState, useEffect } from 'react';
+import { FaTripadvisor } from "react-icons/fa";
 
 // Import Swiper styles
 import "swiper/css";
@@ -109,6 +110,16 @@ export default function GoogleReviews({ data }: { data: any }) {
             }
           </Swiper>)}
         </div>
+      </div>
+    <div className="tripadvisor-wrapper">
+            <button onClick={()=>{location.href = "https://www.tripadvisor.com/Attraction_Review-g297913-d20931486-Reviews-TOPY_TOURS-Arusha_Arusha_Region.html"}}className="tripAdvisorButton">
+              <div className="tripAdvisorLogo"><FaTripadvisor/></div>
+              <div className="button-head">
+              <h3>5.0</h3>
+              <Stars className="starLogo" rating={5}/>
+              </div>
+              <p>Read our 45 reviews</p>
+            </button>
       </div>
     </div>
     </div>

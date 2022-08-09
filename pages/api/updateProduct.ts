@@ -5,26 +5,26 @@ import { productsCol } from "../../utils/firebase";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   
-  const stripe = require('stripe')(process.env.STRIPE_SK)
+  // const stripe = require('stripe')(process.env.STRIPE_SK)
   const data = req.body.values;
   const imgPath = req.body.imgPath ?  req.body.imgPath : false
   const id = data.id;
   const currentPrice = req.body.currentPrice
 
-  const stripeProductData =  {
-    name: data.name,
-    images: imgPath? imgPath : data.images,
-    description: data.smallDescription,
-  } as StripeProducts
+  // const stripeProductData =  {
+  //   name: data.name,
+  //   images: imgPath? imgPath : data.images,
+  //   description: data.smallDescription,
+  // } as StripeProducts
 
-  const stripeProduct = await stripe.products.update(
-    data.id ,stripeProductData
-  );
+  // const stripeProduct = await stripe.products.update(
+  //   data.id ,stripeProductData
+  // );
 
-  const price = await stripe.prices.update(
-    stripeProduct.default_price,
-    {unit_amount_decimal: currentPrice*100}
-  );
+  // const price = await stripe.prices.update(
+  //   stripeProduct.default_price,
+  //   {unit_amount_decimal: currentPrice*100}
+  // );
 
 
 

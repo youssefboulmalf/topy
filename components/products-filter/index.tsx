@@ -3,9 +3,10 @@ import Checkbox from './form-builder/checkbox';
 import Slider from 'rc-slider';
 
 // data
-import productsTypes from './../../utils/data/products-types';
+import productsCategories from './../../utils/data/products-types';
 import { useDispatch } from 'react-redux';
 import { addFilter, removeFilter, addPriceFilter } from 'store/reducers/productPage';
+import locations from 'utils/data/products-locations';
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -41,24 +42,37 @@ const handleChange = (e: any , filter: any) =>{
       
       <div className={`products-filter__wrapper ${filtersOpen ? 'products-filter__wrapper--open' : ''}`}>
         <div className="products-filter__block">
-          <button type="button">Location</button>
+          <button type="button">Type</button>
           <div className="products-filter__block__content">
-            {productsTypes.map(type => (
+            {productsCategories.map((type, index) => (
               <Checkbox 
-                key={type.id} 
+                key={index} 
                 name="product-type" 
-                label={type.name}
+                label={type}
                 onChange={handleChange}
-                filter={type.location}
+                filter={type}
               />
             ))}
           </div>
         </div>
-
+        <div className="products-filter__block">
+          <button type="button">Location</button>
+          <div className="products-filter__block__content">
+            {locations.map((location, index) => (
+              <Checkbox 
+                key={index} 
+                name="product-type" 
+                label={location}
+                onChange={handleChange}
+                filter={location}
+              />
+            ))}
+          </div>
+        </div>
         <div className="products-filter__block">
           <button type="button">Price</button>
           <div className="products-filter__block__content">
-            <Range onAfterChange={(e)=>handleChange(e,'price')} min={0} max={3500} defaultValue={[0, 3500]} tipFormatter={value => `${value}$`} />
+            <Range onAfterChange={(e)=>handleChange(e,'price')} min={0} max={8000} defaultValue={[0, 8000]} tipFormatter={value => `${value}$`} />
           </div>
         </div>
         <button type="submit" className="btn btn-submit btn--rounded btn--yellow">Apply</button>

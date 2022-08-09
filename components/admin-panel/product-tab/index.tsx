@@ -38,7 +38,7 @@ const ProductTab = () => {
             onClick={() => {
               openModal({
                 title: "Change product details",
-                size: "90%",
+                size: "100%",
                 centered:true,
                 children: (
                   <>
@@ -57,7 +57,7 @@ const ProductTab = () => {
         onClick={() => {
           openModal({
             title: "Subscribe to newsletter",
-            size: "90%",
+            size: "100%",
             children: (
               <>
                 <ProductForm key={9999} index={9999} item={newProduct} />

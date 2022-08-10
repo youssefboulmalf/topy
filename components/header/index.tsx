@@ -78,9 +78,12 @@ const Header = ({ isErrorPage }: HeaderType) => {
           <Link href="/about">
             <a>About</a>
           </Link>
-          <a href="#">Blog</a>
-          <a href="#">Contact</a>
-          {/* <button className="site-nav__btn"><p>Account</p></button> */}
+          <Link href="/blog">
+            <a>Blog</a>
+          </Link>
+          <Link href="/contact">
+          <a>Contact</a>
+          </Link>
         </nav>
 
         <div className="site-header__actions">
@@ -114,9 +117,6 @@ const Header = ({ isErrorPage }: HeaderType) => {
               )}
             </button>
           </Link>
-          {/* <Link href="/login">
-            <button className="site-header__btn-avatar"><i className="icon-avatar"></i></button>
-          </Link> */}
           <button
             onClick={() => setMenuOpen(true)}
             className="site-header__btn-menu"

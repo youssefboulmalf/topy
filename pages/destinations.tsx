@@ -3,6 +3,7 @@ import Layout from "../layouts/Main";
 import Beaches from "../components/destinations/beaches";
 import South from "../components/destinations/south";
 import North from "../components/destinations/north";
+import Footer from "components/footer";
 const destinations = () => {
   return (
     <Layout>
@@ -18,6 +19,7 @@ const destinations = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </Layout>
   );
 };

@@ -1,4 +1,6 @@
-import { BackgroundImage, Center } from "@mantine/core";
+import { BackgroundImage } from "@mantine/core";
+import Footer from "components/footer";
+import ProductsFeatured from "components/products-featured";
 import React from "react";
 import Layout from "../../layouts/Main";
 
@@ -43,6 +45,8 @@ The volume of game in Katavi is outstanding, with some researchers believing tha
           </p>
         </div>
       </div>
+      <ProductsFeatured/>
+      <Footer/>
     </Layout>
   );
 };

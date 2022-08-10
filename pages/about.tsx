@@ -1,4 +1,5 @@
 import { Image, Text } from "@mantine/core";
+import Footer from "components/footer";
 import React from "react";
 import Layout from "../layouts/Main";
 
@@ -32,6 +33,7 @@ const AboutPage = () => {
         </div>
       </div>
       </section>
+      <Footer/>
     </Layout>
   );
 };

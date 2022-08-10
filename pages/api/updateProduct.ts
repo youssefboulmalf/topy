@@ -1,6 +1,6 @@
 import { doc, updateDoc } from "@firebase/firestore";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Products, StripeProducts } from "../../types";
+import { Products } from "../../types";
 import { productsCol } from "../../utils/firebase";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

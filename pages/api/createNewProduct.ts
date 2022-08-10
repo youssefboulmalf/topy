@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { productsCol } from "../../utils/firebase";
 import { doc, setDoc} from "@firebase/firestore";
-import {  Products, StripeProducts } from "../../types";
+import {  Products } from "../../types";
+
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 

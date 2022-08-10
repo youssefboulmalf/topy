@@ -1,32 +1,17 @@
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiTwotoneCalendar } from "react-icons/ai";
-import { useRef } from "react";
-import { useViewportSize } from '@mantine/hooks';
+import Footer from "../components/footer";
+import Layout from '../layouts/Main';
 
-
-const BlogIntro = () => {
-  const myRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-  const [myElementIsVisible, setMyElementIsVisible] = useState(false);
-
-  const { width } = useViewportSize();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries, _observer) => {
-      const entry = entries[0];
-      setMyElementIsVisible(entry.isIntersecting);
-    });
-    observer.observe(myRef.current);
-  }, []);
-
-  const style = myElementIsVisible && width > 700 ? "blogs blogs-animation" : "blogs";
-  const styleTwo = myElementIsVisible && width > 700  ? "blogs blogs-animation-slower" : "blogs";
+const BlogPage = () => {
 
   return (
-    <div className="blog-intro">
+    <Layout>
+    <div className="blog-page">
       <div className="container">
         <h1>Blog posts</h1>
-        <div  ref={myRef} className={style}>
+        <div  className='blogs'>
           <Link href={"/blog/1"}>
             <a className="blog-wrapper">
               <img src={"/images/blogs/tanzania.jpg"} />
@@ -57,7 +42,7 @@ const BlogIntro = () => {
               </div>
             </a>
           </Link>
-          <Link href={"/blog/4"}>
+          <Link href={"/blog/6"}>
             <a className="blog-wrapper">
               <img src={"/images/blogs/best.jpg"} />
               <h2>Best time to visit tanzania</h2>
@@ -67,7 +52,7 @@ const BlogIntro = () => {
               </div>
             </a>
           </Link>
-          <Link href={"/blog/5"}>
+          <Link href={"/blog/4"}>
             <a className="blog-wrapper">
               <img src={"/images/blogs/safari.jpg"} />
               <h2>10 safari do's and dont's</h2>
@@ -77,9 +62,7 @@ const BlogIntro = () => {
               </div>
             </a>
           </Link>
-          </div>
-          <div className={styleTwo}>
-          <Link href={"/blog/6"}>
+          <Link href={"/blog/5"}>
             <a className="blog-wrapper">
               <img src={"/images/blogs/zanzibar.jpg"} />
               <h2>Top 10 Unmissable Things to Do in Zanzibar, Tanzania</h2>
@@ -89,7 +72,7 @@ const BlogIntro = () => {
               </div>
             </a>
           </Link>
-          <Link href={"/blog/7"}>
+          <Link href={"/blog/8"}>
             <a className="blog-wrapper">
               <img src={"/images/blogs/wish.jpg"} />
               <h2>10 Things I Wish I’d Known Before My Tanzania Safari </h2>
@@ -99,7 +82,7 @@ const BlogIntro = () => {
               </div>
             </a>
           </Link>
-          <Link href={"/blog/8"}>
+          <Link href={"/blog/7"}>
             <a className="blog-wrapper">
               <img src={"/images/blogs/usefull.jpg"} />
               <h2>Tanzania Travel Tips & Useful info </h2>
@@ -112,7 +95,9 @@ const BlogIntro = () => {
         </div>
       </div>
     </div>
+    <Footer/>
+    </Layout>
   );
 };
 
-export default BlogIntro;
+export default BlogPage;

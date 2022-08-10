@@ -50,6 +50,10 @@ export default class CustomDocument extends Document<DocumentProps> {
             href="/favicon-16x16.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+            rel="stylesheet"
+          />
 
           {/* We only want to add the scripts if in production */}
           {isProduction && (

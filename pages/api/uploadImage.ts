@@ -1,4 +1,4 @@
-import { doc, updateDoc } from "@firebase/firestore";
+// import { doc, updateDoc } from "@firebase/firestore";
 import { getDownloadURL,ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../utils/firebase";
 
@@ -17,8 +17,7 @@ type ProcessedFiles = Array<[string, File]>;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
-    let status = 200,
-        resultBody = { status: 'ok', message: 'Files were uploaded successfully' };
+    let status = 200
     
     let id = "";
     const files = await new Promise<ProcessedFiles | undefined>(
@@ -28,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       form.on("file", function (field, file: any) {
         files.push([field, file]);
       });
-      form.on("field", function (name, value: string) {
+      form.on("field", function (_name, value: string) {
         id = value;
       });
       form.on("end", () => resolve(files));
@@ -40,10 +39,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     ).catch((e) => {
     console.log(e);
     status = 500;
-    resultBody = {
-      status: "fail",
-      message: "Upload error",
-    };
   });
 
   
@@ -62,7 +57,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const path = `images/${id}/${files[i][1].originalFilename}`;
     
     const storageRef = ref(storage, path);
-    await uploadBytes(storageRef, imgFile).then((snapshot) => {
+    await uploadBytes(storageRef, imgFile).then((_snapshot) => {
     });
     await getDownloadURL(storageRef).then((url)=>{
         console.log(url)

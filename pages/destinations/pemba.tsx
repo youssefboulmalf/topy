@@ -1,4 +1,6 @@
-import { BackgroundImage, Center } from "@mantine/core";
+import { BackgroundImage } from "@mantine/core";
+import Footer from "components/footer";
+import ProductsFeatured from "components/products-featured";
 import React from "react";
 import Layout from "../../layouts/Main";
 
@@ -40,6 +42,8 @@ The office here has always been slightly split about what we really think of Pem
           </p>{" "}
         </div>
       </div>
+      <ProductsFeatured/>
+      <Footer/>
     </Layout>
   );
 };

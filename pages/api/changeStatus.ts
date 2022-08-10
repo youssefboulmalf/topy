@@ -1,5 +1,6 @@
 import { doc, updateDoc } from "@firebase/firestore";
 import { ordersCol } from "../../utils/firebase";
+import { NextApiRequest, NextApiResponse } from "next";
 
 const orderStates = ["enquiry", "contacted", "pending", "payed", "completed"];
 

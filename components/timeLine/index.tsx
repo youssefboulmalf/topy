@@ -15,10 +15,11 @@ const TimeLine = () => {
           <div className="box">
             <h1>Beautiful destinations</h1>
             <p>
-              At topy tours we provide safari's tours and trekking's to the most
-              beautiful places tanzania has to offer. Safari's are tanzantia's
-              primary touris income. Every year thousands of{""}
+              When it comes to exploring exotic places, the choices are
+              numerous. Whether you like peaceful destinations, vibrant
+              landscapes or wildlife sanctuary we have offers for you.
             </p>
+            <Link href={'/destinations'}>Click here to read all about them.</Link>
           </div>
         </div>
       </div>

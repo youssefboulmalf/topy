@@ -1,4 +1,6 @@
-import { BackgroundImage, Center } from "@mantine/core";
+import { BackgroundImage } from "@mantine/core";
+import Footer from "components/footer";
+import ProductsFeatured from "components/products-featured";
 import React from "react";
 import Layout from "../../layouts/Main";
 
@@ -128,6 +130,8 @@ const tarangire = () => {
           </p>
         </div>
       </div>
+      <ProductsFeatured/>
+      <Footer/>
     </Layout>
   );
 };

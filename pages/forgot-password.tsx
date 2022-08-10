@@ -15,6 +15,7 @@ const ForgotPassword = () => {
     const res = await postData(`${server}/api/login`, {
       email: data.email,
     });
+    console.log(res)
 
   };
 

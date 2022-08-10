@@ -8,7 +8,7 @@ const TimeLine = () => {
         <div className="boxes">
           <Link href={"/destinations"}>
             <a className="box">
-              <div className="overlay">More destinations...</div>
+              <div className="overlay">More destinations</div>
               <img src={"/images/killa.jpg"} />
             </a>
           </Link>

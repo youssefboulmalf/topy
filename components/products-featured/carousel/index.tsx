@@ -29,16 +29,16 @@ type ProductsCarouselType = {
 const ProductsCarousel = ({ products }: ProductsCarouselType) => {
   if (!products) return <div>Loading</div>;
 
-  const [domLoaded, setDomLoaded] = useState(false);
+  // const [domLoaded, setDomLoaded] = useState(false);
 
-  useEffect(() => {
-    setDomLoaded(true);
-  }, []);
+  // useEffect(() => {
+  //   setDomLoaded(true);
+  // }, []);
   
 
   return (
     <div className="products-carousel">
-      {domLoaded && (
+      {true && (
       <Swiper 
       spaceBetween={spaceBetween} 
       loop={true} 

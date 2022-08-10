@@ -29,7 +29,24 @@ if(isProduction) {
 const MyApp = ({ Component, pageProps }: AppProps) => (
   
   <Fragment>
-        <MantineProvider>
+        <MantineProvider
+        theme={{
+          colors: {
+            'dark-green': [
+              "#7C7D6F",
+              "#727363",
+              "#696B58",
+              "#61634E",
+              "#5A5C44",
+              "#54573C",
+              "#4F5233",
+              "#454731",
+              "#3C3E2E",
+              "#35362B",
+            ],
+          },
+        }}
+        >
       <ModalsProvider>
     <Component {...pageProps} />
     </ModalsProvider>

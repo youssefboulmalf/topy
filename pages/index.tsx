@@ -2,12 +2,16 @@ import Layout from "../layouts/Main";
 import PageIntro from "../components/page-intro";
 import GoogleReviews from "../components/google-reviews";
 import ProductsFeatured from "../components/products-featured";
+import Gallery from "components/gallery";
+import BlogIntro from "components/blog-intro";
 import Footer from "../components/footer";
+import TimeLine from "../components/timeLine";
 import Subscribe from "../components/subscribe";
 import { TbHeartHandshake } from "react-icons/tb";
 import { BiBadgeCheck } from "react-icons/bi";
 import { BsStopwatch } from "react-icons/bs";
 import { FaTripadvisor } from "react-icons/fa";
+
 
 const key = process.env.GOOGLE_MAPS_API_KEY;
 
@@ -144,6 +148,9 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
 
       <ProductsFeatured />
       <GoogleReviews data={data} />
+      <Gallery/>
+      <TimeLine/>
+      <BlogIntro/>
       <Subscribe />
       <Footer />
     </Layout>

@@ -72,8 +72,12 @@ const Header = ({ isErrorPage }: HeaderType) => {
           <Link href="/products">
             <a>Adventures</a>
           </Link>
-          <a href="#">Destinations</a>
-          <a href="#">About</a>
+          <Link href="/destinations">
+            <a>Destinations</a>
+          </Link>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
           <a href="#">Blog</a>
           <a href="#">Contact</a>
           {/* <button className="site-nav__btn"><p>Account</p></button> */}

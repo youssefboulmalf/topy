@@ -8,13 +8,14 @@ import {
   Textarea,
   Select,
   MultiSelect,
+  LoadingOverlay
 } from "@mantine/core";
 import { Products } from "types";
 import { useForm } from "@mantine/form";
 import { BsTrashFill, BsFillCloudUploadFill } from "react-icons/bs";
 import { postData, postImages } from "utils/services";
 import { closeAllModals } from "@mantine/modals";
-import { FileInput, Loader } from "@mantine/core";
+import { FileInput } from "@mantine/core";
 import Locations from "../../../../utils/data/products-locations";
 import productsCategories from "utils/data/products-types";
 type Prop = {
@@ -156,15 +157,10 @@ const ProductForm = ({ item, index }: Prop) => {
     )
   );
 
-  const loadOverlay = loading ? (
-    <div className="load-overlay">
-      <Loader />;
-    </div>
-  ) : null;
 
   return (
     <div className="product-form-root">
-      {loadOverlay}
+     <LoadingOverlay visible={loading} overlayBlur={2} />
       <label>images</label>
       <div className="image-fields">{imagesFields}</div>
       <FileInput

@@ -1,4 +1,4 @@
-let baseUrl = 'http://localhost:3000'
+let baseUrl = process.env.BASE_URL
 
 if(process.env.BASE_URL) {
     baseUrl = process.env.BASE_URL

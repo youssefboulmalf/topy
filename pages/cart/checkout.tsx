@@ -69,7 +69,7 @@ const CheckoutPage = () => {
   );
   const succesPage = (
     <div className="checkout__order-message">
-      <h1>Thank you for choosing topy tours!</h1>
+      <h1>Thank you for choosing Topy tours!</h1>
       <h2>Your enquiry has been made.</h2>
       <p>
         One of our staff members will contact you shortly trough whatsapp or
@@ -140,29 +140,6 @@ const CheckoutPage = () => {
                         <RiHazeLine className="logo-vacation" />
                       </div>
                       <p>{"Enjoy your trip!"}</p>
-                    </li>
-                  </ul>
-                </div>
-                <div className="block">
-                  <h3 className="block__title">Payment method</h3>
-                  <ul className="round-options round-options--three">
-                    <li className="round-item">
-                      <img src="/images/logos/paypal.png" alt="Paypal" />
-                    </li>
-                    <li className="round-item">
-                      <img src="/images/logos/visa.png" alt="Paypal" />
-                    </li>
-                    <li className="round-item">
-                      <img src="/images/logos/mastercard.png" alt="Paypal" />
-                    </li>
-                    <li className="round-item">
-                      <img src="/images/logos/maestro.png" alt="Paypal" />
-                    </li>
-                    <li className="round-item">
-                      <img src="/images/logos/discover.png" alt="Paypal" />
-                    </li>
-                    <li className="round-item">
-                      <img src="/images/logos/ideal-logo.svg" alt="Paypal" />
                     </li>
                   </ul>
                 </div>

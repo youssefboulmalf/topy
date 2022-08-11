@@ -9,7 +9,7 @@ const AboutPage = () => {
     <Layout>
     <section className="about-page">
       <div className="container">
-        <h4 className="head">About topy tours</h4>
+        <h4 className="head">About Topy tours</h4>
         <div className="block">
             <Image className="image" src={'https://media-cdn.tripadvisor.com/media/photo-w/24/c5/61/b3/topy-tours.jpg'}/>
         <Text className="text">

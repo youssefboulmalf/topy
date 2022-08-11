@@ -1,17 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { productsCol } from "../../utils/firebase";
-import { doc, setDoc} from "@firebase/firestore";
-import {  Products } from "../../types";
-
+import { doc, setDoc } from "@firebase/firestore";
+import { Products } from "../../types";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-
   // const stripe = require('stripe')(process.env.STRIPE_SK)
 
   const data = req.body.values;
-  const imgPath = req.body.imgPath ?  req.body.imgPath : false
-  const currentPrice = req.body.currentPrice
-
+  const imgPath = req.body.imgPath ? req.body.imgPath : false;
+  const currentPrice = req.body.currentPrice;
 
   // const stripeProductData =  {
   //   id: data.id,
@@ -23,8 +20,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   // const stripeProduct = await stripe.products.create(stripeProductData);
 
-
-  
   const product = {
     id: data.id,
     name: data.name,
@@ -36,16 +31,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     images: imgPath ? imgPath : data.images,
     smallDescription: data.smallDescription,
     description: data.description,
-    duration: data.duration
-  } as Products
-
+    duration: data.duration,
+  } as Products;
 
   const productRef = doc(productsCol, data.id);
-  setDoc(productRef, product)
-    .then(() => {
-      res.status(200).send('good')
-    })
-    .catch((e) => {
-      res.status(400).send(e)
-    });
+  await setDoc(productRef, product);
+  res.status(200).send("good");
 };

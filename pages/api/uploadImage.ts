@@ -6,7 +6,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import formidable, {File} from "formidable";
 
-/* Don't miss that! */
+
 export const config = {
   api: {
       bodyParser: false,
@@ -17,9 +17,11 @@ type ProcessedFiles = Array<[string, File]>;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
+
     let status = 200
     
     let id = "";
+
     const files = await new Promise<ProcessedFiles | undefined>(
     (resolve, reject) => {
       const form = new formidable.IncomingForm();
@@ -52,7 +54,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const imgFile:Buffer  = fs.readFileSync(files[i][1].filepath)
     
     
-    console.log(imgFile)
     
     const path = `images/${id}/${files[i][1].originalFilename}`;
     

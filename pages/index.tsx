@@ -11,6 +11,7 @@ import { TbHeartHandshake } from "react-icons/tb";
 import { BiBadgeCheck } from "react-icons/bi";
 import { BsStopwatch } from "react-icons/bs";
 import { FaTripadvisor } from "react-icons/fa";
+import Link from "next/link";
 
 
 const key = process.env.GOOGLE_MAPS_API_KEY;
@@ -42,9 +43,11 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
           >
             <div className="featured-item__content">
               <h3>3 Day safari Serengeti</h3>
-              <a href="#" className="btn btn--rounded">
+              <Link href={'/product/1'}>
+              <a className="btn btn--rounded">
                 More details
               </a>
+              </Link>
             </div>
           </article>
 
@@ -57,9 +60,11 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
           >
             <div className="featured-item__content">
               <h3>5 Day safari for $999</h3>
-              <a href="#" className="btn btn--rounded">
+              <Link href={'/product/2'}>
+              <a className="btn btn--rounded">
                 More details
               </a>
+              </Link>
             </div>
           </article>
 
@@ -72,9 +77,11 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
           >
             <div className="featured-item__content">
               <h3>Kilimanjaro 5-6 days</h3>
-              <a href="#" className="btn btn--rounded">
+              <Link href={'/product/3'}>
+              <a className="btn btn--rounded">
                 More details
               </a>
+              </Link>
             </div>
           </article>
         </div>
@@ -123,7 +130,7 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
               <div className="data-item__content">
                 <h4>Finest Quality</h4>
                 <p>
-                  At Topy Tours we only employ experienced guides to make sure
+                  At Topy tours we only employ experienced guides to make sure
                   you have the best experience on one of out many trips.
                 </p>
               </div>

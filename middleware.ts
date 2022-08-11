@@ -11,25 +11,24 @@ export function middleware(request: NextRequest) {
 
 
   const isAuth = cookieFromRequest == hash
+
+  console.log('aut', isAuth)
   if (isAuth) {
     return NextResponse.next()
     
   }
-  console.log(isAuth)
   if (request.nextUrl.pathname.startsWith('/admin')) {
+
     const loginUrl = new URL('/login', request.url)
     loginUrl.searchParams.set('from', request.nextUrl.pathname)
     return NextResponse.redirect(loginUrl)
   }
   else{
-    const url = new URL('api/unauthorized', request.url)
-    url.searchParams.set('from', request.nextUrl.pathname)
-    return NextResponse.rewrite(url)
-
+    return NextResponse.json({ message: 'Auth required' }, { status: 401 })
   }
 }
 
 export const config = {
-  matcher: ['/admin', '/api/getOrders', '/api/deleteOrder', '/api/changeStatus', '/api/createNewProduct', '/api/deleteImage', '/api/updateProduct','/api/uploadImage' ],
+  matcher: ['/admin', '/api/getOrders', '/api/deleteOrder', '/api/changeStatus', '/api/createNewProduct', '/api/deleteImage', '/api/updateProduct' ],
 }
 

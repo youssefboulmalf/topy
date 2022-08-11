@@ -8,7 +8,7 @@ import {
   Textarea,
   Select,
   MultiSelect,
-  LoadingOverlay
+  LoadingOverlay,
 } from "@mantine/core";
 import { Products } from "types";
 import { useForm } from "@mantine/form";
@@ -22,7 +22,6 @@ type Prop = {
   item: Products;
   index: number;
 };
-
 
 const ProductForm = ({ item, index }: Prop) => {
   const form = useForm({
@@ -68,7 +67,6 @@ const ProductForm = ({ item, index }: Prop) => {
           });
         });
       } else {
-        console.log("update");
         postImages("/api/uploadImage/", data).then((r) => {
           r.json().then((data) => {
             postData("/api/updateProduct", {
@@ -94,6 +92,7 @@ const ProductForm = ({ item, index }: Prop) => {
     }
     setLoading(false);
     closeAllModals();
+    // location.reload()
   };
 
   const onDelete = (image: string, index: number) => {
@@ -128,6 +127,8 @@ const ProductForm = ({ item, index }: Prop) => {
         ))
       : null;
 
+  console.log(form.values.images);
+
   const descriptionFields = form.values.description.map(
     (_descriptions: any, index) => (
       <Group key={`descriptions${index}`} mt="xs">
@@ -157,10 +158,9 @@ const ProductForm = ({ item, index }: Prop) => {
     )
   );
 
-
   return (
     <div className="product-form-root">
-     <LoadingOverlay visible={loading} overlayBlur={2} />
+      <LoadingOverlay visible={loading} overlayBlur={2} />
       <label>images</label>
       <div className="image-fields">{imagesFields}</div>
       <FileInput
@@ -208,7 +208,7 @@ const ProductForm = ({ item, index }: Prop) => {
           </div>
         </section>
         <section>
-        <div className="form-fields">
+          <div className="form-fields">
             <label>locations</label>
             <Select
               data={productsCategories}

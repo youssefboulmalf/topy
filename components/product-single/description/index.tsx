@@ -5,9 +5,10 @@ type descriptionMakeType = {
 }
 
 const Description = ( {description} : descriptionMakeType) => {
+
   return (
     <section className="product-single__description">
-      {description.map((day: descriptionType, index: number) => {
+      {description? description.map((day: descriptionType, index: number) => {
         return (
           <div key={index} className="product-description-block">
             <div className="product-description-head">
@@ -17,7 +18,7 @@ const Description = ( {description} : descriptionMakeType) => {
             <p>{day.text}</p>
           </div>
         );
-      })}
+      }): <p>Loading description</p>}
     </section>
   );
 };

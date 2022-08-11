@@ -35,7 +35,7 @@
     
 //       const paymentLink = await  stripe.paymentLinks.create({
 //         line_items: line_items,
-//         after_completion: {type: 'hosted_confirmation', hosted_confirmation: {custom_message: 'Thank you for choosing topy tours'}}
+//         after_completion: {type: 'hosted_confirmation', hosted_confirmation: {custom_message: 'Thank you for choosing Topy tours'}}
 //       });
 
 

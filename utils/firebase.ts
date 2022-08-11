@@ -5,7 +5,7 @@ import { getStorage } from "firebase/storage";
 
 // Init the firebase app
 export const firebaseApp = initializeApp({
-    apiKey: process.env.FIREBASE_API_KEY,
+    apiKey: process.env.FB_API_KEY,
     authDomain: "topytour.firebaseapp.com",
     projectId: "topytour",
     storageBucket: "topytour.appspot.com",

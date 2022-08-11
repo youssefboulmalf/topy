@@ -1667,6 +1667,7 @@ h5 {
       height: calc(100% - 101px);
       flex-shrink: 0;
       position: fixed;
+      border: 1.5px solid black;
       z-index: 99;
       padding: 20px 20px;
       background-color: #d9c5a2;
@@ -2628,7 +2629,7 @@ h5 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-green);
+    background-color: var(--color-brown-light);
     margin-top: 20px;
     svg {
       margin-left: 8px;
@@ -3493,7 +3494,7 @@ h5 {
   background: #4f5233;
   border-radius: 40px;
   align-items: center;
-  height: 49px;
+  height: 33px;
   display: flex;
   padding: 0 36px;
   margin: 34px auto 0 auto;

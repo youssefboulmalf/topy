@@ -23,7 +23,7 @@ const ProductTab = () => {
     category: "",
     currentPrice: 0,
     locations: [""],
-    images: [""],
+    images: [],
     smallDescription: "",
     description: [{ name: "", text: "" }] as descriptionType[],
     duration: 0,

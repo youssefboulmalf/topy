@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container">
         <div className="site-footer__top">
           <div className="site-footer__description">
-            <h6><Logo /> <span>Topy Tours</span></h6>
+            <h6><Logo /> <span>Topy tours</span></h6>
             <p>As a specialized, Exclusive travel company with tremendeous love and passion for Africa, we believe in our goal to create unrivaled itineraries that take our visitors closer to the unsurpassed natural beauty and extraordinary cultural diversity that Tanzania has to offer.</p>
             <ul className="site-footer__social-networks">
               <li><a href="#"><i className="icon-facebook"></i></a></li>
@@ -40,7 +40,7 @@ const Footer = () => {
       
       <div className="site-footer__bottom">
         <div className="container">
-          <p>DESIGN BY Topy Tours - © 2022. ALL RIGHTS RESERVED.</p>
+          <p>DESIGN BY Topy tours - © 2022. ALL RIGHTS RESERVED.</p>
         </div>
       </div>
     </footer>

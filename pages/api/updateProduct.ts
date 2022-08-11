@@ -11,6 +11,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const id = data.id;
   const currentPrice = req.body.currentPrice
 
+  console.log(imgPath)
+
   // const stripeProductData =  {
   //   name: data.name,
   //   images: imgPath? imgPath : data.images,
@@ -46,5 +48,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const productDocRef = doc(productsCol, id);
   await updateDoc(productDocRef, product);
-  res.status(200);
+  res.status(200).send('update succesfull');
 };

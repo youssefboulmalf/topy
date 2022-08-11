@@ -2,7 +2,7 @@ import Footer from "../components/footer";
 import React from "react";
 import Layout from "../layouts/Main";
 import { useForm } from "@mantine/form";
-import { TextInput, Button, Group, Textarea } from "@mantine/core";
+import { TextInput, Textarea } from "@mantine/core";
 interface FormValues {
   name: string;
   email: string;
@@ -20,7 +20,7 @@ const ContactPage = () => {
     <Layout>
       <section className="about-page">
         <div className="container">
-          <h4 className="head">Contact topy tours</h4>
+          <h4 className="head">Contact Topy tours</h4>
           <div className="block">
             <div className="form-div">
               <TextInput

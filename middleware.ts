@@ -12,8 +12,7 @@ export function middleware(request: NextRequest) {
 
   const isAuth = cookieFromRequest == hash
 
-  console.log('aut', isAuth)
-  if (isAuth || request.nextUrl.pathname.startsWith('/login')) {
+  if (isAuth) {
     return NextResponse.next()
     
   }

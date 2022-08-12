@@ -2,12 +2,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { ordersCol } from "../../utils/firebase";
 import { doc, setDoc, getDocs} from "@firebase/firestore";
 import { CheckoutOrder, Order } from "../../types";
+import config from '../../assets/config'
+import { postData } from "utils/services";
+var crypto = require("crypto");
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const orderData: CheckoutOrder = req.body;
-  const snapshot = await getDocs(ordersCol);
-  const count = snapshot.size + 1
-  const id : string = count.toString();
+  const id = `order_${crypto.randomBytes(10).toString('hex')}`;
+  
   const order = {
     id: id,
     creationDate: Date.now(),
@@ -21,10 +23,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const orderRef = doc(ordersCol, id);
   setDoc(orderRef, order)
     .then(() => {
-      //TODO: Send conformation email
-      res.status(200).send('good')
+      postData(`${config.baseUrl}/api/sendMail`,{type: 'enquiry', order: order})
+      return res.status(200).send('good')
     })
     .catch((e) => {
-      res.status(400).send(e)
+      return res.status(400).send(e)
     });
 };

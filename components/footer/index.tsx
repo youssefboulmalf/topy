@@ -1,4 +1,5 @@
 import Logo from '../../assets/icons/logo';
+import Link from 'next/link';
 
 const Footer = () => {
   return (
@@ -19,15 +20,14 @@ const Footer = () => {
 
           <div className="site-footer__links">
             <ul>
-              <li>Shopping online</li>
-              <li><a href="#">Payment options</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li>Information</li>
+              <li><Link href="about">About Us</Link></li>
+              <li><Link href="contact">Contact Us</Link></li>
             </ul>
             <ul>
-              <li>Information</li>
-              <li><a href="#">Newsletter</a></li>
-              <li><a href="#">Blogr</a></li>
-              <li><a href="#">Site feedback</a></li>
+            <li>Extra</li>
+              <li><Link href="/destinations">Destinations</Link></li>
+              <li><Link href="/blog">Blog</Link></li>
             </ul>
             <ul>
               <li>Contact</li>

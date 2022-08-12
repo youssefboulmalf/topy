@@ -16,7 +16,7 @@ const ProductTab = () => {
   if (error) return <div>Somthing went wrong...</div>;
 
   const newProduct = {
-    id: (products.length+1).toString(),
+    id: '',
     name: "",
     price: 0,
     discount: 0,
@@ -48,7 +48,7 @@ const ProductTab = () => {
               });
             }}
           >
-            <img className="product-image" referrerPolicy="no-referrer" src={item.images[0]} />
+            <img className="product-image" referrerPolicy="no-referrer" src={item.images?item.images[0]: ''} />
             {item.name}
           </div>
         </div>

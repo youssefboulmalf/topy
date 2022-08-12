@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import Item from './item';
 import { RootState } from 'store';
 import  Link from 'next/link';
-
+import {AiOutlineArrowRight} from 'react-icons/ai'
 const ShoppingCart = () => {
   const { cartItems } = useSelector((state: RootState)  => state.cart);
 
@@ -61,7 +61,7 @@ const ShoppingCart = () => {
 
           <div className="cart-actions__items-wrapper">
             <p className="cart-actions__total">Total cost <strong>${priceTotal().toFixed(2)}</strong></p>
-            {cartItems.length > 0?<Link href={'/cart/checkout'}><a href="/cart/checkout" className="btn btn--rounded btn--yellow">Checkout</a></Link>:null}
+            {cartItems.length > 0?<Link href={'/cart/checkout'}><a href="/cart/checkout" className="btn btn--rounded btn--yellow">Continue <AiOutlineArrowRight fontSize={13}/></a></Link>:null}
           </div>
         </div>
       </div>

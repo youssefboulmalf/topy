@@ -3,7 +3,6 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 var cookie = require('cookie');
 
 
-// fake login
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const request = req.body;
   const email = request.email;

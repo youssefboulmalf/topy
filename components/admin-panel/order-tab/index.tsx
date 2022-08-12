@@ -67,7 +67,7 @@ const OrderTab = () => {
                   <div className="items">
                     <h2 className="orderDetail-head">Items:</h2>
                     <ul className="checkout-items">
-                      {order.orderDetails.items.map(
+                      {order?.orderDetails?.items.map(
                         (item: ProductStoreType, index: number) => (
                           <li key={index} className="checkout-item">
                             <div className="checkout-item__content">
@@ -91,7 +91,7 @@ const OrderTab = () => {
                   <div className="group">
                     <h2 className="orderDetail-head">group:</h2>
                     <ul className="checkout-items">
-                      {order.orderDetails.groupInfo.map(
+                      {order?.orderDetails?.groupInfo.map(
                         (member: GroupMember, index: number) => (
                           <div className="group-member-info" key={index}>
                             <h2>{index + 1}#</h2>

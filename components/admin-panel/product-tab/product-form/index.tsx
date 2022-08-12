@@ -48,51 +48,57 @@ const ProductForm = ({ item, index }: Prop) => {
     const currentPrice =
       form.values.price - (form.values.price / 100) * form.values.discount;
 
-    if (imgValue.length > 0) {
+    //New product
+    if (index == 9999) {
+      //check if images is not empty
+      if (imgValue.length == 0) {
+        return;
+      }
+
+      //create product
+      postData("/api/createNewProduct", {
+        values: values,
+        currentPrice: currentPrice,
+      }).then((r) => {
+        r.text().then((id) => {
+          let data = new FormData();
+          data.append("id", `${id}`);
+
+          imgValue.forEach(function (image) {
+            data.append("file", image);
+          });
+          postImages("/api/uploadImage/", data).then((r) => {
+            r.json().then((data) => {
+              postData("/api/updateProduct", {
+                values: values,
+                currentPrice: currentPrice,
+                imgPath: data.imageArray,
+                id: id,
+              });
+            });
+          });
+        });
+      });
+    } else {
       let data = new FormData();
-      data.append("id", `${values.id}`);
+      data.append("id", `${form.values.id}`);
 
       imgValue.forEach(function (image) {
         data.append("file", image);
       });
-
-      if (index == 9999) {
-        postImages("/api/uploadImage/", data).then((r) => {
-          r.json().then((data) => {
-            postData("/api/createNewProduct", {
-              values: values,
-              currentPrice: currentPrice,
-              imgPath: data.imageArray,
-            });
+      postImages("/api/uploadImage/", data).then((r) => {
+        r.json().then((data) => {
+          postData("/api/updateProduct", {
+            values: values,
+            currentPrice: currentPrice,
+            imgPath: data.imageArray,
+            id: form.values.id,
           });
         });
-      } else {
-        postImages("/api/uploadImage/", data).then((r) => {
-          r.json().then((data) => {
-            postData("/api/updateProduct", {
-              values: values,
-              currentPrice: currentPrice,
-              imgPath: data.imageArray,
-            });
-          });
-        });
-      }
-    } else {
-      if (index == 9999) {
-        postData("/api/createNewProduct", {
-          values: values,
-          currentPrice: currentPrice,
-        });
-      } else {
-        postData("/api/updateProduct", {
-          values: values,
-          currentPrice: currentPrice,
-        });
-      }
+      });
     }
     setLoading(false);
     closeAllModals();
-    // location.reload()
   };
 
   const onDelete = (image: string, index: number) => {
@@ -167,6 +173,7 @@ const ProductForm = ({ item, index }: Prop) => {
         placeholder="Choose images"
         label="Product images"
         multiple
+        required
         value={imgValue}
         onChange={setImgValue}
         accept="image/png,image/jpeg"

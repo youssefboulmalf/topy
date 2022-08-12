@@ -1675,6 +1675,7 @@ h5 {
 
       @include breakpoint(phone) {
         top: 134px;
+        border: none;
       }
 
       @include breakpoint(tablet-lg) {

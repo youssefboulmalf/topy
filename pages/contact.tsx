@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../layouts/Main";
 import { useForm } from "@mantine/form";
 import { TextInput, Textarea } from "@mantine/core";
+import { postData } from "../utils/services";
 interface FormValues {
   name: string;
   email: string;
@@ -16,6 +17,17 @@ const ContactPage = () => {
       text: "",
     },
   });
+
+  const sendMail = () => {
+    const { name, email, text } = form.values;
+    const mailData = {
+      name: name,
+      email: email,
+      message: text,
+      type: "contact",
+    };
+    postData("/api/sendMail",mailData).then(()=>console.log('send'));
+  };
   return (
     <Layout>
       <section className="about-page">
@@ -43,34 +55,31 @@ const ContactPage = () => {
                 maxRows={5}
                 {...form.getInputProps("text")}
               />
-                <button
-                  onClick={() =>
-                    form.setValues({
-                      name: "random",
-                      email: `random@test.com`,
-                    } as FormValues)
-                  }
-                  className='btn--rounded'
-                >
-                  Submit
-                </button>
+              <button
+                onClick={() => {
+                  sendMail();
+                }}
+                className="btn--rounded"
+              >
+                Submit
+              </button>
             </div>
-          <div>
-            <p>
-              Need help?
-              <br />
-              <br />
-              Address Centre Inn, Arusha
-              <br />
-              <br />
-              Tanzania, East Africa.
-              <br />
-              <br />
-              Phone: (255) 764-133-604 Email: info@topytours.com
-            </p>
+            <div>
+              <p>
+                Need help?
+                <br />
+                <br />
+                Address Centre Inn, Arusha
+                <br />
+                <br />
+                Tanzania, East Africa.
+                <br />
+                <br />
+                Phone: (255) 764-133-604 Email: info@topytours.com
+              </p>
+            </div>
           </div>
         </div>
-          </div>
       </section>
       <Footer />
     </Layout>

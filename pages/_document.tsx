@@ -54,6 +54,10 @@ export default class CustomDocument extends Document<DocumentProps> {
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
             rel="stylesheet"
           />
+          <meta
+            name="description"
+            content="As a specialized, Exclusive travel company with tremendeous love and passion for Africa, we believe in our goal to create unrivaled itineraries that take our visitors closer to the unsurpassed natural beauty and extraordinary cultural diversity that Tanzania has to offer."
+          ></meta>
 
           {/* We only want to add the scripts if in production */}
           {isProduction && (
@@ -61,7 +65,8 @@ export default class CustomDocument extends Document<DocumentProps> {
               {/* Global Site Tag (gtag.js) - Google Analytics */}
               <script
                 async
-                referrerPolicy="no-referrer" src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+                referrerPolicy="no-referrer"
+                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
               />
               <script
                 dangerouslySetInnerHTML={{

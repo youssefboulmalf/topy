@@ -10,11 +10,8 @@ const Footer = () => {
             <h6><Logo /> <span>Topy tours</span></h6>
             <p>As a specialized, Exclusive travel company with tremendeous love and passion for Africa, we believe in our goal to create unrivaled itineraries that take our visitors closer to the unsurpassed natural beauty and extraordinary cultural diversity that Tanzania has to offer.</p>
             <ul className="site-footer__social-networks">
-              <li><a href="#"><i className="icon-facebook"></i></a></li>
-              <li><a href="#"><i className="icon-twitter"></i></a></li>
-              <li><a href="#"><i className="icon-linkedin"></i></a></li>
-              <li><a href="#"><i className="icon-instagram"></i></a></li>
-              <li><a href="#"><i className="icon-youtube-play"></i></a></li>
+              <Link href="https://www.facebook.com/topytours"><a ><i className="icon-facebook"></i></a></Link>
+              <Link href="https://www.instagram.com/topy_tours/"><a><i className="icon-instagram"></i></a></Link>
             </ul>
           </div>
 

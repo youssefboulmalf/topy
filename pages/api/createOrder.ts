@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ordersCol } from "../../utils/firebase";
-import { doc, setDoc, getDocs} from "@firebase/firestore";
+import { doc, setDoc} from "@firebase/firestore";
 import { CheckoutOrder, Order } from "../../types";
 import config from '../../assets/config'
 import { postData } from "utils/services";

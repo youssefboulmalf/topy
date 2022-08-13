@@ -2,8 +2,8 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { ordersCol } from "../../utils/firebase";
 import { doc, setDoc} from "@firebase/firestore";
 import { CheckoutOrder, Order } from "../../types";
-import config from '../../assets/config'
 import { postData } from "utils/services";
+import { server } from "utils/server";
 var crypto = require("crypto");
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -23,7 +23,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const orderRef = doc(ordersCol, id);
   setDoc(orderRef, order)
     .then(() => {
-      postData(`${config.baseUrl}/api/sendMail`,{type: 'enquiry', order: order})
+      postData(`${server}/api/sendMail`,{type: 'enquiry', order: order})
       return res.status(200).send('good')
     })
     .catch((e) => {

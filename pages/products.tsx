@@ -5,10 +5,10 @@ import Breadcrumb from "../components/breadcrumb";
 import ProductsFilter from "../components/products-filter";
 import ProductsContent from "../components/products-content";
 import {loadProducts} from 'store/reducers/productPage'
-import config from 'assets/config'
+import { server } from "utils/server";
 
 export async function getServerSideProps() {
-  const res = await fetch(config.baseUrl+'/api/products');
+  const res = await fetch(server+'/api/products');
   const data = await res.text();;
   return {
     props: {data},

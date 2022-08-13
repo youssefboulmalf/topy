@@ -1,5 +1,5 @@
-import config from "assets/config";
+
 const dev = process.env.NODE_ENV !== 'production';
 
 
-export const server = dev ? 'http://localhost:3000' : config.baseUrl;
+export const server = dev ? 'http://localhost:3000' : process.env.NEXT_PUBLIC_BASE_URL;

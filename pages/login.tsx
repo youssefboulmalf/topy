@@ -19,8 +19,9 @@ const LoginPage = () => {
     postData(`${server}/api/login`, {
       email: data.email,
       password: data.password
-    }).then(_r=>{
-      window.location.replace("/admin")
+    }).then(r=>{
+      console.log(r)
+      // window.location.replace("/admin")
     }).catch(_e=>{
       setAuthenticationFail(true)
     })

@@ -77,7 +77,7 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
           >
             <div className="featured-item__content">
               <h3>Kilimanjaro 5-6 days</h3>
-              <Link href={'/product/3'}>
+              <Link href={'/product/product_04a1ae02df416f4eb623'}>
               <a className="btn btn--rounded">
                 More details
               </a>

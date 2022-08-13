@@ -101,7 +101,7 @@ const BlogIntro = () => {
           </Link>
           <Link href={"/blog/8"}>
             <a className="blog-wrapper">
-              <img alt={"usefull safari tips"} src={"/images/blogs/usefull.jpg"} />
+              <img alt={"useful safari tips"} src={"/images/blogs/usefull.jpg"} />
               <h2>Tanzania Travel Tips & Useful info </h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />

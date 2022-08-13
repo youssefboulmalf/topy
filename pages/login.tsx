@@ -21,7 +21,7 @@ const LoginPage = () => {
       password: data.password
     }).then(r=>{
       console.log(r)
-      // window.location.replace("/admin")
+      window.location.replace("/admin")
     }).catch(_e=>{
       setAuthenticationFail(true)
     })

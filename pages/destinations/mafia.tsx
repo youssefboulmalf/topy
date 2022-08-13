@@ -14,7 +14,7 @@ const mafia = () => {
             src={"/images/destinations/mafia.jpg"}
           >
             <div className="head">
-              <h1>Mafia Island</h1>
+              <h2 className='bigText'>Mafia Island</h2>
               <h2>
                 Mafia's secluded sandbars, migrating whale sharks, nesting
                 turtles and laid-back vibe make this island simply magic.

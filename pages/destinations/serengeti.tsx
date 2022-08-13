@@ -11,7 +11,7 @@ const serengeti = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/destinations/serengeti.jpg"}>
               <div className="head">
-                <h1>Serengeti</h1>
+                <h2 className='bigText'>Serengeti</h2>
                 <h2>
                   At 14,763 square kilometres in size, the Serengeti is arguably
                   the finest national park in Africa and offers a wealth of

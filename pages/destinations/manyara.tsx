@@ -14,7 +14,7 @@ const manyara = () => {
             src={"/images/destinations/manyara.jpg"}
           >
               <div className="head">
-                <h1>Lake Manyara</h1>
+                <h2 className='bigText'>Lake Manyara</h2>
                 <h2>
                   Located on the way to Ngorongoro Crater and the Serengeti,
                   Lake Manyara National Park is worth a stop in its own right.

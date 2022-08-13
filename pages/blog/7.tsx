@@ -14,7 +14,7 @@ const blog = () => {
             src={"/images/blogs/usefull.jpg"}
           >
             <div className="head">
-              <h1>Tanzania Travel Tips & Useful info</h1>
+              <h2 className='bigText'>Tanzania Travel Tips & Useful info</h2>
               <h2>
                 Planning your trip can be confusing and perhaps a little bit
                 frustrating and that's where we come in with our top Tanzania

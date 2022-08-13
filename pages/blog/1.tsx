@@ -12,7 +12,7 @@ const blog = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/blogs/tanzania.jpg"}>
             <div className="head">
-              <h1>10 Reasons Why You Should Visit Tanzania</h1>
+              <h2 className='bigText'>10 Reasons Why You Should Visit Tanzania</h2>
               <h2>
                 Tanzania remains one of the most beloved and enchanting safari
                 destinations in the world, and we've compiled the ten reasons to

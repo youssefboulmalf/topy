@@ -48,7 +48,7 @@ const ProductTab = () => {
               });
             }}
           >
-            <img className="product-image" referrerPolicy="no-referrer" src={item.images?item.images[0]: ''} />
+            <img alt={"productImage"} className="product-image" referrerPolicy="no-referrer" src={item.images?item.images[0]: ''} />
             {item.name}
           </div>
         </div>

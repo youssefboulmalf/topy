@@ -11,7 +11,7 @@ const blog = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/blogs/best.jpg"}>
             <div className="head">
-              <h1>Best Time to Visit Tanzania</h1>
+              <h2 className='bigText'>Best Time to Visit Tanzania</h2>
               <h2>
                 There really is no right or wrong time to visit this well-loved
                 country but as a rule of thumb, the dry season (from late June

@@ -9,11 +9,11 @@ const TimeLine = () => {
           <Link href={"/destinations"}>
             <a className="box">
               <div className="overlay">More destinations</div>
-              <img src={"/images/killa.jpg"} />
+              <img alt={"destination image"}  src={"/images/killa.jpg"} />
             </a>
           </Link>
           <div className="box">
-            <h1>Beautiful destinations</h1>
+            <h2 className='bigText'>Beautiful destinations</h2>
             <p>
               When it comes to exploring exotic places, the choices are
               numerous. Whether you like peaceful destinations, vibrant

@@ -55,9 +55,9 @@ export default function GoogleReviews({ data }: { data: any }) {
   return (
     <div className='container'>
     <div className='greviews'>
-      <h1>
+      <h2 className='head-big'>
         What our customers say
-      </h1>
+      </h2>
       <div className='greviews-box'>
         <div className='greviews-box__head'>
           <div className='greviews-box__head-intro'>
@@ -89,7 +89,7 @@ export default function GoogleReviews({ data }: { data: any }) {
                 <SwiperSlide key={index}>
                   <div className='review-box'>
                     <div className='review-box__intro'>
-                      <img className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
+                      <img alt={"avatar"} className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
                       <div className='review-box__info'>
                         <a className='review-name' href={review.author_url}>
                           {review.author_name}

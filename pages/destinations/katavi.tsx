@@ -14,7 +14,7 @@ const katavi = () => {
             src={"/images/destinations/katavi.jpg"}
           >
             <div className="head">
-              <h1>Katavi National Park</h1>
+              <h2 className='bigText'>Katavi National Park</h2>
               <h2>
               Katavi National Park is raw, remote and little known. The immense concentration of game, especially as the seasonal lakes disappear, will astound even hardened safari-goers.
               </h2>

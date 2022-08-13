@@ -56,7 +56,7 @@ export default class CustomDocument extends Document<DocumentProps> {
           />
           <meta
             name="description"
-            content="As a specialized, Exclusive travel company with tremendeous love and passion for Africa, we believe in our goal to create unrivaled itineraries that take our visitors closer to the unsurpassed natural beauty and extraordinary cultural diversity that Tanzania has to offer."
+            content="As a specialized, Exclusive travel company with tremendeous love and passion for Africa."
           ></meta>
 
           {/* We only want to add the scripts if in production */}

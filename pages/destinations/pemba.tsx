@@ -14,7 +14,7 @@ const pemba = () => {
             src={"/images/destinations/pemba.jpg"}
           >
               <div className="head">
-                <h1>Pemba Island</h1>
+                <h2 className='bigText'>Pemba Island</h2>
                 <h2>
                 Pemba Island is one of the lesser known islands of the Zanzibar Archipelago, but a popular honeymoon destination. This pristine green island is truly one of the most beautiful places on the planet. If you are looking for peace, rest and a romantic atmosphere, this is the place to be. A tranquil hideaway and one of the best dive sites in the world.
                 </h2>

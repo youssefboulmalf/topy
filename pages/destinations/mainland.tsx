@@ -14,7 +14,7 @@ const mainland = () => {
             src={"/images/destinations/mainland.jpg"}
           >
             <div className="head">
-              <h1>Mainland Coast</h1>
+              <h2 className='bigText'>Mainland Coast</h2>
               <h2>
                 Hidden secret, far from the crowds Pangani, the perfect place by
                 the Indian Ocean if you’re looking for some peace and quiet. A

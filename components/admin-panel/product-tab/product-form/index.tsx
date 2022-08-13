@@ -136,6 +136,7 @@ const ProductForm = ({ item, index }: Prop) => {
       ? form.values.images.map((image: any, index) => (
           <Group key={`images${index}`} mt="xs">
             <img
+            alt={"imageFieldImage"}
               src={image}
               referrerPolicy="no-referrer"
               style={{ width: "70px", height: "70px" }}

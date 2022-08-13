@@ -11,7 +11,7 @@ const blog = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/blogs/safari.jpg"}>
             <div className="head">
-              <h1>10 Safari Do’s and Don’ts</h1>
+              <h2 className='bigText'>10 Safari Do’s and Don’ts</h2>
               <h2>
                 Embarking on your first safari can be thrilling and yet
                 overwhelming at the same time. No need to worry, we have put

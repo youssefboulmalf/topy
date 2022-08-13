@@ -116,7 +116,7 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
                 <h4>Fast response</h4>
                 <p>
                   After making an enquiry, our team will contact you within 24h
-                  to make sure everyting is good and send some addition info. If
+                  to make sure everything is good and send some addition info. If
                   all is well you will receive payment link trough email or
                   whatsapp.
                 </p>

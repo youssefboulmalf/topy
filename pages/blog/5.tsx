@@ -11,7 +11,7 @@ const blog = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/blogs/zanzibar.jpg"}>
             <div className="head">
-              <h1>Top 10 unmissable things to do in Zanzibar</h1>
+              <h2 className='bigText'>Top 10 unmissable things to do in Zanzibar</h2>
               <h2>
                 Zanzibar is magical: the spice-scented, quintessential Indian
                 Ocean idyll. Tropical, turquoise waters lap miles of

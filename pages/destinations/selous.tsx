@@ -14,7 +14,7 @@ const selous = () => {
             src={"/images/destinations/selous.jpg"}
           >
             <div className="head">
-              <h1>Selous Game Reserve</h1>
+              <h2 className='bigText'>Selous Game Reserve</h2>
               <h2>
                 Africa’s largest and oldest game reserve is one of its most
                 scenic wildlife destinations; the Selous is utterly beautiful.

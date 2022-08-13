@@ -11,7 +11,7 @@ const blog = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/blogs/entiquette.jpg"}>
             <div className="head">
-              <h1>On Safari Vehicle Etiquette</h1>
+              <h2 className='bigText'>On Safari Vehicle Etiquette</h2>
               <h2>
               Most of your time on safari will be spent in the back of a safari vehicle which you will likely share with a number of other keen ‘safari goers’. So, it is worth keeping a few basic rules of vehicle etiquette on safari in mind.
               </h2>

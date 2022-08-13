@@ -14,7 +14,7 @@ const ngorongoro = () => {
             src={"/images/destinations/ngorongoro.jpg"}
           >
               <div className="head">
-                <h1>Ngorongoro Crater</h1>
+                <h2 className='bigText'>Ngorongoro Crater</h2>
                 <h2>
                   Think of the Ngorongoro Crater as hyper-condensed action, like
                   bringing all the best in safari to boil. Here everything

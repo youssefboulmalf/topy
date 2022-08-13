@@ -3577,7 +3577,7 @@ h5 {
     margin-right: auto;
   }
 
-  h1 {
+  .head-big {
     align-self: flex-start;
     font-size: 29px;
     margin-bottom: 60px;
@@ -4009,7 +4009,7 @@ h5 {
   .a {
     text-decoration: underline;
   }
-  h1 {
+  .bigText {
     font-size: 35px;
     text-align: center;
     line-height: 135%;
@@ -4168,7 +4168,7 @@ h5 {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-    h1 {
+    .big {
       color: var(--color-red);
       font-size: 32px;
       margin-bottom: 30px;
@@ -4183,7 +4183,7 @@ h5 {
 }
 .blog-intro {
   margin: 90px 0px 80px 0px;
-  h1 {
+  .big {
     font-size: 23px;
     font-weight: 300;
     margin-bottom: 50px;
@@ -4238,7 +4238,7 @@ h5 {
 }
 .blog-page {
   margin: 90px 0px 80px 0px;
-  h1 {
+  .bigText {
     font-size: 23px;
     font-weight: 300;
     margin-bottom: 50px;

@@ -11,7 +11,7 @@ const blog = () => {
         <div className="container">
           <BackgroundImage className="banner" src={"/images/blogs/cloths.jpg"}>
             <div className="head">
-              <h1>What to Wear on your Tanzania Safari</h1>
+              <h2 className='bigText'>What to Wear on your Tanzania Safari</h2>
               <h2>
                 Bringing the right clothing and personal items on your Tanzania
                 safari not only keeps you safe and comfortable, but also

@@ -14,7 +14,7 @@ const blog = () => {
             src={"/images/blogs/wish.jpg"}
           >
             <div className="head">
-              <h1>10 Things I Wish I’d Known Before My Tanzania Safari</h1>
+              <h2 className='bigText'>10 Things I Wish I’d Known Before My Tanzania Safari</h2>
               <h2>
                 Things to Know Before Traveling to Tanzania. “If travel is like
                 love, it is, in the end, mostly because it's a heightened state

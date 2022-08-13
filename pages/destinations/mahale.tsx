@@ -15,7 +15,7 @@ const mahale = () => {
             src={"/images/destinations/mahale.jpg"}
           >
               <div className="head">
-                <h1>Mahale Mountains</h1>
+                <h2 className='bigText'>Mahale Mountains</h2>
                 <h2>
                 Remote, magical Mahale has steep, lush forests, lakeside beaches and Africa's best chimpanzee safaris.
                 </h2>

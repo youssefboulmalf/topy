@@ -14,7 +14,7 @@ const ruaha = () => {
             src={"/images/destinations/ruaha.jpg"}
           >
               <div className="head">
-                <h1>Ruaha National Park</h1>
+                <h2 className='bigText'>Ruaha National Park</h2>
                 <h2>
                 Ruaha is now Tanzania's largest national park and offers excellent wildlife viewing. It is particularly good for spotting predators, including very large prides of lion and the endangered wild dog. Elephants and a big variety of antelope species are another big draw to the park. It also has outstanding wilderness appeal, with limited exclusive, luxury camps available.
                 </h2>

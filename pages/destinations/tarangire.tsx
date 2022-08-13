@@ -14,7 +14,7 @@ const tarangire = () => {
             src={"/images/destinations/tarangire.jpg"}
           >
               <div className="head">
-                <h1>Tarangire</h1>
+                <h2 className='bigText'>Tarangire</h2>
                 <h2>
                   Tarangire National Park has some of the highest population
                   density of elephants as compared to anywhere in Tanzania, and

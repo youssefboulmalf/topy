@@ -14,7 +14,7 @@ const zanzibar = () => {
             src={"/images/destinations/zanzibar.jpg"}
           >
             <div className="head">
-              <h1>Zanzibar</h1>
+              <h2 className='bigText'>Zanzibar</h2>
               <h2>
                 Known as the Spice Island, the beautiful island of Zanzibar on
                 Africa’s east coast is bursting with culture and history,

@@ -135,14 +135,14 @@ const CheckoutForm = ({ onSubmit, groupCounter, setGroupCounter }: any) => {
 
             <div className="form__col">
               <div className="select-wrapper select-form">
-                <select>
+                <Field name={`GroupMember1.ationality`} component="select">
                   <option>Nationality</option>
                   {country_list.map((country, index) => (
-                              <option value={country} key={index}>
-                                {country}
-                              </option>
-                            ))}
-                </select>
+                    <option value={country} key={index}>
+                      {country}
+                    </option>
+                  ))}
+                </Field>
               </div>
             </div>
           </div>
@@ -228,14 +228,17 @@ const CheckoutForm = ({ onSubmit, groupCounter, setGroupCounter }: any) => {
 
                       <div className="form__col">
                         <div className="select-wrapper select-form">
-                          <select>
+                          <Field
+                            name={`GroupMember${index + 2}.ationality`}
+                            component="select"
+                          >
                             <option>Nationality</option>
                             {country_list.map((country, index) => (
                               <option value={country} key={index}>
                                 {country}
                               </option>
                             ))}
-                          </select>
+                          </Field>
                         </div>
                       </div>
                     </div>

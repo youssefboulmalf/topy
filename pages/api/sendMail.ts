@@ -24,7 +24,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       return `<tr><td>${item.name}</td> <td>$ ${item.price}</td> <td> ${item.date}</td> <td>${item.count}</td></tr>`;
     });
     const info = orderDetails.groupInfo.map((member: GroupMember ) => {
-      return `<tr><td>${member.firstName}</td> <td> ${member.lastName}</td> <td> ${member.email}</td> <td>${member.phone}</td></tr>`;
+      return `<tr><td>${member.firstName}</td> <td> ${member.lastName}</td> <td> ${member.nationality}</td> <td> ${member.age}</td> <td> ${member.email}</td> <td>${member.phone}</td></tr>`;
     });
 
     const memberlist = info.join("\n");
@@ -44,6 +44,8 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       <tr>
       <td>First name</td>
       <td>Last name</td>
+      <td>Age</td>
+      <td>Nationality</td>
       <td>Email</td>
       <td>Phone</td>
     </tr>

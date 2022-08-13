@@ -79,23 +79,37 @@ const ProductForm = ({ item, index }: Prop) => {
           });
         });
       });
-    } else {
-      let data = new FormData();
-      data.append("id", `${form.values.id}`);
+    } 
 
-      imgValue.forEach(function (image) {
-        data.append("file", image);
-      });
-      postImages("/api/uploadImage/", data).then((r) => {
-        r.json().then((data) => {
-          postData("/api/updateProduct", {
-            values: values,
-            currentPrice: currentPrice,
-            imgPath: data.imageArray,
-            id: form.values.id,
+    //if product is updated
+    else {
+      //if no image is selected
+      if (imgValue.length == 0) {
+        postData("/api/updateProduct", {
+          values: values,
+          currentPrice: currentPrice,
+          imgPath: form.values.images,
+          id: form.values.id,
+        });
+      } else {
+        //if image is selected
+        let data = new FormData();
+        data.append("id", `${form.values.id}`);
+
+        imgValue.forEach(function (image) {
+          data.append("file", image);
+        });
+        postImages("/api/uploadImage/", data).then((r) => {
+          r.json().then((data) => {
+            postData("/api/updateProduct", {
+              values: values,
+              currentPrice: currentPrice,
+              imgPath: data.imageArray,
+              id: form.values.id,
+            });
           });
         });
-      });
+      }
     }
     setLoading(false);
     closeAllModals();

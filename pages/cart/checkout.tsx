@@ -64,13 +64,13 @@ const CheckoutPage = () => {
   const errorPage = (
     <div className="checkout__order-message">
       <h2>Oeps somthing whent wrong....</h2>
-      <p>Your enquiry was not made yet. Refresh te page and try again.</p>
+      <p>Your booking was not made yet. Refresh te page and try again.</p>
     </div>
   );
   const succesPage = (
     <div className="checkout__order-message">
       <h1>Thank you for choosing Topy tours!</h1>
-      <h2>Your enquiry has been made.</h2>
+      <h2>Your booking has been made.</h2>
       <p>
         One of our staff members will contact you shortly trough whatsapp or
         email.
@@ -107,13 +107,13 @@ const CheckoutPage = () => {
                       <div className="logo-wrapper">
                         <BsFillPencilFill className="logo-pencil" />
                       </div>
-                      <p>{"Fill out the required information"}</p>
+                      <p>{"Fill out the required information."}</p>
                     </li>
                     <li className="list-item">
                       <div className="logo-wrapper">
                         <BiMailSend className="logo-send" />
                       </div>
-                      <p>{"Send the enquiry"}</p>
+                      <p>{"Send the booking request."}</p>
                     </li>
                     <li className="list-item">
                       <div className="logo-wrapper">
@@ -121,7 +121,7 @@ const CheckoutPage = () => {
                       </div>
                       <p>
                         {
-                          "You will be contacted by one of our staff mebers to complete the enquiry."
+                          "You will be contacted by one of our staff mebers to complete the booking request."
                         }
                       </p>
                     </li>
@@ -170,7 +170,7 @@ const CheckoutPage = () => {
                   htmlFor="submit-form"
                   tabIndex={0}
                 >
-                  Make enquiry
+                  Make booking request
                   <MdOutlineArrowForward />
                 </label>
               </div>

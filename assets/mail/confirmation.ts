@@ -248,11 +248,11 @@ export const confirmationMail = `<!DOCTYPE html>
                                     "
                                   >
                                     <p style="margin: 0; margin-bottom: 16px">
-                                      Thank you for your enquiry.
+                                      Thank you for your booking request.
                                     </p>
                                     <p style="margin: 0; margin-bottom: 16px">
                                       We will contact you soon about your
-                                      enquiry.
+                                      booking request.
                                     </p>
                                     <p style="margin: 0; margin-bottom: 16px">
                                        

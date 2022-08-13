@@ -101,6 +101,7 @@ const OrderTab = () => {
                                   <th>First name:</th>
                                   <th>Last name:</th>
                                   <th>Age:</th>
+                                  <th>Nationality:</th>
                                   <th>Phone:</th>
                                   <th>Email:</th>
                                 </tr>
@@ -109,6 +110,7 @@ const OrderTab = () => {
                                 <tr>
                                   <td>{member.firstName}</td>
                                   <td>{member.lastName}</td>
+                                  <td>{member.nationality}</td>
                                   <td>{member.age}</td>
                                   <td>{index == 0 ? member.phone : "❌"}</td>
                                   <td>{index == 0 ? member.email : "❌"}</td>

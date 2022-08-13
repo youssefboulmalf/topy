@@ -100,6 +100,7 @@ export interface GroupMember {
   email?: string;
   firstName: string;
   lastName: string;
+  nationality: string;
   phone?: string;
 }
 

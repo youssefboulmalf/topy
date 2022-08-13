@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { EffectFade, Navigation } from 'swiper';
+import SwiperCore, { Autoplay ,EffectFade, Navigation } from 'swiper';
 import { BsStopwatch } from 'react-icons/bs';
 import { FaTripadvisor, FaArrowLeft } from 'react-icons/fa';
 import { BiBadgeCheck } from 'react-icons/bi';
@@ -18,12 +18,12 @@ const PageIntro = () => {
   return (
     <section className="page-intro">
       {domLoaded && (
-      <Swiper navigation effect="fade"  className="swiper-wrapper">
+      <Swiper navigation effect="fade" modules={[Autoplay]} autoplay={{delay: 4000}} className="swiper-wrapper">
         <SwiperSlide>
           <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-2.jpg')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
-                <h2>Your journey begins</h2>
+                <h2>The beginning of your tanzanian adventure!</h2>
                 <Link href={'/products'}><a href="#" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Shop now</a></Link>
               </div>
             </div>
@@ -34,8 +34,8 @@ const PageIntro = () => {
           <div className="page-intro__slide" style={{ backgroundImage: "url('/images/slide-1.jpg')" }}>
             <div className="container">
               <div className="page-intro__slide__content">
-                <h2>Make your house into a home</h2>
-                <Link href={'/products'}><a href="products" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Shop now</a></Link>
+                <h2>Experience the beauty of nature</h2>
+                <Link href={'/products'}><a href="products" className="btn-shop"><FaArrowLeft className='page-intro_Arrow'/>Book now</a></Link>
               </div>
             </div>
           </div>

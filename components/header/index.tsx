@@ -69,8 +69,11 @@ const Header = ({ isErrorPage }: HeaderType) => {
           ref={navRef}
           className={`site-nav ${menuOpen ? "site-nav--open" : ""}`}
         >
-          <Link href="/products">
-            <a>Adventures</a>
+          <Link href={{ pathname: '/products', query: { filter: 'safari' }}}>
+            <a>Safari's</a>
+          </Link>
+          <Link href={{ pathname: '/products', query: { filter: 'trekking' }}}>
+            <a>Trekkings</a>
           </Link>
           <Link href="/destinations">
             <a>Destinations</a>

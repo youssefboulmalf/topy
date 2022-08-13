@@ -152,7 +152,7 @@ const ProductForm = ({ item, index }: Prop) => {
   const descriptionFields = form.values.description.map(
     (_descriptions: any, index) => (
       <Group key={`descriptions${index}`} mt="xs">
-        <label>Day {index}</label>
+        <label>Day {index+1}</label>
         <TextInput
           placeholder="John Doe"
           required

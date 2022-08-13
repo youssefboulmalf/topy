@@ -135,9 +135,15 @@ const productPageSlice = createSlice({
       state.filters.locations = newFilters;
       state.filteredProducts = filterdArray;
     },
+    removeAllFilters(state){
+      state.filters = {
+        locations: [],
+        priceFilter: [0, 8000],
+      };
+    },
   },
 });
 
-export const { loadProducts, addFilter, removeFilter, addPriceFilter } =
+export const { loadProducts, addFilter, removeFilter, addPriceFilter, removeAllFilters } =
   productPageSlice.actions;
 export default productPageSlice.reducer;

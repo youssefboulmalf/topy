@@ -43,7 +43,7 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
           >
             <div className="featured-item__content">
               <h3>3 Day safari Serengeti</h3>
-              <Link href={'/product/1'}>
+              <Link href={'/product/product_687a33e6842939060cc6'}>
               <a className="btn btn--rounded">
                 More details
               </a>
@@ -60,7 +60,7 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
           >
             <div className="featured-item__content">
               <h3>5 Day safari for $999</h3>
-              <Link href={'/product/2'}>
+              <Link href={'/product/product_2bd07cff98b782e0dc8b'}>
               <a className="btn btn--rounded">
                 More details
               </a>

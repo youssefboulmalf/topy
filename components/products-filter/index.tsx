@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Checkbox from './form-builder/checkbox';
 import Slider from 'rc-slider';
-
 // data
+import { useRouter } from 'next/router'
 import productsCategories from './../../utils/data/products-types';
 import { useDispatch } from 'react-redux';
-import { addFilter, removeFilter, addPriceFilter } from 'store/reducers/productPage';
+import { addFilter, removeFilter,removeAllFilters ,addPriceFilter } from 'store/reducers/productPage';
 import locations from 'utils/data/products-locations';
+import { RootState } from "store";
+import { useSelector } from 'react-redux';
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
@@ -14,6 +16,20 @@ const Range = createSliderWithTooltip(Slider.Range);
 const ProductsFilter = () => {
   const [filtersOpen, setFiltersOpen] = useState(false);
   const dispatch = useDispatch();
+  const router = useRouter()
+  const { filters } = useSelector((state: RootState) => state.productPage);
+  console.log(filters)
+
+  useEffect(() => {
+    dispatch(removeAllFilters())
+    const filter : any = router.query.filter as string
+    if(filter != undefined){
+      console.log(filter)
+      dispatch(addFilter(filter))
+    }
+  },[]);
+
+  
 
 const handleChange = (e: any , filter: any) =>{
 
@@ -48,6 +64,7 @@ const handleChange = (e: any , filter: any) =>{
               <Checkbox 
                 key={index} 
                 name="product-type" 
+                checked={filters.locations.includes(type) ? true : false}
                 label={type}
                 onChange={handleChange}
                 filter={type}

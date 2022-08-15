@@ -83,7 +83,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     const mailDataCutomer = {
       from: "info.topytours@gmail.com",
       to: customer.email,
-      subject: `Booking confirmation`,
+      subject: `Booking confirmation ${order.id}`,
       text: "confirmation",
       html: confirmationMail,
     };
@@ -91,7 +91,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     const mailData = {
       from: "info.topytours@gmail.com",
       to: "info.topytours@gmail.com",
-      subject: `New enquiry`,
+      subject: `New enquiry ${order.id}`,
       text: message,
       html: html,
     };

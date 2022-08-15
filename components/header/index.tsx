@@ -61,7 +61,7 @@ const Header = ({ isErrorPage }: HeaderType) => {
           <a>
             <div className="site-logo">
               <Logo />
-              Topy tours
+              <h3>Topy tours</h3>
             </div>
           </a>
         </Link>

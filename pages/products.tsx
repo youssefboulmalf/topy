@@ -6,10 +6,15 @@ import ProductsFilter from "../components/products-filter";
 import ProductsContent from "../components/products-content";
 import {loadProducts} from 'store/reducers/productPage'
 import { server } from "utils/server";
+import { GetServerSideProps } from 'next'
 
-export async function getServerSideProps() {
-  const res = await fetch(server+'/api/products');
-  const data = await res.text();;
+export const getServerSideProps: GetServerSideProps = async ({res}) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=600, stale-while-revalidate=800'
+  )
+  const response = await fetch(server+'/api/products');
+  const data = await response.text();;
   return {
     props: {data},
   }

@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import { useDispatch } from 'react-redux';
 import { removeProduct, setCount } from 'store/reducers/cart';
 import { ProductStoreType } from 'types';
+import Image from 'next/image'
 
 const ShoppingCart = ({ thumb, name, id, count, price, date }: ProductStoreType) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const ShoppingCart = ({ thumb, name, id, count, price, date }: ProductStoreType)
       <td>
         <div className="cart-product">
           <div className="cart-product__img">
-            <img alt={"image thumbnail"} referrerPolicy="no-referrer" src={thumb} />
+          <Image layout={'fixed'} width={50} height={50}  alt={"image thumbnail"} referrerPolicy="no-referrer" src={thumb} />
           </div>
 
           <div className="cart-product__content">

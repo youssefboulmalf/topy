@@ -12,16 +12,21 @@ import { BiBadgeCheck } from "react-icons/bi";
 import { BsStopwatch } from "react-icons/bs";
 import { FaTripadvisor } from "react-icons/fa";
 import Link from "next/link";
+import { GetServerSideProps } from 'next'
 
 
 const key = process.env.GOOGLE_MAPS_API_KEY;
 
-export async function getServerSideProps() {
-  const res = await fetch(
+export const getServerSideProps: GetServerSideProps = async ({res}) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=600, stale-while-revalidate=800'
+  )
+  const result = await fetch(
     "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key=" +
       key
   );
-  const data = await res.text();
+  const data = await result.text();
   return {
     props: { data },
   };

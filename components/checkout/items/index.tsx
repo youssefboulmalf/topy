@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { ProductStoreType } from 'types';
 import { RootState } from "store";
+import Image from 'next/image'
 
 const CheckoutItems = () => {
   const { cartItems } = useSelector((state: RootState) => state.cart);
@@ -11,7 +12,7 @@ const CheckoutItems = () => {
         <li key={index} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">
-              <img alt={"product thumbnail"} referrerPolicy="no-referrer" src={item.thumb} />
+              <Image layout={'fixed'} width={50} height={50} alt={"product thumbnail"} referrerPolicy="no-referrer" src={item.thumb} />
             </div>
 
             <div className="checkout-item__data">

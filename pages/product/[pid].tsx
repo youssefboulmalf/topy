@@ -1,5 +1,3 @@
-import { GetServerSideProps } from "next";
-
 import { useState } from "react";
 import Footer from "../../components/footer";
 import Layout from "../../layouts/Main";
@@ -10,6 +8,7 @@ import Content from "../../components/product-single/content";
 import Description from "../../components/product-single/description";
 import { Collapse } from "@mantine/core";
 import { server } from "../../utils/server";
+import { GetServerSideProps } from 'next'
 
 // types
 import { ProductType } from "types";
@@ -18,10 +17,14 @@ type ProductPageType = {
   product: ProductType;
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({ res ,query }) => {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=600, stale-while-revalidate=800'
+  )
   const pid = query.pid;
-  const res = await fetch(`${server}/api/product/${pid}`);
-  const product = await res.json();
+  const result = await fetch(`${server}/api/product/${pid}`);
+  const product = await result.json();
 
   return {
     props: {

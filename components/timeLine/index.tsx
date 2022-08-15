@@ -1,5 +1,7 @@
 import React from "react";
 import Link from "next/link";
+import imageFile from '../../public/images/killa.jpg'
+import Image from "next/image";
 
 const TimeLine = () => {
   return (
@@ -9,7 +11,7 @@ const TimeLine = () => {
           <Link href={"/destinations"}>
             <a className="box">
               <div className="overlay">More destinations</div>
-              <img alt={"destination image"}  src={"/images/killa.jpg"} />
+              <Image layout='fill' object-fit={"cover"} alt={"destination image"}  src={imageFile} />
             </a>
           </Link>
           <div className="box">

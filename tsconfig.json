@@ -55,5 +55,5 @@
   },
   "exclude": [],
   "include": [
-    "pages"  ]
+    "pages", "utils/images.d.ts"  ]
 }

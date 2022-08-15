@@ -263,7 +263,6 @@ h5 {
 
   @include breakpoint(phone) {
     height: 65px;
-    margin-right: 18px;
   }
 }
 
@@ -357,22 +356,13 @@ h5 {
   display: flex;
   font-size: 14px;
   align-items: center;
-
+  
   @include breakpoint(phone) {
     font-size: 16px;
   }
-
-  svg {
-    width: 38px;
-    height: 28px;
-    fill: currentColor;
-    object-fit: contain;
-    margin-right: 15px;
-
-    @include breakpoint(phone) {
-      width: 45px;
-      height: 35px;
-    }
+  h3{
+    color: white;
+    margin-left: 10px;
   }
 }
 
@@ -4105,11 +4095,11 @@ h5 {
       grid-column: c3 / c4;
       grid-row: r2 / r3;
     }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: cover;
+    // }
   }
 }
 .TimeLine {

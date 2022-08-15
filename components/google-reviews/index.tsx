@@ -8,6 +8,7 @@ import { FaTripadvisor } from "react-icons/fa";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import Image from 'next/image';
 
 
 
@@ -89,7 +90,7 @@ export default function GoogleReviews({ data }: { data: any }) {
                 <SwiperSlide key={index}>
                   <div className='review-box'>
                     <div className='review-box__intro'>
-                      <img alt={"avatar"} className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
+                      <Image layout='fixed' height={45} width={45} alt={"avatar"} className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
                       <div className='review-box__info'>
                         <a className='review-name' href={review.author_url}>
                           {review.author_name}

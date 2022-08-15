@@ -12,7 +12,7 @@ const CheckoutItems = () => {
         <li key={index} className="checkout-item">
           <div className="checkout-item__content">
             <div className="checkout-item__img">
-              <Image layout={'fixed'} width={50} height={50} alt={"product thumbnail"} referrerPolicy="no-referrer" src={item.thumb} />
+              <Image placeholder="blur" blurDataURL='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8Nlu7HgAGSAItUwo6mwAAAABJRU5ErkJggg==' layout={'fixed'} width={50} height={50} alt={"product thumbnail"} referrerPolicy="no-referrer" src={item.thumb} />
             </div>
 
             <div className="checkout-item__data">

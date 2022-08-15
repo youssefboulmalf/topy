@@ -10,7 +10,7 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice }: Produc
 
         <Link href={`/product/${id}`}>
           <a>
-            <Image layout="fill" objectFit="cover" width={300} height={300} alt={"product image"} referrerPolicy="no-referrer" src={images ? images[0] : ''} />
+            <Image placeholder="blur" blurDataURL='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8Nlu7HgAGSAItUwo6mwAAAABJRU5ErkJggg==' layout="fill" objectFit="cover" width={300} height={300} alt={"product image"} referrerPolicy="no-referrer" src={images ? images[0] : ''} />
             {discount && 
               <span className="product__discount">{discount}%</span>
             }

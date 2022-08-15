@@ -23,7 +23,7 @@ const BlogPage = () => {
         <div  className='blogs'>
         <Link href={"/blog/1"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"tanzania"} src={image1} />
+              <Image placeholder="blur" width={180} height={120} alt={"tanzania"} src={image1} />
               <h2>10 Reasons Why You Should Visit Tanzania</h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -33,7 +33,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/2"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"safari"} src={image2} />
+              <Image placeholder="blur" width={180} height={120} alt={"safari"} src={image2} />
               <h2>On safari vehcile etiquette</h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -43,7 +43,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/3"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"safari cloths"} src={image3} />
+              <Image placeholder="blur" width={180} height={120} alt={"safari cloths"} src={image3} />
               <h2>What to wear on your tanzania safari</h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -53,7 +53,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/4"}>
             <a className="blog-wrapper">
-              <Image  width={180} height={120} alt={"best safari"} src={image4} />
+              <Image placeholder="blur"  width={180} height={120} alt={"best safari"} src={image4} />
               <h2>Best time to visit tanzania</h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -63,7 +63,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/5"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"safari help"} src={image5} />
+              <Image placeholder="blur" width={180} height={120} alt={"safari help"} src={image5} />
               <h2>10 safari do's and dont's</h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -73,7 +73,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/6"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"zanzibar"} src={image6} />
+              <Image placeholder="blur" width={180} height={120} alt={"zanzibar"} src={image6} />
               <h2>Top 10 Unmissable Things to Do in Zanzibar, Tanzania</h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -83,7 +83,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/7"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"safari"} src={image7} />
+              <Image placeholder="blur" width={180} height={120} alt={"safari"} src={image7} />
               <h2>10 Things I Wish I’d Known Before My Tanzania Safari </h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />
@@ -93,7 +93,7 @@ const BlogPage = () => {
           </Link>
           <Link href={"/blog/8"}>
             <a className="blog-wrapper">
-              <Image width={180} height={120} alt={"useful safari tips"} src={image8} />
+              <Image placeholder="blur" width={180} height={120} alt={"useful safari tips"} src={image8} />
               <h2>Tanzania Travel Tips & Useful info </h2>
               <div className="date">
                 <AiTwotoneCalendar fontSize={16} />

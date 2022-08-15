@@ -90,7 +90,7 @@ export default function GoogleReviews({ data }: { data: any }) {
                 <SwiperSlide key={index}>
                   <div className='review-box'>
                     <div className='review-box__intro'>
-                      <Image layout='fixed' height={45} width={45} alt={"avatar"} className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
+                      <Image placeholder="blur" blurDataURL='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8Nlu7HgAGSAItUwo6mwAAAABJRU5ErkJggg==' layout='fixed' height={45} width={45} alt={"avatar"} className='review-box__avatar' referrerPolicy="no-referrer" src={review.profile_photo_url} />
                       <div className='review-box__info'>
                         <a className='review-name' href={review.author_url}>
                           {review.author_name}

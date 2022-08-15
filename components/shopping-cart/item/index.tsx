@@ -45,7 +45,7 @@ const ShoppingCart = ({ thumb, name, id, count, price, date }: ProductStoreType)
       <td>
         <div className="cart-product">
           <div className="cart-product__img">
-          <Image layout={'fixed'} width={50} height={50}  alt={"image thumbnail"} referrerPolicy="no-referrer" src={thumb} />
+          <Image placeholder="blur" blurDataURL='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8Nlu7HgAGSAItUwo6mwAAAABJRU5ErkJggg==' layout={'fixed'} width={50} height={50}  alt={"image thumbnail"} referrerPolicy="no-referrer" src={thumb} />
           </div>
 
           <div className="cart-product__content">

@@ -11,7 +11,7 @@ const TimeLine = () => {
           <Link href={"/destinations"}>
             <a className="box">
               <div className="overlay">More destinations</div>
-              <Image layout='fill' object-fit={"cover"} alt={"destination image"}  src={imageFile} />
+              <Image placeholder="blur" layout='fill' object-fit={"cover"} alt={"destination image"}  src={imageFile} />
             </a>
           </Link>
           <div className="box">

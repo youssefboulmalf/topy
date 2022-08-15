@@ -16,7 +16,7 @@ const AboutPage = () => {
               width={300}
               height={300}
               layout="fixed"
-              blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8Nlu7HgAGSAItUwo6mwAAAABJRU5ErkJggg=="
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8tsq2HgAGmQJO71KAngAAAABJRU5ErkJggg=="
               className="image"
               src={
                 "https://media-cdn.tripadvisor.com/media/photo-w/24/c5/61/b3/topy-tours.jpg"

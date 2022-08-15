@@ -12,16 +12,19 @@ import { BiBadgeCheck } from "react-icons/bi";
 import { BsStopwatch } from "react-icons/bs";
 import { FaTripadvisor } from "react-icons/fa";
 import Link from "next/link";
-import { GetServerSideProps } from 'next'
-
+import { GetServerSideProps } from "next";
+import Image from "next/image";
+import image1 from "../public/images/featured-1.jpg";
+import image2 from "../public/images/featured-2.jpg";
+import image3 from "../public/images/featured-3.jpg";
 
 const key = process.env.GOOGLE_MAPS_API_KEY;
 
-export const getServerSideProps: GetServerSideProps = async ({res}) => {
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=600, stale-while-revalidate=800'
-  )
+    "Cache-Control",
+    "public, s-maxage=600, stale-while-revalidate=800"
+  );
   const result = await fetch(
     "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key=" +
       key
@@ -30,7 +33,7 @@ export const getServerSideProps: GetServerSideProps = async ({res}) => {
   return {
     props: { data },
   };
-}
+};
 
 const IndexPage = ({ data }: { data: React.ReactNode }) => {
   return (
@@ -39,53 +42,56 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
 
       <section className="featured">
         <div className="container">
-          <article
-            style={{
-              backgroundImage:
-                " linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url(/images/featured-1.jpg)",
-            }}
-            className="featured-item featured-item-large"
-          >
+          <article className="featured-item featured-item-large">
+            <Image
+              width={400}
+              height={400}
+              placeholder="blur"
+              layout="fill"
+              objectFit={"cover"}
+              alt={"destination image"}
+              src={image1}
+            />
             <div className="featured-item__content">
               <h3>3 Day safari Serengeti</h3>
-              <Link href={'/product/product_687a33e6842939060cc6'}>
-              <a className="btn btn--rounded">
-                More details
-              </a>
+              <Link href={"/product/product_687a33e6842939060cc6"}>
+                <a className="btn btn--rounded">More details</a>
               </Link>
             </div>
           </article>
 
-          <article
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url(/images/featured-2.jpg)",
-            }}
-            className="featured-item featured-item-small-first"
-          >
+          <article className="featured-item featured-item-small-first">
+            <Image
+              width={400}
+              height={400}
+              placeholder="blur"
+              layout="fill"
+              objectFit={"cover"}
+              alt={"destination image"}
+              src={image2}
+            />
             <div className="featured-item__content">
               <h3>5 Day safari for $999</h3>
-              <Link href={'/product/product_2bd07cff98b782e0dc8b'}>
-              <a className="btn btn--rounded">
-                More details
-              </a>
+              <Link href={"/product/product_2bd07cff98b782e0dc8b"}>
+                <a className="btn btn--rounded">More details</a>
               </Link>
             </div>
           </article>
 
-          <article
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.1)), url(/images/featured-3.jpg)",
-            }}
-            className="featured-item featured-item-small"
-          >
+          <article className="featured-item featured-item-small">
+            <Image
+              width={400}
+              height={400}
+              placeholder="blur"
+              layout="fill"
+              objectFit={"cover"}
+              alt={"destination image"}
+              src={image3}
+            />
             <div className="featured-item__content">
               <h3>Kilimanjaro 5-6 days</h3>
-              <Link href={'/product/product_04a1ae02df416f4eb623'}>
-              <a className="btn btn--rounded">
-                More details
-              </a>
+              <Link href={"/product/product_04a1ae02df416f4eb623"}>
+                <a className="btn btn--rounded">More details</a>
               </Link>
             </div>
           </article>
@@ -121,8 +127,8 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
                 <h4>Fast response</h4>
                 <p>
                   After making an enquiry, our team will contact you within 24h
-                  to make sure everything is good and send some addition info. If
-                  all is well you will receive payment link trough email or
+                  to make sure everything is good and send some addition info.
+                  If all is well you will receive payment link trough email or
                   whatsapp.
                 </p>
               </div>
@@ -160,9 +166,9 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
 
       <ProductsFeatured />
       <GoogleReviews data={data} />
-      <Gallery/>
-      <TimeLine/>
-      <BlogIntro/>
+      <Gallery />
+      <TimeLine />
+      <BlogIntro />
       <Subscribe />
       <Footer />
     </Layout>

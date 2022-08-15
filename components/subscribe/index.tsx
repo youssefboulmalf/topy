@@ -1,8 +1,14 @@
+
+import Image from "next/image";
+import imageFile from '../../public/images/subscribe.jpg'
+
+
 const Subscribe = () => {
   return (
     <section className="subscribe">
       <div className="container">
-        <div style={{backgroundImage: 'url(/images/subscribe.jpg)'}} className="subscribe__content">
+        <div className="subscribe__content">
+        <Image className='page-intro__slide-image'placeholder="blur" layout='fill' objectFit={'cover'} src={imageFile}/>
           <h4>Subscribe to our newsletter and receive exclusive offers</h4>
 
           <form className="subscribe__form">

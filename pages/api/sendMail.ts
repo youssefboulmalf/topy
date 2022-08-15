@@ -24,7 +24,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       return `<tr><td>${item.name}</td> <td>$ ${item.price}</td> <td> ${item.date}</td> <td>${item.count}</td></tr>`;
     });
     const info = orderDetails.groupInfo.map((member: GroupMember ) => {
-      return `<tr><td>${member.firstName}</td> <td> ${member.lastName}</td> <td> ${member.nationality}</td> <td> ${member.age}</td> <td> ${member.email}</td> <td>${member.phone}</td></tr>`;
+      return `<tr><td>${member.firstName}</td> <td> ${member.lastName}</td> <td> ${member.age}</td> <td> ${member.nationality}</td> <td> ${member.email}</td> <td>${member.phone}</td></tr>`;
     });
 
     const memberlist = info.join("\n");
@@ -55,7 +55,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       `;
 
 
-      let message = `<body><div style="margin-bottom:60px">New enquiry from ${customer.firstName} ${customer.lastName}</div><div>Customer info:</div><div style="margin-bottom:60px">${customerInfo}</div><div>Booking info:</div>${Itemtable}<divstyle="margin-top:20px">Totalprice: ${order.totalPrice}</div></body>`;
+      let message = `<body><div style="margin-bottom:60px">New enquiry from ${customer.firstName} ${customer.lastName}</div><div>Customer info:</div><div style="margin-bottom:60px">${customerInfo}</div><div>Booking info:</div>${Itemtable}<div style="margin-top:20px; font-size: 30px; font-weight: bold" >Totalprice: ${order.totalPrice}</div></body>`;
     const html = `<!DOCTYPE html>
     <html
       lang="en"

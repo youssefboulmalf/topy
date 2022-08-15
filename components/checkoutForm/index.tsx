@@ -135,7 +135,7 @@ const CheckoutForm = ({ onSubmit, groupCounter, setGroupCounter }: any) => {
 
             <div className="form__col">
               <div className="select-wrapper select-form">
-                <Field name={`GroupMember1.ationality`} component="select">
+                <Field name={`GroupMember1.nationality`} component="select">
                   <option>Nationality</option>
                   {country_list.map((country, index) => (
                     <option value={country} key={index}>
@@ -229,7 +229,7 @@ const CheckoutForm = ({ onSubmit, groupCounter, setGroupCounter }: any) => {
                       <div className="form__col">
                         <div className="select-wrapper select-form">
                           <Field
-                            name={`GroupMember${index + 2}.ationality`}
+                            name={`GroupMember${index + 2}.nationality`}
                             component="select"
                           >
                             <option>Nationality</option>

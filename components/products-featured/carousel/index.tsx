@@ -46,7 +46,7 @@ const ProductsCarousel = ({ products }: ProductsCarouselType) => {
       watchOverflow={true} 
       slidesPerView={slidesPerView} 
       className="swiper-wrapper">
-        {products.map(item => (
+        {products.map((item, index) => (
           <SwiperSlide key={item.id}>
             <ProductItem 
               id={item.id} 
@@ -57,6 +57,7 @@ const ProductsCarousel = ({ products }: ProductsCarouselType) => {
               currentPrice={item.currentPrice}
               key={item.id}
               images={item.images} 
+              index={index}
             />
           </SwiperSlide>
         ))}

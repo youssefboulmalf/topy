@@ -11,6 +11,7 @@ body {
 // google fonts
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+
 @keyframes growUp {
   from {
     height: 0%;
@@ -356,11 +357,11 @@ h5 {
   display: flex;
   font-size: 14px;
   align-items: center;
-  
+
   @include breakpoint(phone) {
     font-size: 16px;
   }
-  h3{
+  h3 {
     color: white;
     margin-left: 10px;
   }
@@ -918,10 +919,10 @@ h5 {
         margin-bottom: 60px;
         padding: 75px 0px;
         height: 260px;
-      width: 200px;
+        width: 200px;
 
         @include breakpoint(phone) {
-          font-size: 50px;
+          font-size: 35px;
           width: 200px;
           height: 100%;
           padding: 50px 0px;
@@ -929,7 +930,7 @@ h5 {
         }
 
         @include breakpoint(tablet-lg) {
-          font-size: 64px;
+          font-size: 42px;
           width: 400px;
           height: 100%;
           padding: 50px 0px;
@@ -1022,7 +1023,7 @@ h5 {
     background-size: cover;
     padding: 21px 22px;
     position: relative;
-    span{
+    span {
       filter: brightness(80%);
       -webkit-filter: brightness(80%);
     }
@@ -1077,7 +1078,8 @@ h5 {
       &:before {
         content: "";
         background-color: #eee;
-        background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+        // background-image: linear-gradient(90deg, #eee, #f5f5f5, #eee);
+        background-color: beige;
         animation-name: skeleton;
         animation-duration: 1.2s;
         animation-timing-function: ease-in-out;
@@ -1140,6 +1142,19 @@ h5 {
       width: 100%;
       display: block;
       padding: 18px;
+        background: linear-gradient(
+          100deg,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, .5) 50%,
+          rgba(255, 255, 255, 0) 60%
+        )#ededed;
+        background-size: 200% 100%;
+        background-position-x: 180%;
+        animation: 1s loading ease-in-out infinite;
+        @keyframes loading {
+          to {
+            background-position-x: -20%;}
+        }
 
       @include breakpoint(phone) {
         padding: 24px;
@@ -3864,28 +3879,28 @@ h5 {
     font-size: 29px;
     font-weight: 300;
   }
-    .btn--rounded {
-      margin-top: 20px;
-      color: white;
-      background-color: var(--color-red);
-      font-size: 12px;
-      background: var(--color-brown-light);
-      display: inline-block;
-      border-radius: 50px;
-      padding: 11px 20px;
-      font-weight: 500;
-      text-transform: uppercase;
+  .btn--rounded {
+    margin-top: 20px;
+    color: white;
+    background-color: var(--color-red);
+    font-size: 12px;
+    background: var(--color-brown-light);
+    display: inline-block;
+    border-radius: 50px;
+    padding: 11px 20px;
+    font-weight: 500;
+    text-transform: uppercase;
 
-      &:hover {
-        transform: scale(1.015);
-        filter: brightness(95%);
-      }
-
-      @include breakpoint(phone) {
-        font-size: 13px;
-        padding: 15px 25px;
-      }
+    &:hover {
+      transform: scale(1.015);
+      filter: brightness(95%);
     }
+
+    @include breakpoint(phone) {
+      font-size: 13px;
+      padding: 15px 25px;
+    }
+  }
   .block {
     margin-top: 60px;
     display: flex;
@@ -4071,6 +4086,19 @@ h5 {
       position: relative;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        background: linear-gradient(
+          100deg,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, .5) 50%,
+          rgba(255, 255, 255, 0) 60%
+        )#ededed;
+        background-size: 200% 100%;
+        background-position-x: 180%;
+        animation: 1s loading ease-in-out infinite;
+        @keyframes loading {
+          to {
+            background-position-x: -20%;}
+        }
     }
     .a {
       grid-column: c1 / c2;

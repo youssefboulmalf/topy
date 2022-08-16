@@ -44,8 +44,6 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
         <div className="container">
           <article className="featured-item featured-item-large">
             <Image
-              width={400}
-              height={400}
               placeholder="blur"
               layout="fill"
               objectFit={"cover"}
@@ -62,8 +60,6 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
 
           <article className="featured-item featured-item-small-first">
             <Image
-              width={400}
-              height={400}
               placeholder="blur"
               layout="fill"
               objectFit={"cover"}
@@ -80,8 +76,6 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
 
           <article className="featured-item featured-item-small">
             <Image
-              width={400}
-              height={400}
               placeholder="blur"
               layout="fill"
               objectFit={"cover"}

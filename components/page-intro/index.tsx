@@ -25,7 +25,7 @@ const PageIntro = () => {
       <Swiper navigation effect="fade" modules={[Autoplay]} autoplay={{delay: 4000}} className="swiper-wrapper">
         <SwiperSlide>
           <div className="page-intro__slide">
-            <Image className='page-intro__slide-image'placeholder="blur" layout='fill' objectFit={"cover"} src={slide1}/>
+            <Image priority={true} className='page-intro__slide-image'placeholder="blur" layout='fill' objectFit={"cover"} src={slide1}/>
             <div className="container">
               <div className="page-intro__slide__content">
                 <h1>The beginning of your tanzanian adventure!</h1>
@@ -37,7 +37,7 @@ const PageIntro = () => {
 
         <SwiperSlide>
           <div className="page-intro__slide">
-          <Image className='page-intro__slide-image'placeholder="blur" layout='fill' objectFit={"cover"} src={slide2}/>
+          <Image priority={true} className='page-intro__slide-image'placeholder="blur" layout='fill' objectFit={"cover"} src={slide2}/>
             <div className="container">
               <div className="page-intro__slide__content">
                 <h1>Experience the beauty of tanzanian nature</h1>

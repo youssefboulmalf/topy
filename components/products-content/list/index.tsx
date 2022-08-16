@@ -1,7 +1,6 @@
 
 import ProductItem from '../../product-item';
 import ProductsLoading from './loading';
-import { ProductTypeList } from 'types';
 import { useSelector } from 'react-redux';
 
 const ProductsContent = () => {
@@ -17,7 +16,7 @@ const ProductsContent = () => {
 
       {filteredProducts &&
         <section className="products-list">
-          {filteredProducts.map((item: ProductTypeList)  => (
+          {filteredProducts.map((item :any, index:number)  => (
             <ProductItem 
               id={item.id} 
               name={item.name}
@@ -26,6 +25,7 @@ const ProductsContent = () => {
               currentPrice={item.currentPrice}
               key={item.id}
               images={item.images} 
+              index={index}
             />
           ))}
         </section>

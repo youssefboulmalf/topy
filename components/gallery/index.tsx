@@ -12,8 +12,6 @@ const Gallery = () => {
             <Image
               layout="fill"
               objectFit="cover"
-              width={400}
-              height={400}
               alt={"safari fun"}
               referrerPolicy="no-referrer"
               src={
@@ -26,8 +24,6 @@ const Gallery = () => {
             <Image
               layout="fill"
               objectFit="cover"
-              width={400}
-              height={400}
               alt={"safari fun2"}
               referrerPolicy="no-referrer"
               src={
@@ -40,8 +36,6 @@ const Gallery = () => {
             <Image
               layout="fill"
               objectFit="cover"
-              width={400}
-              height={400}
               alt={"safari fun3"}
               referrerPolicy="no-referrer"
               src={
@@ -54,8 +48,6 @@ const Gallery = () => {
             <Image
               layout="fill"
               objectFit="cover"
-              width={400}
-              height={400}
               alt={"safari fun4"}
               referrerPolicy="no-referrer"
               src={group}
@@ -66,8 +58,6 @@ const Gallery = () => {
             <Image
               layout="fill"
               objectFit="cover"
-              width={400}
-              height={400}
               alt={"safari fun5"}
               referrerPolicy="no-referrer"
               src={

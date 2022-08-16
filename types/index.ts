@@ -77,8 +77,18 @@ export type ProductTypeList = {
   images: string[];
   discount?: string;
   currentPrice?: number;
+  index : number;
 };
 
+export type ProductContentList = {
+  id: string;
+  name: string;
+  price: string;
+  color: string;
+  images: string[];
+  discount?: string;
+  currentPrice?: number;
+};
 export type ProductStoreType = {
   id: string;
   name: string;

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ProductTypeList } from 'types';
 
-const ProductItem = ({ discount, images, id, name, price, currentPrice }: ProductTypeList) => {
+const ProductItem = ({ discount, images, id, name, price, currentPrice, index }: ProductTypeList) => {
 
   return (
     <div className="product-item">
@@ -10,7 +10,7 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice }: Produc
 
         <Link href={`/product/${id}`}>
           <a>
-            <Image placeholder="blur" blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8tsq2HgAGmQJO71KAngAAAABJRU5ErkJggg==' layout="fill" objectFit="cover" width={300} height={300} alt={"product image"} referrerPolicy="no-referrer" src={images ? images[0] : ''} />
+            <Image priority={index < 5 || index > 20} layout="fill" objectFit="cover" width={300} height={300} alt={"product image"} referrerPolicy="no-referrer" src={images ? images[0] : ''} />
             {discount && 
               <span className="product__discount">{discount}%</span>
             }

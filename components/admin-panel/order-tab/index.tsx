@@ -33,6 +33,7 @@ const OrderTab = () => {
   if (error) return <div>Failed to load</div>;
   if (!orders) return <div>Loading...</div>;
 
+
   return (
     <div className="admin-panel__order-section">
       <div className="order-section_table">
@@ -100,8 +101,8 @@ const OrderTab = () => {
                                 <tr>
                                   <th>First name:</th>
                                   <th>Last name:</th>
-                                  <th>Age:</th>
                                   <th>Nationality:</th>
+                                  <th>Age:</th>
                                   <th>Phone:</th>
                                   <th>Email:</th>
                                 </tr>

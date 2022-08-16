@@ -42,6 +42,7 @@ const ProductForm = ({ item, index }: Prop) => {
 
   const [imgValue, setImgValue] = useState<File[]>([]);
   const [loading, setLoading] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const onSubmit = (values: any) => {
     setLoading(true);
@@ -52,6 +53,8 @@ const ProductForm = ({ item, index }: Prop) => {
     if (index == 9999) {
       //check if images is not empty
       if (imgValue.length == 0) {
+        setLoading(false)
+        setImageError(true)
         return;
       }
 
@@ -194,6 +197,7 @@ const ProductForm = ({ item, index }: Prop) => {
         accept="image/png,image/jpeg"
         icon={<BsFillCloudUploadFill size={14} />}
       />
+      {imageError? <p style={{color:"red"}}>No image was selected</p> : null} 
       <form onSubmit={form.onSubmit(onSubmit)} className="productForm">
         <section>
           <div className="form-fields">

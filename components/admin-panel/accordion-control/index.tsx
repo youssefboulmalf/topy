@@ -3,6 +3,7 @@ import { Order } from "../../../types";
 import { postData } from "../../../utils/services";
 import { DefaultProps } from "@mantine/styles";
 import { Box, Button, Modal, Accordion } from "@mantine/core";
+import { useViewportSize } from '@mantine/hooks';
 
 export interface AccordionControlProps
   extends DefaultProps,
@@ -18,6 +19,7 @@ function AccordionControl(props: AccordionControlProps) {
   const [opened, setOpened] = useState(false);
 
   const order = props.order;
+  const {width} = useViewportSize()
 
   const onDelete = (orderId: string) => {
     postData("/api/deleteOrder", { orderId: orderId }).then((_r) =>
@@ -38,11 +40,10 @@ function AccordionControl(props: AccordionControlProps) {
   //   })
 
   // }
-
-
+const derection = width < 500 ? "column": "row"
   return (
     <>
-      <Box sx={{ display: "flex", alignItems: "center" }}>
+      <Box sx={{ display: "flex", alignItems: "center", flexDirection: derection}}>
         <Accordion.Control {...props} />
         {order.orderStatus != "completed" ? (
           <div style={{ paddingLeft: "10px", paddingRight: "10px" }}>

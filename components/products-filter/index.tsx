@@ -18,13 +18,11 @@ const ProductsFilter = () => {
   const dispatch = useDispatch();
   const router = useRouter()
   const { filters } = useSelector((state: RootState) => state.productPage);
-  console.log(filters)
 
   useEffect(() => {
     dispatch(removeAllFilters())
     const filter : any = router.query.filter as string
     if(filter != undefined){
-      console.log(filter)
       dispatch(addFilter(filter))
     }
   },[]);

@@ -6,7 +6,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     const data = req.body
     const id = data.orderId
 
-    console.log(id)
     const orderRef = doc(ordersCol, `${id}`)
     await deleteDoc(orderRef);
       res.status(200).send('Order was succesfully deleted');

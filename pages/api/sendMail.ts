@@ -98,7 +98,6 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
     transporter.sendMail(mailDataCutomer, function (err: any, _info: any) {
       if (err) {
-        console.log(err);
         return res.status(400).send({ error: err });
       } else {
         return res.status(200).send("succes");
@@ -107,7 +106,6 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
     transporter.sendMail(mailData, function (err: any, _info: any) {
       if (err) {
-        console.log(err);
         return res.status(400).send({ error: err });
       } else {
         return res.status(200).send("succes");

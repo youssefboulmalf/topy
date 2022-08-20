@@ -23,6 +23,8 @@ const reducer = {
   productPage: productPageReducer,
   checkoutPage: CheckoutPageReducer
 };
+const devTools = process.env.NODE_ENV === "production"
+
 
 const rootReducer = combineReducers({
   cart: cartReducer,
@@ -31,8 +33,10 @@ const rootReducer = combineReducers({
   checkoutPage: CheckoutPageReducer
 });
 
+
 let store = configureStore({
   reducer,
+  devTools: !devTools,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
@@ -59,6 +63,7 @@ const makeStore = ({ isServer }: { isServer: Boolean }) => {
 
     store = configureStore({
       reducer: persistedReducer,
+      devTools: !devTools,
       middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
           serializableCheck: {

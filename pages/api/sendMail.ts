@@ -100,17 +100,17 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       if (err) {
         return res.status(400).send({ error: err });
       } else {
-        return res.status(200).send("succes");
+        transporter.sendMail(mailData, function (err: any, _info: any) {
+          if (err) {
+    
+            return res.status(400).send({ error: err });
+          } else {
+            return res.status(200).send("succes");
+          }
+        });
       }
     });
 
-    transporter.sendMail(mailData, function (err: any, _info: any) {
-      if (err) {
-        return res.status(400).send({ error: err });
-      } else {
-        return res.status(200).send("succes");
-      }
-    });
   }
 
   if (type == "contact") {

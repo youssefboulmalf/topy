@@ -11,7 +11,7 @@ import { GetServerSideProps } from 'next'
 export const getServerSideProps: GetServerSideProps = async ({res}) => {
   res.setHeader(
     'Cache-Control',
-    'public, s-maxage=600, stale-while-revalidate=800'
+    'public, s-maxage=16000, stale-while-revalidate=18000'
   )
   const response = await fetch(server+'/api/products');
   const data = await response.text();;

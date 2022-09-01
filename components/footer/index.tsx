@@ -28,8 +28,8 @@ const Footer = () => {
             </ul>
             <ul>
               <li>Contact</li>
-              <li><a href="#">topytours@gmail.com</a></li>
-              <li><a href="#">telphone: +255 131 138 138</a></li>
+              <li><a href="#">info@topytours.com</a></li>
+              <li><a href="#">telphone: +(255) 764-133-604</a></li>
             </ul>
           </div>
         </div>

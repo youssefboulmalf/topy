@@ -23,7 +23,7 @@ const key = process.env.GOOGLE_MAPS_API_KEY;
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   res.setHeader(
     "Cache-Control",
-    "public, s-maxage=600, stale-while-revalidate=800"
+    "public, s-maxage=16000, stale-while-revalidate=18000"
   );
   const result = await fetch(
     "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJLUT4pj4dNxgRUd-TCWtgybA&key=" +

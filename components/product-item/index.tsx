@@ -10,7 +10,7 @@ const ProductItem = ({ discount, images, id, name, price, currentPrice, index }:
 
         <Link href={`/product/${id}`}>
           <a>
-            <Image priority={index < 5 || index > 20} layout="fill" objectFit="cover" width={300} height={300} alt={"product image"} referrerPolicy="no-referrer" src={images ? images[0] : ''} />
+            <Image priority={index < 5 || index > 20} layout="fill" objectFit="cover" alt={"product image"} referrerPolicy="no-referrer" src={images ? images[0] : ''} />
             {discount && Number(discount) > 0?
               <span className="product__discount">{discount}%</span> : null
             }

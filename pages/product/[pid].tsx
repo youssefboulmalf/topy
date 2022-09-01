@@ -20,7 +20,7 @@ type ProductPageType = {
 export const getServerSideProps: GetServerSideProps = async ({ res ,query }) => {
   res.setHeader(
     'Cache-Control',
-    'public, s-maxage=600, stale-while-revalidate=800'
+    'public, s-maxage=16000, stale-while-revalidate=18000'
   )
   const pid = query.pid;
   const result = await fetch(`${server}/api/product/${pid}`);

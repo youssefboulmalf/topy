@@ -75,7 +75,10 @@ const ContactPage = () => {
                 Tanzania, East Africa.
                 <br />
                 <br />
-                Phone: (255) 764-133-604 Email: info@topytours.com
+                Phone: (255) 764-133-604
+                <br />
+                <br />
+                Email: info@topytours.com
               </p>
             </div>
           </div>

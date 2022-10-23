@@ -5,6 +5,8 @@ import {ProductType, GroupMember} from '../../types'
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const type = req.body.type;
 
+  console.log(type)
+
   let nodemailer = require("nodemailer");
 
   var transporter = nodemailer.createTransport({
@@ -95,16 +97,19 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       text: message,
       html: html,
     };
-
+    console.log("sending")
     transporter.sendMail(mailDataCutomer, function (err: any, _info: any) {
       if (err) {
-        return res.status(400).send({ error: err });
+        console.log("sending failed", err)
+        return res.status(400).send(err);
       } else {
+        console.log("sending 1/2")
         transporter.sendMail(mailData, function (err: any, _info: any) {
           if (err) {
-    
-            return res.status(400).send({ error: err });
+            console.log("sending failed 2", err)
+            return res.status(400).send(err);
           } else {
+            console.log("sending 2/2")
             return res.status(200).send("succes");
           }
         });
@@ -124,8 +129,7 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     };
     transporter.sendMail(mailData, function (err: any, _info: any) {
       if (err) {
-        console.log(err);
-        return res.status(400).send({ error: err });
+        return res.status(400).send(err);
       } else {
         return res.status(200).send("succes");
       }

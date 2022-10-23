@@ -23,10 +23,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const orderRef = doc(ordersCol, id);
   setDoc(orderRef, order)
     .then(() => {
+      console.log("posting to sendmail")
       postData(`${server}/api/sendMail`,{type: 'enquiry', order: order})
       return res.status(200).send(id)
     })
     .catch((e) => {
+      console.log("not posting to sendmail")
       return res.status(400).send(e)
     });
 };

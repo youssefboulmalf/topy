@@ -136,7 +136,7 @@ const IndexPage = ({ data }: { data: React.ReactNode }) => {
                 <h4>Finest Quality</h4>
                 <p>
                   At Topy tours we only employ experienced guides to make sure
-                  you have the best experience on one of out many trips.
+                  you have the best experience on one of our many trips.
                 </p>
               </div>
             </li>

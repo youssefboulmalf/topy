@@ -25,7 +25,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .then(() => {
       console.log("posting to sendmail")
       postData(`${server}/api/sendMail`,{type: 'enquiry', order: order})
-      return res.status(200).send(id)
+      .then(r =>{
+        console.log(r)
+        return res.status(200).send(id)
+      })
+      .catch(e=>{
+        console.log(e)
+      })
     })
     .catch((e) => {
       console.log("not posting to sendmail")

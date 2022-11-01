@@ -92,6 +92,13 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
 
     const mailData = {
       from: "info@topy-tours.com",
+      to: "info@topytours.com",
+      subject: `New enquiry ${order.id}`,
+      text: message,
+      html: html,
+    };
+    const mailDataCheck = {
+      from: "info@topy-tours.com",
       to: "info.topytours@gmail.com",
       subject: `New enquiry ${order.id}`,
       text: message,
@@ -103,14 +110,22 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
         console.log("sending failed", err)
         return res.status(400).send(err);
       } else {
-        console.log("sending 1/2")
+        console.log("sending 1/3")
         transporter.sendMail(mailData, function (err: any, _info: any) {
           if (err) {
             console.log("sending failed 2", err)
             return res.status(400).send(err);
           } else {
-            console.log("sending 2/2")
-            return res.status(200).send("succes");
+            console.log("sending 2/3")
+            transporter.sendMail(mailDataCheck, function (err: any, _info: any) {
+              if (err) {
+                console.log("sending failed 2", err)
+                return res.status(400).send(err);
+              } else {
+                console.log("sending 3/3")
+                return res.status(200).send("succes");
+              }
+            });
           }
         });
       }

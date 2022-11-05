@@ -35,7 +35,7 @@ const AboutPage = () => {
               natural beauty and extraordinary cultural diversity that Tanzania
               has to offer. <br />
               <br />
-              We are also represented on SafariBookings.com. <br /> <br /> Our
+              We are also represented on <a href={'https://www.safaribookings.com/p4651'}>SafariBookings.com</a> <br /> <br /> Our
               emphasis is to furnish the electric traveller with memorable
               experiences of untamed natural beauty and wildlife – breathtaking
               moments of meeting the majestic mount Kilimanjaro, enchanted

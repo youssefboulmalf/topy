@@ -3,7 +3,7 @@ import React from "react";
 import Layout from "../layouts/Main";
 import { useForm } from "@mantine/form";
 import { TextInput, Textarea } from "@mantine/core";
-import { postData } from "../utils/services";
+// import { postData } from "../utils/services";
 interface FormValues {
   name: string;
   email: string;
@@ -26,7 +26,8 @@ const ContactPage = () => {
       message: text,
       type: "contact",
     };
-    postData("/api/sendMail",mailData).then(()=>console.log('send'));
+    // postData("/api/sendMail",mailData).then(()=>console.log('send'));
+    console.log(mailData)
   };
   return (
     <Layout>

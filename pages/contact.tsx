@@ -1,9 +1,9 @@
 import Footer from "../components/footer";
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../layouts/Main";
 import { useForm } from "@mantine/form";
 import { TextInput, Textarea } from "@mantine/core";
-// import { postData } from "../utils/services";
+import { postData } from "../utils/services";
 interface FormValues {
   name: string;
   email: string;
@@ -18,7 +18,10 @@ const ContactPage = () => {
     },
   });
 
+  const [hasSend, setHasSend] = useState(false);
+
   const sendMail = () => {
+    setHasSend(true)
     const { name, email, text } = form.values;
     const mailData = {
       name: name,
@@ -26,8 +29,8 @@ const ContactPage = () => {
       message: text,
       type: "contact",
     };
-    // postData("/api/sendMail",mailData).then(()=>console.log('send'));
-    console.log(mailData)
+    postData("/api/sendMail",mailData).then(()=>console.log('send'));
+    console.log(mailData);
   };
   return (
     <Layout>
@@ -35,36 +38,40 @@ const ContactPage = () => {
         <div className="container">
           <h4 className="head">Contact Topy tours</h4>
           <div className="block">
-            <div className="form-div">
-              <TextInput
-                label="Name"
-                placeholder="Name"
-                {...form.getInputProps("name")}
-              />
-              <TextInput
-                mt="md"
-                label="Email"
-                placeholder="Email"
-                {...form.getInputProps("email")}
-              />
-              <Textarea
-                placeholder="Your comment"
-                label="Your comment"
-                size="md"
-                required
-                minRows={5}
-                maxRows={5}
-                {...form.getInputProps("text")}
-              />
-              <button
-                onClick={() => {
-                  sendMail();
-                }}
-                className="btn--rounded"
-              >
-                Submit
-              </button>
-            </div>
+            {hasSend ? (
+              <p>Thank you, We well get back to you asap</p>
+            ) : (
+              <div className="form-div">
+                <TextInput
+                  label="Name"
+                  placeholder="Name"
+                  {...form.getInputProps("name")}
+                />
+                <TextInput
+                  mt="md"
+                  label="Email"
+                  placeholder="Email"
+                  {...form.getInputProps("email")}
+                />
+                <Textarea
+                  placeholder="Your comment"
+                  label="Your comment"
+                  size="md"
+                  required
+                  minRows={5}
+                  maxRows={5}
+                  {...form.getInputProps("text")}
+                />
+                <button
+                  onClick={() => {
+                    sendMail();
+                  }}
+                  className="btn--rounded"
+                >
+                  Submit
+                </button>
+              </div>
+            )}
             <div>
               <p>
                 Need help?
